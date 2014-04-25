@@ -16,7 +16,7 @@
 #pragma once
 #include "sssf_VS\stdafx.h"
 #include "sssf\game\Game.h"
-
+#include "fmod.h"
 const static wchar_t DEFAULT_DELIMITER = ':';
 
 class GameDataLoader
@@ -25,7 +25,7 @@ private:
 	// THIS FILE CONTAINS THE LOCATION OF ALL
 	// GAME DATA TO BE LOADED
 	wstring				gameDataPathName;
-
+	
 public:
 	// SIMPLE INLINED CONSTRUCTOR/DESTRUCTOR
 	GameDataLoader()			{} 
