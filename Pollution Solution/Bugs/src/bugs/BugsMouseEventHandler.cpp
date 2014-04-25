@@ -19,8 +19,6 @@ void BugsMouseEventHandler::handleMousePressEvent(Game *game, int mouseX, int mo
 		// NOW LET'S SEND THE PLAYER THERE
 		SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
 		TopDownSprite *player = spriteManager->getPlayer();
-		GridPathfinder *pathfinder = spriteManager->getPathfinder();
-		pathfinder->mapPath(player, (float)worldCoordinateX, (float)worldCoordinateY);
 	}
 }
 

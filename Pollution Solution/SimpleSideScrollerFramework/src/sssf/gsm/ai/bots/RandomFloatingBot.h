@@ -3,7 +3,8 @@
 // PREPROCESSOR INCLUDE STATEMENTS
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\ai\Bot.h"
-#include "sssf\gsm\physics\Physics.h"
+#include "Box2D\Dynamics\b2Body.h"
+#include "Box2D\Dynamics\b2World.h"
 #include "sssf\game\Game.h"
 
 class RandomFloatingBot : public Bot
@@ -20,7 +21,7 @@ private:
 						unsigned int initMaxVelocity);
 
 public:
-	RandomFloatingBot(	Physics *physics,
+	RandomFloatingBot(	b2Body *body,
 						unsigned int initMin, 
 						unsigned int initMax, 
 						unsigned int initMaxVelocity);
@@ -30,7 +31,7 @@ public:
 					unsigned int initMax,
 					unsigned int initMaxVelocity);
 	void	pickRandomCyclesInRange();
-	void	pickRandomVelocity(Physics *physics);
+	void	pickRandomVelocity(b2Body *b);
 	void	think(Game *game);
 
 	// INLINED METHODS

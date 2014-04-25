@@ -11,12 +11,13 @@
 #pragma once
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\ai\Bot.h"
-#include "sssf\gsm\physics\PhysicalProperties.h"
 #include "sssf\graphics\GameGraphics.h"
 #include "sssf\gsm\sprite\AnimatedSprite.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\gsm\sprite\SpriteManager.h"
 #include "sssf\gsm\state\GameStateManager.h"
+#include "Box2D\Box2D.h"
+#include "Box2D\Dynamics\b2Body.h"
 
 /*
 	addSpriteToRenderList - This method checks to see if the sprite
@@ -29,13 +30,13 @@ void SpriteManager::addSpriteToRenderList(AnimatedSprite *sprite,
 {
 	// GET THE SPRITE TYPE INFO FOR THIS SPRITE
 	AnimatedSpriteType *spriteType = sprite->getSpriteType();
-	PhysicalProperties *pp = sprite->getPhysicalProperties();
+	b2Body *b = sprite->getBody();
 	float rotation = sprite->getRotationInRadians();
 
 	// IS THE SPRITE VIEWABLE?
 	if (viewport->areWorldCoordinatesInViewport(	
-									pp->getX(),
-									pp->getY(),
+									b->GetTransform().p.x,
+									b->GetTransform().p.y,
 									spriteType->getTextureWidth(),
 									spriteType->getTextureHeight()))
 	{
@@ -43,9 +44,9 @@ void SpriteManager::addSpriteToRenderList(AnimatedSprite *sprite,
 		RenderItem itemToAdd;
 		itemToAdd.id = sprite->getFrameIndex();
 		renderList->addRenderItem(	sprite->getCurrentImageID(),
-									pp->round(pp->getX()-viewport->getViewportX()),
-									pp->round(pp->getY()-viewport->getViewportY()),
-									pp->round(pp->getZ()),
+									(int)floor(0.5f + b->GetTransform().p.x-viewport->getViewportX()),
+									(int)floor(0.5f + b->GetTransform().p.y-viewport->getViewportY()),
+									0,
 									sprite->getAlpha(),
 									spriteType->getTextureWidth(),
 									spriteType->getTextureHeight(),
@@ -136,10 +137,10 @@ AnimatedSpriteType* SpriteManager::getSpriteType(unsigned int typeIndex)
 void SpriteManager::unloadSprites()
 {
 	// @TODO - WE'LL DO THIS LATER WHEN WE LEARN MORE ABOUT MEMORY MANAGEMENT
-	/*list<Bot*>::iterator botsIt = bots.begin();
+	/*list<Bot*"::iterator botsIt = bots.begin();
 	while (botsIt != bots.end())
 	{
-		list<Bot*>::iterator tempIt = botsIt;
+		list<Bot*"::iterator tempIt = botsIt;
 		botsIt++;
 		Bot *botToDelete = (*tempIt);
 		delete botToDelete;
@@ -176,13 +177,11 @@ Bot* SpriteManager::removeBot(Bot *botToRemove)
 void SpriteManager::update(Game *game)
 {
 	// FIRST LET'S DO THE NECESSARY PATHFINDING
-	pathfinder->updatePath(&player);
 	list<Bot*>::iterator botIterator;
 	botIterator = bots.begin();
 	while (botIterator != bots.end())
 	{
 		Bot *bot = (*botIterator);
-		pathfinder->updatePath(bot);
 		botIterator++;
 	}
 

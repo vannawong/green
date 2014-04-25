@@ -22,8 +22,6 @@
 static const wstring	W_MOUSE_COORDS_TEXT = L"Mouse: (";
 static const int		W_TEXT_X = 200;
 static const int		W_TEXT_Y = 10;
-static const int		W_PATHFINDING_TEXT_X = 800;
-static const int		W_PATHFINDING_TEXT_Y = 10;
 static const wstring	W_ROTATION_IN_RADIANS = L"Ant Rotation in Radians: ";
 static const wstring	W_ROTATION_IN_DEGREES = L"Ant Rotation in Degrees: ";
 static const wstring	W_RADIANS = L" radians";
@@ -34,39 +32,6 @@ static const wstring	W_ANT_CENTER_TEXT = L"Ant Center: (";
 static const wstring	W_ANT_GRID_TEXT = L"Ant Center Col,Row: (";
 static const wstring	W_ANT_LEFT_TOP_TEXT = L"Ant Left, Top: (";
 static const wstring	W_ANT_RIGHT_BOTTOM_TEXT = L"Ant Right, Bottom: (";
-
-void BugsTextGenerator::appendPathfindingText(Game *game)
-{
-	wstringstream wss;
-	if (game->getGSM()->isGameInProgress())
-	{
-		GridPathfinder *pathfinder = game->getGSM()->getSpriteManager()->getPathfinder();
-		TopDownSprite *ant = game->getGSM()->getSpriteManager()->getPlayer();
-		pathfindingText.append(W_ANT_CENTER_TEXT);
-		wss << ant->getBoundingVolume()->getCenterX();
-		wss << L", ";
-		wss << ant->getBoundingVolume()->getCenterY();
-		wss << L")\n";
-		wss << W_ANT_GRID_TEXT;
-		int col = (int)( ant->getBoundingVolume()->getCenterX()/pathfinder->getGridWidth());
-		wss << col;
-		wss << L", ";
-		int row = ant->getBoundingVolume()->getCenterY()/pathfinder->getGridHeight();
-		wss << row;
-		wss << L")\n";
-		wss << W_ANT_LEFT_TOP_TEXT;
-		wss << ant->getPhysicalProperties()->getX();
-		wss << ", ";
-		wss << ant->getPhysicalProperties()->getY();
-		wss << ")\n";
-		wss << W_ANT_RIGHT_BOTTOM_TEXT;
-		wss << ant->getPhysicalProperties()->getX() + ant->getSpriteType()->getTextureWidth();
-		wss << ", ";
-		wss << ant->getPhysicalProperties()->getY() + ant->getSpriteType()->getTextureHeight();
-		wss << ")\n";
-		pathfindingText.append(wss.str());
-	}
-}
 
 void BugsTextGenerator::appendMouseCoords(Game *game)
 {
@@ -117,10 +82,6 @@ void BugsTextGenerator::initText(Game *game)
 	// AND THEN HAND IT TO THE TEXT MANAGER, SPECIFYING WHERE IT SHOULD BE RENDERED
 	GameText *text = game->getText();
 	text->addText(&textToGenerate, W_TEXT_X, W_TEXT_Y, game->getGraphics()->getScreenWidth(), game->getGraphics()->getScreenHeight());
-
-	// LET'S ALSO DISPLAY SOME STUFF FOR PATHFINDING
-	appendPathfindingText(game);
-	text->addText(&pathfindingText, W_PATHFINDING_TEXT_X, W_PATHFINDING_TEXT_Y, game->getGraphics()->getScreenWidth(), game->getGraphics()->getScreenHeight());
 }
 
 /*
@@ -138,6 +99,5 @@ void BugsTextGenerator::updateText(Game *game)
 	appendAntRotationInfo(game);
 
 	pathfindingText.clear();
-	appendPathfindingText(game);
 }
 

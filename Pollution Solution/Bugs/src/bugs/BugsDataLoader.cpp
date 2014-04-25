@@ -11,7 +11,7 @@
 #include "sssf\game\Game.h"
 #include "sssf\graphics\GameGraphics.h"
 #include "sssf\gsm\ai\bots\RandomJumpingBot.h"
-#include "sssf\gsm\ai\pathfinding\OrthographicGridPathfinder.h"
+#include "sssf\gsm\ai\bots\NPC.h"
 #include "sssf\gsm\sprite\TopDownSprite.h"
 #include "sssf\gsm\state\GameState.h"
 #include "sssf\gsm\world\TiledLayer.h"
@@ -36,6 +36,11 @@
 
 // ANIMATED SPRITE TYPE LOADING
 #include "psti\PoseurSpriteTypesImporter.h"
+
+// BOX2D LOADING
+#include "Box2D\Dynamics\b2Body.h"
+#include "Box2D\Dynamics\b2World.h"
+#include "Box2D\Box2D.h"
 
 /*
 	loadGame - This method loads the setup game data into the game and
@@ -170,36 +175,35 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	// SPECIFY WHO WILL DO THE PATHFINDING
 	GameStateManager *gsm = game->getGSM();
 	World *world = gsm->getWorld();
-	OrthographicGridPathfinder *pathfinder = new OrthographicGridPathfinder(game);
 	SpriteManager *spriteManager = gsm->getSpriteManager();
-	spriteManager->setPathfinder(pathfinder);
-
+	
 	// LOAD THE LEVEL'S SPRITE IMAGES
 	PoseurSpriteTypesImporter psti;
 	psti.loadSpriteTypes(game, SPRITE_TYPES_LIST);
 
 	// LET'S MAKE A PLAYER SPRITE
-	// @TODO - LATER WE'LL LOAD ALL LEVEL DATA FROM A FILE
-	Physics *physics = gsm->getPhysics();
-	physics->setGravity(W_GRAVITY);
 	TopDownSprite *player = spriteManager->getPlayer();
-	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
 
-	// NOTE THAT RED BOX MAN IS SPRITE ID 1
+	// PLAYER SPRITE TYPE ID IS 0
+	b2World *bworld = gsm->getBWorld();
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
 	player->setSpriteType(playerSpriteType);
 	player->setAlpha(255);
-	player->setCurrentState(IDLE);
-	PhysicalProperties *playerProps = player->getPhysicalProperties();
-	playerProps->setX(PLAYER_INIT_X);
-	playerProps->setY(PLAYER_INIT_Y);
-	playerProps->setVelocity(0.0f, 0.0f);
-	playerProps->setAccelerationX(0);
-	playerProps->setAccelerationY(0);
-	player->setOnTileThisFrame(false);
-	player->setOnTileLastFrame(false);
-	player->affixTightAABBBoundingVolume();
+	player->setCurrentState(IDLE_DOWN);
+	b2BodyDef pDef;
+	pDef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
+	pDef.type = b2_dynamicBody;
+	player->setBody(bworld->CreateBody(&pDef));
+	b2Vec2 v;
+	v.Set(0,0);
+	player->getBody()->SetLinearVelocity(v);
+
+	//NPC
+	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
+	makeNPC(game, npcSpriteType, 300, 500);
+
+	AnimatedSpriteType *botSpriteType = spriteManager->getSpriteType(2);
 
 	// AND LET'S ADD A BUNCH OF RANDOM JUMPING BOTS, FIRST ALONG
 	// A LINE NEAR THE TOP
@@ -210,12 +214,12 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 		float botX = 400.0f + (i * 100.0f);
 		float botY = 100.0f;
 		makeRandomJumpingBot(game, botSpriteType, botX, botY);
-	}
+	}*/
 
 	// AND THEN STRATEGICALLY PLACED AROUND THE LEVEL
 	makeRandomJumpingBot(game, botSpriteType, 400, 100);
 	makeRandomJumpingBot(game, botSpriteType, 200, 400);
-	makeRandomJumpingBot(game, botSpriteType, 400, 400);
+/*	makeRandomJumpingBot(game, botSpriteType, 400, 400);
 	makeRandomJumpingBot(game, botSpriteType, 800, 700);
 	makeRandomJumpingBot(game, botSpriteType, 900, 700);
 	makeRandomJumpingBot(game, botSpriteType, 1000, 700);
@@ -232,19 +236,43 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 */		
 }
 
+void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, float initX, float initY)
+{
+	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
+	b2World *bworld = game->getGSM()->getBWorld();
+	b2BodyDef pDef;
+	pDef.position.Set(initX, initY);
+	pDef.type = b2_dynamicBody;
+	b2Body* b = bworld->CreateBody(&pDef);
+	NPC *npc = new NPC(b, 0, 0, 0);
+	npc->setBody(bworld->CreateBody(&pDef));
+	npc->setCurrentState(IDLE_DOWN);
+	npc->setSpriteType(npcSpriteType);
+	npc->setAlpha(255);
+	npc->setCurrentState(IDLE_DOWN);
+	b2Vec2 v;
+	v.Set(0,0);
+	npc->getBody()->SetLinearVelocity(v);
+	spriteManager->addBot(npc);
+}
+
 void BugsDataLoader::makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY)
 {
 	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
-	Physics *physics = game->getGSM()->getPhysics();
-	RandomJumpingBot *bot = new RandomJumpingBot(physics, 30, 120, 40);
-	physics->addCollidableObject(bot);
-	PhysicalProperties *pp = bot->getPhysicalProperties();
-	pp->setPosition(initX, initY);
+	b2World *bworld = game->getGSM()->getBWorld();
+	b2BodyDef pDef;
+	pDef.position.Set(initX, initY);
+	pDef.type = b2_dynamicBody;
+	b2Body *body = bworld->CreateBody(&pDef);
+	RandomJumpingBot *bot = new RandomJumpingBot(body, initX, initY, JUMPING_BOT_MAX_VELOCITY);
 	bot->setSpriteType(randomJumpingBotType);
-	bot->setCurrentState(JUMPING);
 	bot->setAlpha(255);
+	bot->setCurrentState(IDLE_DOWN);
+	bot->setBody(body);
+	b2Vec2 v;
+	v.Set(0,0);
+	bot->getBody()->SetLinearVelocity(v);
 	spriteManager->addBot(bot);
-	bot->affixTightAABBBoundingVolume();
 }
 
 /*
@@ -275,7 +303,7 @@ void BugsDataLoader::initCursor(GameGUI *gui, DirectXTextureManager *guiTextureM
 	int imageID;
 
 	// - FIRST LOAD THE GREEN CURSOR IMAGE
-	imageID = guiTextureManager->loadTexture(W_GREEN_CURSOR_PATH);
+	imageID = guiTextureManager->loadTexture(W_TRASH_CURSOR_PATH);
 	imageIDs->push_back(imageID);
 
 	// - AND NOW THE RED ONE
@@ -334,12 +362,12 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 	ScreenGUI *mainMenuGUI = new ScreenGUI();
 	unsigned int imageID = guiTextureManager->loadTexture(W_MAIN_MENU_PATH);
 	OverlayImage *imageToAdd = new OverlayImage();
-	imageToAdd->x = 256;
-	imageToAdd->y = 100;
+	imageToAdd->x = 0;
+	imageToAdd->y = 0;
 	imageToAdd->z = 0;
 	imageToAdd->alpha = 200;
-	imageToAdd->width = 512;
-	imageToAdd->height = 512;
+	imageToAdd->width = 1366;
+	imageToAdd->height = 768;
 	imageToAdd->imageID = imageID;
 	mainMenuGUI->addOverlayImage(imageToAdd);
 
@@ -353,8 +381,8 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 	// - INIT THE EXIT BUTTON
 	buttonToAdd->initButton(normalTextureID, 
 							mouseOverTextureID,
-							412,
-							500,
+							1000,
+							200,
 							0,
 							255,
 							200,
@@ -376,8 +404,8 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 	// - INIT THE START BUTTON
 	buttonToAdd->initButton(normalTextureID, 
 							mouseOverTextureID,
-							412,
-							350,
+							150,
+							200,
 							0,
 							255,
 							200,

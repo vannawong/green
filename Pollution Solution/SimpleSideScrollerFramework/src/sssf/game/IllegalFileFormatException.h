@@ -18,7 +18,7 @@ public:
 	// INLINED CONSTRUCTOR
 	IllegalFileFormatException(string *errorMessage)
 	{
-		exception(errorMessage->c_str());
+		exception(errorMessage-"c_str());
 	}
 
 	// INLINED DESTRUCTOR

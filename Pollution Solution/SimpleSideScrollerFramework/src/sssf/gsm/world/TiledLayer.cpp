@@ -291,7 +291,7 @@ void TiledLayer::setTile(Tile *initTile, int row, int column)
 
 /*
 	sweptSpaceTiles
-*/
+
 void TiledLayer::findTileCollisionsForSprite(	Physics *physics,
 												CollidableObject *dynamicObject)
 {
@@ -314,7 +314,7 @@ void TiledLayer::findTileCollisionsForSprite(	Physics *physics,
 		}
 	}
 }
-
+/*
 bool TiledLayer::willSpriteCollideOnTile(	Physics *physics,
 											CollidableObject *dynamicObject)
 {
@@ -341,6 +341,7 @@ bool TiledLayer::willSpriteCollideOnTile(	Physics *physics,
 	}
 	return false;
 }
+*/
 
 void TiledLayer::initOverlappingCellRange(	AABB *aabb,
 											int &startCol, int &endCol, int &startRow, int &endRow)
@@ -367,7 +368,7 @@ void TiledLayer::initOverlappingCellRange(	AABB *aabb,
 	if		(endRow < 0)			endRow = 0;
 	else if (endRow >= rows)		endRow = rows - 1;
 }
-
+/*
 bool TiledLayer::isInsideCollidableTile(int centerX, int centerY)
 {
 	int col = centerX/tileWidth;
@@ -390,3 +391,4 @@ bool TiledLayer::overlapsCollidableTile(AABB aabb)
 	}
 	return false;
 }
+*/

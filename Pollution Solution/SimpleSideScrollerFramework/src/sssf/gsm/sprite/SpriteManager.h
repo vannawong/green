@@ -17,7 +17,8 @@
 #include "sssf\gsm\sprite\AnimatedSprite.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\gsm\sprite\TopDownSprite.h"
-#include "sssf\gsm\ai\pathfinding\GridPathfinder.h"
+#include "Box2D\Box2D.h"
+#include "Box2D\Dynamics\b2Body.h"
 
 class SpriteManager
 {
@@ -37,10 +38,6 @@ private:
 	// WE NEED TO SPAWN THEM, INSTEAD IT WILL RECYCLE THEM FOR US
 	BotRecycler recyclableBots;
 
-	// THIS GUY HELPS SPRITES FIND THEIR WAY. NOTE THAT IT IS CUSTOMIZABLE, SINCE
-	// WE MAY BE RENDERING AN ORTHOGRAPHIC MAP OR AN ISOMETRIC ONE
-	GridPathfinder *pathfinder;
-
 public:
 	// NOTHING TO INIT OR DESTROY
 	SpriteManager()		{}
@@ -51,7 +48,6 @@ public:
 	TopDownSprite*			getPlayer()				{ return &player;			}
 	list<Bot*>::iterator	getBotsIterator()		{ return bots.begin();		}
 	list<Bot*>::iterator	getEndOfBotsIterator()	{ return bots.end();		}
-	GridPathfinder*			getPathfinder()			{ return pathfinder;		}
 
 	// METHODS DEFINED IN SpriteManager.cpp
 	void				addBot(Bot *botToAdd);
@@ -61,7 +57,6 @@ public:
 	void				clearSprites();
 	AnimatedSpriteType* getSpriteType(unsigned int typeIndex);
 	Bot*				removeBot(Bot *botToRemove);
-	void				setPathfinder(GridPathfinder *initPathfinder) { pathfinder = initPathfinder; }
 	void				unloadSprites();
 	void				update(Game *game);
 };

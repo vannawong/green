@@ -6,7 +6,7 @@
  <tileset firstgid="109" name="GridCellSelector" tilewidth="64" tileheight="64">
   <image source="GridCellSelector.png" trans="dc6e00" width="64" height="64"/>
  </tileset>
- <layer name="GroundLayer" width="50" height="50" visible="0">
+ <layer name="GroundLayer" width="50" height="50">
   <properties>
    <property name="collidable" value="false"/>
   </properties>
@@ -2513,7 +2513,7 @@
    <tile gid="31"/>
   </data>
  </layer>
- <layer name="WallsLayer" width="50" height="50" visible="0">
+ <layer name="WallsLayer" width="50" height="50">
   <properties>
    <property name="collidable" value="true"/>
   </properties>
@@ -5020,10 +5020,4 @@
    <tile gid="60"/>
   </data>
  </layer>
- <objectgroup name="Object Layer 1" width="50" height="50" visible="0">
-  <properties>
-   <property name="collidable" value="false"/>
-  </properties>
-  <object gid="109" x="2348" y="1952"/>
- </objectgroup>
 </map>

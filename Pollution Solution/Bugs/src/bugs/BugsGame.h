@@ -1,17 +1,20 @@
 #pragma once
 #include "bugs_VS\stdafx.h"
+#include "Box2D\Box2D.h"
+#include "Box2D\Dynamics\b2world.h"
 
 /*
-	BugsGame.h
+	GreenGame.h
 
-	This file contains setup data for making the Bugs game. Note that nearly
+	This file contains setup data for making the Green game. Note that nearly
 	all of this data would better serve us if loaded from files.
 */
 
-// HERE IS THE Bugs GAME SETUP/INIT FILE. EVERYTHING WOULD START FROM HERE
-static const wstring	W_LEVEL_1_DIR			= L"data/levels/TopDownDesert/";
+// HERE IS THE Green GAME SETUP/INIT FILE. EVERYTHING WOULD START FROM HERE
+static const wstring	W_LEVEL_1_DIR			= L"data/levels/village/";
+static const wstring	W_LEVEL_1_NAME			= L"village.tmx";
+//static const wstring	W_LEVEL_1_DIR			= L"data/levels/TopDownDesert/";
 //static const wstring	W_LEVEL_1_NAME			= L"TopDownDesert.tmx";
-static const wstring	W_LEVEL_1_NAME			= L"isometric_grass_and_water.tmx";
 static const wstring	W_LEVEL_1_PATH			= W_LEVEL_1_DIR + W_LEVEL_1_NAME;
 static const wstring	W_INIT_FILE				= L"data/BugsInit.txt";
 static const wstring	W_GUI_INIT_FILE			= L"data/BugsGUI.txt";
@@ -38,10 +41,10 @@ static const wstring	W_GO_TO_MM_COMMAND		= L"Go To Main Menu";
 static const wstring	W_START_COMMAND			= L"Start";
 static const wstring	W_EXIT_COMMAND			= L"Exit";
 static const wstring	W_QUIT_COMMAND			= L"Quit";
-static const wstring	W_GREEN_CURSOR_PATH		= L"data/gui/cursor/green_cursor.png";
+static const wstring	W_TRASH_CURSOR_PATH		= L"data/gui/cursor/trash_cursor.png";
 static const wstring	W_RED_CURSOR_PATH		= L"data/gui/cursor/red_cursor.png";
-static const wstring	W_SPLASH_SCREEN_PATH	= L"data/gui/overlays/spiked_acid_splash_screen_overlay.png";
-static const wstring	W_MAIN_MENU_PATH		= L"data/gui/overlays/spiked_acid_main_menu_overlay.png";
+static const wstring	W_SPLASH_SCREEN_PATH	= L"data/gui/overlays/green_splash_screen_overlay.png";
+static const wstring	W_MAIN_MENU_PATH		= L"data/gui/overlays/green_main_menu_overlay.png";
 static const wstring	W_START_IMAGE_PATH		= L"data/gui/buttons/start_game.png";
 static const wstring	W_START_IMAGE_MO_PATH	= L"data/gui/buttons/start_game_mo.png";
 static const wstring	W_EXIT_IMAGE_PATH		= L"data/gui/buttons/exit_game.png";
@@ -57,6 +60,7 @@ static const wstring	JUMPING = L"JUMPING";
 
 // FOR THE GAME WORLD
 static const float		MAX_VIEWPORT_AXIS_VELOCITY = 20.0f;
+static const float		MAX_PLAYER_VELOCITY = 7.5f;
 static const float		W_GRAVITY = 0.0f;
 static const float		JUMPING_BOT_MIN_CYCLES = 30;
 static const float		JUMPING_BOT_MAX_CYCLES = 120;
@@ -68,9 +72,21 @@ static const float		PLAYER_SPEED = 6.0f;
 static const int		MIN_FPS = 5;
 static const int		MAX_FPS = 100;
 static const int		FPS_INC = 1;
+
+// ANIMATION STATES
 static const wstring	ATTACKING_RIGHT(L"ATTACKING_RIGHT");
 static const wstring	ATTACKING_LEFT(L"ATTACKING_LEFT");
-static const wstring	IDLE(L"IDLE");
+/*
+static const wstring	IDLE_DOWN(L"IDLE_DOWN");
+static const wstring	IDLE_UP(L"IDLE_UP");
+static const wstring	IDLE_LEFT(L"IDLE_LEFT");
+static const wstring	IDLE_RIGHT(L"IDLE_RIGHT");
+*/
+static const wstring	IDLE_DOWN(L"IDLE");
+static const wstring	IDLE_UP(L"IDLE");
+static const wstring	IDLE_LEFT(L"IDLE");
+static const wstring	IDLE_RIGHT(L"IDLE");
+
 static const wstring	DANCING(L"DANCING");
 static const wstring	DYING(L"DYING");
 static const wstring	WALKING(L"WALKING");

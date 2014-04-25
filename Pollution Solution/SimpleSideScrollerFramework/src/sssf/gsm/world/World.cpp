@@ -137,7 +137,7 @@ int World::getCollidableGridRows()
 	}
 	return maxRows;
 }
-
+/*
 bool World::isInsideCollidableTile(int centerX, int centerY)
 {
 	vector<WorldLayer*>::iterator it = layers->begin();
@@ -174,3 +174,4 @@ bool World::overlapsCollidableTiles(int centerX, int centerY, int nodeWidth, int
 	}
 	return false;
 }
+*/

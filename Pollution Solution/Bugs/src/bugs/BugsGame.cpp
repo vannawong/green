@@ -44,6 +44,10 @@
 #include "sssf\platforms\DirectX\DirectXGraphics.h"
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
 
+#include "Box2D\Box2D.h"
+#include "Box2D\Dynamics\b2World.h"
+#include "Box2D\Dynamics\b2Body.h"
+
 /*
 	WinMain - This is the application's starting point. In this method we will construct a Game object, 
 	then initialize all the platform-dependent technologies, then construct all the custom data for our 
@@ -93,8 +97,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	bugsGame->getInput()->registerMouseHandler((MouseEventHandler*)bugsMouseHandler);
 
 	// THIS WILL HANDLE PHYSICS COLLISION EVENTS
-	BugsCollisionListener *bugsCollisionListener = new BugsCollisionListener();
-	bugsGame->getGSM()->getPhysics()->setCollisionListener(bugsCollisionListener);
+	b2ContactListener *greenContactListener = new b2ContactListener();
+	bugsGame->getGSM()->getBWorld()->SetContactListener(greenContactListener);
 
 	// START THE GAME LOOP
 	bugsGame->runGameLoop();

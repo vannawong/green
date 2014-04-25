@@ -2,7 +2,7 @@
 #include "sssf\game\Game.h"
 #include "sssf\gsm\ai\bots\RandomFloatingBot.h"
 #include "sssf\gsm\state\GameStateManager.h"
-#include "sssf\gsm\physics\Physics.h"
+
 
 /*
 	This private constructor is only to be used for cloning bots, note
@@ -20,17 +20,17 @@ RandomFloatingBot::RandomFloatingBot(	unsigned int initMin,
 	This is the public constructor used by other classes for 
 	creating these types of bots.
 */
-RandomFloatingBot::RandomFloatingBot(	Physics *physics,
-										unsigned int initMin, 
+RandomFloatingBot::RandomFloatingBot(	b2Body * b,
+	unsigned int initMin, 
 										unsigned int initMax, 
 										unsigned int initMaxVelocity)
 {
 	// INIT THE BASIC STUFF
 	initBot(initMin, initMax, initMaxVelocity);
+	setBody(b);
 
 	// AND START THE BOT OFF IN A RANDOM DIRECTION AND VELOCITY
 	// AND WITH RANDOM INTERVAL UNTIL IT THINKS AGAIN
-	pickRandomVelocity(physics);
 	pickRandomCyclesInRange();
 }
 
@@ -88,8 +88,8 @@ void RandomFloatingBot::pickRandomCyclesInRange()
 /*
 	pickRandomVelocity - calculates a random velocity vector for this
 	bot and initializes the appropriate instance variables.
-*/
-void RandomFloatingBot::pickRandomVelocity(Physics *physics)
+
+void RandomFloatingBot::pickRandomVelocity(b2Body *b)
 {
 	// FIRST GET A RANDOM float FROM 0.0 TO 1.0
 	float randomAngleInRadians = ((float)rand())/((float)RAND_MAX);
@@ -99,7 +99,7 @@ void RandomFloatingBot::pickRandomVelocity(Physics *physics)
 	randomAngleInRadians *= PI;
 
 	// NOW WE CAN SCALE OUR X AND Y VELOCITIES
-	this->pp.setVelocity(maxVelocity * sin(randomAngleInRadians), maxVelocity * cos(randomAngleInRadians));
+	//this->pp.setVelocity(maxVelocity * sin(randomAngleInRadians), maxVelocity * cos(randomAngleInRadians));
 }
 
 /*
@@ -115,7 +115,6 @@ void RandomFloatingBot::think(Game *game)
 	if (cyclesRemainingBeforeThinking == 0)
 	{
 		GameStateManager *gsm = game->getGSM();
-		pickRandomVelocity(gsm->getPhysics());
 		pickRandomCyclesInRange();
 	}
 	else

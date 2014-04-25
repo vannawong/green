@@ -1,14 +1,14 @@
 /*	
-	Author: Richard McKenna
-			Stony Brook University
-			Computer Science Department
+Author: Richard McKenna
+Stony Brook University
+Computer Science Department
 
-	TiledLayer.h
+TiledLayer.h
 
-	A TiledLayer manages a tiled background, which is basically
-	a grid of images that together create a game background.
-	TiledLayers are packed, meaning there is a tile in every
-	grid cell.
+A TiledLayer manages a tiled background, which is basically
+a grid of images that together create a game background.
+TiledLayers are packed, meaning there is a tile in every
+grid cell.
 */
 #pragma once
 #include "sssf_VS\stdafx.h"
@@ -16,8 +16,6 @@
 #include "sssf\gsm\world\Tile.h"
 #include "sssf\gsm\world\WorldLayer.h"
 #include "sssf\gui\Viewport.h"
-#include "sssf\gsm\physics\CollidableObject.h"
-#include "sssf\gsm\physics\Physics.h"
 
 // THIS CLASS IS-A WorldLayer
 
@@ -57,10 +55,10 @@ public:
 
 	// METHODS DEFINED IN TiledLayer.cpp
 	TiledLayer(	int initColumns,	int initRows, 
-				int initTileWidth,	int initTileHeight, 
-				int initZ, 
-				bool initCollidableTiles, 
-				int initWorldWidth, int initWorldHeight);
+		int initTileWidth,	int initTileHeight, 
+		int initZ, 
+		bool initCollidableTiles, 
+		int initWorldWidth, int initWorldHeight);
 	~TiledLayer();
 	void	addRenderItemsToRenderList(RenderList *renderList, Viewport *viewport);
 	void	addTile(Tile *initTile);
@@ -72,15 +70,18 @@ public:
 	int		calculateViewportStartRow(int viewportY, int viewportHeight);
 	Tile*	getTile(int row, int column);
 	void	init(	int initColumns,	int initRows, 
-					int initTileWidth,	int initTileHeight, 
-					int initZ, 
-					bool collidableTiles, 
-					int worldWidth, int worldHeight);
+		int initTileWidth,	int initTileHeight, 
+		int initZ, 
+		bool collidableTiles, 
+		int worldWidth, int worldHeight);
 	void	setTile(Tile *initTile, int row, int column);
+
+	/*
 	void	findTileCollisionsForSprite(	Physics *physics,
-											CollidableObject *dynamicObject);
+	CollidableObject *dynamicObject);
 	bool	willSpriteCollideOnTile(	Physics *physics,
-										CollidableObject *dynamicObject);
+	CollidableObject *dynamicObject);
 	bool overlapsCollidableTile(AABB aabb);
 	bool isInsideCollidableTile(int centerX, int centerY);
+	*/
 };

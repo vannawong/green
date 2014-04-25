@@ -12,7 +12,6 @@
 #include "sssf\game\Game.h"
 #include "sssf\graphics\GameGraphics.h"
 #include "sssf\graphics\TextureManager.h"
-#include "sssf\gsm\ai\pathfinding\GridPathfinder.h"
 #include "sssf\gui\GameGUI.h"
 #include "sssf\gui\Viewport.h"
 #include "sssf\os\GameOS.h"
@@ -451,10 +450,6 @@ void DirectXGraphics::renderGUIRenderList()
 		delete rect;
 }
 
-/*
-	Renders all tiles and sprites. Note that these objects can
-	be rotated.
-*/
 void DirectXGraphics::renderWorldRenderList()
 {
 	worldRenderList->resetIterator();
@@ -467,8 +462,6 @@ void DirectXGraphics::renderWorldRenderList()
 	// GO THROUGH EACH ITEM IN THE LIST
 	while (worldRenderList->hasNext())
 	{
-		float translationX;
-		float translationY;
 		if (rect != NULL)
 			delete rect;
 		rect = NULL;
@@ -512,55 +505,9 @@ void DirectXGraphics::renderWorldRenderList()
 					rect->top = yDiff;
 					position.y += yDiff;
 				}	
-			}	
+			}
 
-			// LET'S PUT THE STANDARD ROTATION MATRIX ASIDE
-			// FOR A SECOND. IT WILL BE USED FOR RENDERING THE
-			// GUI, BUT WE'LL WANT A CUSTOM ONE FOR WORLD OBJECTS
-			D3DXMATRIX defaultTransform;
-			D3DXMatrixIdentity(&defaultTransform);
-				
-			// TO RENDER A PROPERLY ROTATED OBJECT TO THE WORLD,
-			// FIRST WE NEED TO MOVE IT TO THE ORIGIN, CENTERED
-			// ABOUT THE ORIGIN SO WE SET UP THIS MATRIX
-			// TO DO THIS
-			D3DXMATRIX translationToOrigin;
-			D3DXMatrixIdentity(&translationToOrigin);
-		    translationToOrigin._41 = -(itemToRender.width/2);
-			translationToOrigin._42 = -(itemToRender.height/2);
-	
-			// THEN WE NEED A MATRIX TO DO THE ROTATION
-			D3DXMATRIX rotationAboutOrigin;
-			D3DXMatrixIdentity(&rotationAboutOrigin);
-	
-			// THE PROBLEM ANGLES ARE 0, 90, 180, and 270
-			float cosTheta = cos(itemToRender.rotationInRadians);
-			float sinTheta = sin(itemToRender.rotationInRadians);
-			if (cosTheta != cosTheta)
-				cosTheta = 0;
-			if (sinTheta != sinTheta)
-				sinTheta = 0;
-			rotationAboutOrigin._11 = cosTheta;
-			rotationAboutOrigin._21 = -sinTheta;
-			rotationAboutOrigin._12 = sinTheta;
-			rotationAboutOrigin._22 = cosTheta;
-	
-			// AND THEN WE NEED A MATRIX TO ROTATE THE OBJECT
-			// TO THE LOCATION WE WANT IT RENDERED
-			D3DXMATRIX translationBackToCenter;
-			D3DXMatrixIdentity(&translationBackToCenter);
-			translationBackToCenter._41 = ((position.x) + (itemToRender.width/2));
-			translationBackToCenter._42 = ((position.y) + (itemToRender.height/2));
-	
-			// THE COMBINED MATRIX COMBINES THESE 3 OPERATIONS
-			// INTO A SINGLE MATRIX
-			D3DXMATRIX combinedMatrix = translationToOrigin;
-			combinedMatrix *= rotationAboutOrigin;
-			combinedMatrix *= translationBackToCenter;
-	
-			// NOW LET'S USE THE COMBINED MATRIX TO POSITION AND ROTATE THE ITEM
-			spriteHandler->SetTransform(&combinedMatrix);
-		
+
 			// RENDER THE OPAQUE ITEMS
 			if (itemToRender.a == 255)
 			{
@@ -568,11 +515,12 @@ void DirectXGraphics::renderWorldRenderList()
 					texture, 
 					rect,
 			        NULL,
-					NULL,
+					&position,
 					DEFAULT_ALPHA_COLOR)))
 				{
 					game->getText()->writeDebugOutput("\nspriteHandler->Draw: FAILED");
 				}
+			
 				// RENDER THE ITEMS WITH CUSTOM TRANSPARENCY
 				else
 				{
@@ -580,11 +528,12 @@ void DirectXGraphics::renderWorldRenderList()
 						itemToRender.a = 0;
 					else if (itemToRender.a > 255)
 						itemToRender.a = 255;
+
 					if (FAILED(spriteHandler->Draw(
 						texture,
 						rect,
 						NULL,
-						NULL,
+						&position,
 						D3DCOLOR_ARGB(itemToRender.a, 255, 255, 255))))
 					{
 						game->getText()->writeDebugOutput("\nspriteHandler->Draw: FAILED");
@@ -598,11 +547,6 @@ void DirectXGraphics::renderWorldRenderList()
 	worldRenderList->clear();
 	if (rect != NULL)
 		delete rect;
-	
-	// AND RESTORE THE MATRIX USED FOR RENDERING THE GUI
-	D3DXMATRIX identityMatrix;
-	D3DXMatrixIdentity(&identityMatrix);
-	spriteHandler->SetTransform(&identityMatrix);
 }
 
 
@@ -625,7 +569,7 @@ void DirectXGraphics::renderGame(Game *game)
 
 		// RENDER THE WORLD RENDER LIST
 		renderWorldRenderList();
-				
+		
 		// RENDER THE GUI RENDER LIST
 		renderGUIRenderList();
 
@@ -637,10 +581,6 @@ void DirectXGraphics::renderGame(Game *game)
 		{
 			text->writeDebugOutput("\nspriteHandler->End(): FAILED");
 		}
-
-		// THIS HELPS US WITH SOME DEBUGGING
-		renderPathfindingCells();
-		renderGridMarkers();
 
 		endDirectXFrameRendering();
 
@@ -670,113 +610,6 @@ void DirectXGraphics::renderGame(Game *game)
 		}
 	}
 }
-
-void DirectXGraphics::renderPathfindingCells()
-{
-	if (game->getGSM()->isGameInProgress() && pathfindingPathShouldBeRendered)
-	{
-		// RENDER THE CELL THE SPRITE IS ON
-		GridPathfinder *pathfinder = game->getGSM()->getSpriteManager()->getPathfinder();
-		list<PathNode> *path = game->getGSM()->getSpriteManager()->getPlayer()->getCurrentPathToFollow();
-		list<PathNode>::iterator pathIt = path->begin();
-		while (pathIt != path->end())
-		{
-			// 3 TYPES OF CELLS TO RENDER
-			PathNode node = *pathIt;
-			AABB nodeAABB;
-			nodeAABB.setCenterX(pathfinder->getColumnCenterX(node.column));
-			nodeAABB.setCenterY(pathfinder->getRowCenterY(node.row));
-			nodeAABB.setWidth(pathfinder->getGridWidth());
-			nodeAABB.setHeight(pathfinder->getGridHeight());
-
-			// THE START CELL
-			if (pathIt == path->begin())
-			{
-				renderPathfindingCell(nodeAABB, ORIGIN_PATHFINDING_CELL_COLOR);
-			}
-			else
-			{
-				list<PathNode>::iterator temp = pathIt;
-				temp++;
-				// THE END CELL
-				if (temp == path->end())
-				{
-					renderPathfindingCell(nodeAABB, DESTINATION_PATHFINDING_CELL_COLOR);
-				}
-				// AND THE MIDDLE CELLS
-				else
-				{
-					renderPathfindingCell(nodeAABB, DEFAULT_PATHFINDING_CELL_COLOR);
-				}
-			}
-			pathIt++;
-		}
-	}
-}
-
-void DirectXGraphics::renderPathfindingCell(AABB node, D3DCOLOR color)
-{
-	Viewport *viewport = game->getGUI()->getViewport();
-	RECT rect;
-	rect.left = node.getLeft() - viewport->getViewportX() + viewport->getViewportOffsetX();
-	rect.right = node.getRight() - viewport->getViewportX() + viewport->getViewportOffsetX();
-	rect.top = node.getTop() - viewport->getViewportY() + viewport->getViewportOffsetY();
-	rect.bottom = node.getBottom() - viewport->getViewportY() + viewport->getViewportOffsetY();
-	LPDIRECT3DSURFACE9 backBufferSurface;
-	graphicsDevice->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &backBufferSurface);
-	graphicsDevice->ColorFill(backBufferSurface, &rect, color);
-}
-	
-void DirectXGraphics::renderGridMarkers()
-{
-	if (game->getGSM()->isGameInProgress() && pathfindingGridShouldBeRendered)
-	{
-		GridPathfinder *pathfinder = game->getGSM()->getSpriteManager()->getPathfinder();
-		int cols = pathfinder->getNumColumns();
-		int rows = pathfinder->getNumRows();
-		Viewport *viewport = game->getGUI()->getViewport();
-		int viewportX = viewport->getViewportX();
-		int gridCellWidth = pathfinder->getGridWidth();
-		int viewportY = viewport->getViewportY();
-		int gridCellHeight = pathfinder->getGridHeight();
-		int viewportWidth = viewport->getViewportWidth();
-		int viewportHeight = viewport->getViewportHeight();
-
-		int startCol = (viewportX/gridCellHeight)-1;
-		if (startCol < 0)
-			startCol = 0;
-		int endCol = ((viewportX + viewportWidth)/gridCellWidth);
-		if (endCol > pathfinder->getNumColumns())
-			endCol = pathfinder->getNumColumns() - 1;
-		int startRow = (viewportY/gridCellHeight);
-		if (startRow < 0)
-			startRow = 0;
-		int endRow = ((viewportY + viewportHeight)/gridCellHeight);
-		if (endRow > pathfinder->getNumRows())
-			endRow = pathfinder->getNumRows() - 1;
-
-		for (int i = startCol; i <= endCol; i++)
-		{
-			for (int j = startRow; j <= endRow; j++)
-			{
-				RECT rect;
-				rect.left = (i * gridCellWidth) - viewportX + viewport->getViewportOffsetX();
-				rect.right = rect.left + gridCellWidth;
-				rect.top = (j * gridCellHeight) - viewportY + viewport->getViewportOffsetY();
-				rect.bottom = rect.top + gridCellHeight;
-				LPDIRECT3DSURFACE9 backBufferSurface;
-				D3DCOLOR colorToUse;
-				if (pathfinder->isWalkable(i, j))
-					colorToUse = WALKABLE_TILE_COLOR;
-				else
-					colorToUse = NONWALKABLE_TILE_COLOR;
-				graphicsDevice->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &backBufferSurface);
-				graphicsDevice->ColorFill(backBufferSurface, &rect, colorToUse);
-			}
-		}
-	}
-}
-
 
 
 /*

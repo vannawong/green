@@ -9,9 +9,11 @@ See AnimatedSprite.h for a class description.
 */
 
 #include "sssf_VS\stdafx.h"
-#include "sssf\gsm\physics\PhysicalProperties.h"
 #include "sssf\gsm\sprite\AnimatedSprite.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
+#include "Box2D\Dynamics\b2Body.h"
+#include "Box2D\Dynamics\b2World.h"
+#include "Box2D\Box2D.h"
 
 /*
 AnimatedSprite - Default constructor, just sets everything to 0.
@@ -21,10 +23,7 @@ AnimatedSprite::AnimatedSprite()
 	spriteType = 0;
 	frameIndex = 0;
 	animationCounter = 0;
-	pp.setVelocity(0.0f, 0.0f);
-	pp.setAccelerationX(0.0f);
-	pp.setAccelerationY(0.0f);
-	pp.setPosition(0.0f, 0.0f);
+	direction = 0;
 }
 
 /*
@@ -96,6 +95,19 @@ void AnimatedSprite::updateSprite()
 	unsigned int duration = spriteType->getDuration(currentState, frameIndex);
 	animationCounter++;
 
+	/*
+	wstring currState = getCurrentState();
+	
+	int temp = currState.find_last_of(L"_");
+	wstring state = currState.substr(0, temp);
+	switch (direction){
+	case 0: setCurrentState(state + L"_UP"); break;
+	case 1: setCurrentState(state + L"_RIGHT"); break;
+	case 2: setCurrentState(state + L"_DOWN"); break;
+	case 3: setCurrentState(state + L"_LEFT"); break;
+	
+	}
+	*/
 	// WE ONLY CHANGE THE ANIMATION FRAME INDEX WHEN THE
 	// ANIMATION COUNTER HAS REACHED THE DURATION
 	if (animationCounter >= duration){
@@ -103,17 +115,5 @@ void AnimatedSprite::updateSprite()
 	}
 }
 
-void AnimatedSprite::affixTightAABBBoundingVolume()
-{
-	boundingVolume.setCenterX(pp.getX() + (spriteType->getTextureWidth()/2));
-	boundingVolume.setCenterY(pp.getY() + (spriteType->getTextureHeight()/2));
-	boundingVolume.setWidth((float)spriteType->getTextureWidth());
-	boundingVolume.setHeight((float)spriteType->getTextureHeight());
-}
-
-
-void AnimatedSprite::correctToTightBoundingVolume()
-{
-	pp.setX(boundingVolume.getLeft());
-	pp.setY(boundingVolume.getTop());
-}
+void AnimatedSprite::affixTightAABBBoundingVolume(){ }
+void AnimatedSprite::correctToTightBoundingVolume(){ }

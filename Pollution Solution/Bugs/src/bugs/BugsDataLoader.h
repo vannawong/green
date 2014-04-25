@@ -14,6 +14,9 @@
 #include "sssf\game\Game.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
+#include "Box2D\Dynamics\b2World.h"
+#include "Box2D\Box2d.h"
+#include "Box2D\Dynamics\b2Body.h"
 
 class BugsDataLoader : public GameDataLoader
 {
@@ -46,7 +49,10 @@ public:
 	// SOME HELPER METHODS FOR SETTING UP THE GAME
 	void initColors(GameGraphics *graphics,	map<wstring,wstring> *properties);
 	void initViewport(GameGUI *gui, map<wstring,wstring> *properties);
+	void makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, float initX, float initY);
+	void makeGarbageMons(Game *game, AnimatedSpriteType *garmon, float initX, float initY);
 	void makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY);
+
 
 	// AND SOME HELPER METHODS FOR LOADING THE GUI
 	void initCursor(GameGUI *gui, DirectXTextureManager *guiTextureManager);

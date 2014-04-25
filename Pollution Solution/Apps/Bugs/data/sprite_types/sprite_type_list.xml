@@ -2,5 +2,5 @@
 <sprite_type_list>
     <sprite_type>pillbug</sprite_type>
 	<sprite_type>npc</sprite_type>
-	<sprite_type>garbage_mon</sprite_type>
+	<sprite_type>garbagemon</sprite_type>
 </sprite_type_list>

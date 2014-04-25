@@ -1,7 +1,7 @@
 #include "tmxmi_VS\stdafx.h"
 #include "tmxmi\TMXMapImporter.h"
-#include "tinyxml\tinystr.h";
-#include "tinyxml\tinyxml.h";
+#include "tinyxml\tinystr.h"
+#include "tinyxml\tinyxml.h"
 #include "sssf\game\Game.h"
 #include "sssf\gsm\world\SparseLayer.h"
 #include "sssf\gsm\world\TiledLayer.h"
@@ -231,7 +231,7 @@ void TMXMapImporter::loadTiledLayerInfo(const TiXmlNode *node)
 		dataNode = propertiesNode->NextSibling();
 	}
 
-	// BE DEFAULT A LAYER IS NOT COLLIDABLE
+	// BY DEFAULT A LAYER IS NOT COLLIDABLE
 	if (!collidableSpecified)
 		tiledLayerInfo->collidable = false;
 
@@ -284,6 +284,18 @@ void TMXMapImporter::loadTileSetInfo(const TiXmlNode *node)
 	else
 		tileSetInfo.margin = 0;
 
+	/*
+	// GET THE TILEOFFSET
+	node = node->FirstChild();
+	element = node->ToElement();
+
+	// LOAD TILEOFFSET
+	if (element->Attribute(X_ATT.c_str()) == NULL) return;
+	else tileSetInfo.tileoffsetX = extractIntAtt(element, X_ATT);
+	if (element->Attribute(Y_ATT.c_str()) == NULL) return;
+	else tileSetInfo.tileoffsetY = extractIntAtt(element, Y_ATT);
+	*/
+
 	// NOW GET THE IMAGE INFO
 	node = node->FirstChild();
 	element = node->ToElement();
@@ -314,18 +326,22 @@ bool TMXMapImporter::loadIsometricMap(const TiXmlElement *pElem)
 	while (node)
 	{
 		string eName = node->Value();
+		// TILESET_ELEMENT is tileset
 		if (strcmp(eName.c_str(), TILESET_ELEMENT.c_str()) == 0)
 		{
 			loadTileSetInfo(node);
 		}
+		// IMAGELAYER_ELEMENT is imagelayer
 		else if (strcmp(eName.c_str(), IMAGELAYER_ELEMENT.c_str()) == 0)
 		{
 			loadImageLayerInfo(node);
 		}
+		// LAYER_ELEMENT is layer
 		else if (strcmp(eName.c_str(), LAYER_ELEMENT.c_str()) == 0)
 		{
 			loadTiledLayerInfo(node);
 		}
+		// OBJECT_GROUP_ELEMENT is objectgroup	
 		else if (strcmp(eName.c_str(), OBJECT_GROUP_ELEMENT.c_str()) == 0)
 		{
 			loadSparseLayerInfo(node);
@@ -393,8 +409,7 @@ bool TMXMapImporter::buildWorldFromInfo(Game *game)
 			it++;
 		}
 	}
-	if (mapType == MapType::ISOMETRIC_MAP)
-	{
+	if (mapType==MapType::ISOMETRIC_MAP){
 		World *world = game->getGSM()->getWorld();
 
 		// LET'S FIRST FIGURE OUT THE WORLD WIDTH AND HEIGHT
@@ -464,8 +479,6 @@ void TMXMapImporter::buildTiledLayer(Game *game, TiledLayerInfo *tli, int idOffs
 	game->getGSM()->getWorld()->addLayer(tiledLayerToAdd);
 
 	// WE HAVE TO ADD ALL THE TILES
-	int row = 0;
-	int col = 0;
 	int uncollidableIndex = tli->tileSetInfo->firstgid;
 	for (unsigned int i = 0; i < tli->gids.size(); i++)
 	{

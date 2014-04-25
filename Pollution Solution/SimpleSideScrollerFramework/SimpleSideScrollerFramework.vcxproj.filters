@@ -28,12 +28,6 @@
     <Filter Include="src\sssf\gsm\ai\bots">
       <UniqueIdentifier>{b9d3b8b2-7334-4fd4-89f0-9dd2afd121e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\sssf\gsm\ai\pathfinding">
-      <UniqueIdentifier>{e8b5685c-4c61-44ab-994b-2e8f5d82c69b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\sssf\gsm\physics">
-      <UniqueIdentifier>{ca418062-3e7c-4318-afa5-325a976ace28}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\sssf\gsm\sprite">
       <UniqueIdentifier>{38d04751-3113-4912-a590-8784d1c6d243}</UniqueIdentifier>
     </Filter>
@@ -104,9 +98,6 @@
     <ClCompile Include="src\sssf\gsm\ai\bots\RandomJumpingBot.cpp">
       <Filter>src\sssf\gsm\ai\bots</Filter>
     </ClCompile>
-    <ClCompile Include="src\sssf\gsm\ai\pathfinding\OrthographicGridPathfinder.cpp">
-      <Filter>src\sssf\gsm\ai\pathfinding</Filter>
-    </ClCompile>
     <ClCompile Include="src\sssf\gsm\world\SparseLayer.cpp">
       <Filter>src\sssf\gsm\world</Filter>
     </ClCompile>
@@ -130,15 +121,6 @@
     </ClCompile>
     <ClCompile Include="src\sssf\gsm\sprite\TopDownSprite.cpp">
       <Filter>src\sssf\gsm\sprite</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sssf\gsm\physics\AABB.cpp">
-      <Filter>src\sssf\gsm\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sssf\gsm\physics\CollidableObject.cpp">
-      <Filter>src\sssf\gsm\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sssf\gsm\physics\Physics.cpp">
-      <Filter>src\sssf\gsm\physics</Filter>
     </ClCompile>
     <ClCompile Include="src\sssf\gui\Button.cpp">
       <Filter>src\sssf\gui</Filter>
@@ -181,6 +163,9 @@
     </ClCompile>
     <ClCompile Include="src\sssf\platforms\Windows\WindowsTimer.cpp">
       <Filter>src\sssf\platforms\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sssf\gsm\ai\bots\NPC.cpp">
+      <Filter>src\sssf\gsm\ai\bots</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -226,12 +211,6 @@
     <ClInclude Include="src\sssf\gsm\ai\bots\RandomJumpingBot.h">
       <Filter>src\sssf\gsm\ai\bots</Filter>
     </ClInclude>
-    <ClInclude Include="src\sssf\gsm\ai\pathfinding\GridPathfinder.h">
-      <Filter>src\sssf\gsm\ai\pathfinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sssf\gsm\ai\pathfinding\OrthographicGridPathfinder.h">
-      <Filter>src\sssf\gsm\ai\pathfinding</Filter>
-    </ClInclude>
     <ClInclude Include="src\sssf\gsm\world\SparseLayer.h">
       <Filter>src\sssf\gsm\world</Filter>
     </ClInclude>
@@ -264,24 +243,6 @@
     </ClInclude>
     <ClInclude Include="src\sssf\gsm\sprite\TopDownSprite.h">
       <Filter>src\sssf\gsm\sprite</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sssf\gsm\physics\AABB.h">
-      <Filter>src\sssf\gsm\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sssf\gsm\physics\CollidableObject.h">
-      <Filter>src\sssf\gsm\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sssf\gsm\physics\Collision.h">
-      <Filter>src\sssf\gsm\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sssf\gsm\physics\CollisionListener.h">
-      <Filter>src\sssf\gsm\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sssf\gsm\physics\PhysicalProperties.h">
-      <Filter>src\sssf\gsm\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sssf\gsm\physics\Physics.h">
-      <Filter>src\sssf\gsm\physics</Filter>
     </ClInclude>
     <ClInclude Include="src\sssf\gui\Button.h">
       <Filter>src\sssf\gui</Filter>
@@ -345,6 +306,9 @@
     </ClInclude>
     <ClInclude Include="src\sssf\platforms\Windows\WindowsTimer.h">
       <Filter>src\sssf\platforms\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sssf\gsm\ai\bots\NPC.h">
+      <Filter>src\sssf\gsm\ai\bots</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

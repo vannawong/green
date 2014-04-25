@@ -12,12 +12,12 @@
 #pragma once
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\ai\pathfinding\GridPathfinder.h"
-#include "sssf\gsm\physics\CollidableObject.h"
-#include "sssf\gsm\physics\PhysicalProperties.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\gui\Viewport.h"
+#include "Box2D\Dynamics\b2Body.h"
+#include "Box2D\Dynamics\b2World.h"
 
-class AnimatedSprite : public CollidableObject
+class AnimatedSprite
 {
 protected:
 	// SPRITE TYPE FOR THIS SPRITE. THE SPRITE TYPE IS THE ID
@@ -44,15 +44,19 @@ protected:
 	list<PathNode> currentPathToFollow;
 	list<PathNode>::iterator currentPathNode;
 
+	// DIRECTION: 0 for up, 1 for right, 2 for down, and 3 for left
+	unsigned int direction;
+
+	b2Body *body;
+
 public:
 	// INLINED ACCESSOR METHODS
 	int					getAlpha()			{ return alpha;				}
-	list<PathNode>*		getCurrentPathToFollow() { return &currentPathToFollow; }
-	list<PathNode>::iterator getCurrentPathNode() { return currentPathNode; }
 	wstring				getCurrentState()	{ return currentState;		}
 	unsigned int		getFrameIndex()		{ return frameIndex;		}
 	AnimatedSpriteType*	getSpriteType()		{ return spriteType;		}
 	int					getAnimationCounter() { return animationCounter;}
+	b2Body*				getBody()			{ return body;				}
 	bool hasReachedDestination()
 	{	return currentPathNode == currentPathToFollow.end(); }
 
@@ -68,6 +72,9 @@ public:
 	void clearPath()
 	{	currentPathToFollow.clear();
 		currentPathNode = currentPathToFollow.end(); 
+	}
+	void setBody(b2Body *b){
+		body = b;
 	}
 
 	// METHODS DEFINED IN AnimatedSprite.cpp

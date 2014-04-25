@@ -25,6 +25,9 @@
 #include "sssf\gsm\sprite\SpriteManager.h"
 #include "sssf\gsm\world\World.h"
 #include "sssf\gsm\world\WorldLayer.h"
+#include "Box2D\Box2D.h"
+#include "Box2D\Dynamics\b2World.h"
+#include "Box2D\Common\b2Math.h"
 
 class Game;
 
@@ -54,23 +57,26 @@ private:
 	// TILES, PLATFORMS, etc. BASICALLY THINGS THAT ARE NOT ANIMATED
 	// AND DO NOT MOVE
 	World world;
+	b2Vec2 *gravity;
+	b2World *bworld;
+	boolean doSleep;
+
 
 	// FOR MANAGING DYNAMIC GAME OBJECTS FOR CURRENT LEVEL
 	// NOTE THAT WE CALL THE DYNAMIC OBJECTS "SPRITES"
 	SpriteManager *spriteManager;
-
-	// FOR DOING ALL COLLISION DETECTION AND RESOLUTION
-	Physics			physics;
 
 public:
 	// INLINED ACCESSOR METHODS
 	GameState		getCurrentGameState()	{ return currentGameState;			}
 	unsigned int	getCurrentLevel()		{ return currentLevel;				}
 	unsigned int	getNumLevels()			{ return levelNames.size();			}
-	Physics*		getPhysics()			{ return &physics;					}
 	SpriteManager*	getSpriteManager()		{ return spriteManager;				}
 	World*			getWorld()				{ return &world;					}
+	b2World*		getBWorld()				{ return bworld;					}
 	wstring			getCurrentLevelName()	{ return levelNames[currentLevel];	}
+
+	void			setBWorld(b2World *b)	{ bworld = b;						}
 
 	// METHODS FOR TESTING THE CURRENT GAME STATE
 	bool			isAppActive();

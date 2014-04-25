@@ -55,6 +55,8 @@ struct TileSetInfo
 	string transparencyColor;
 	int spacing;
 	int margin;
+	int tileoffsetX;
+	int tileoffsetY;
 };
 
 struct LayerInfo

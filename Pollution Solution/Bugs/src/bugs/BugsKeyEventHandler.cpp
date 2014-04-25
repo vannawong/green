@@ -39,20 +39,12 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 	// LET'S GET THE PLAYER'S PHYSICAL PROPERTIES, IN CASE WE WANT TO CHANGE THEM
 	GameStateManager *gsm = game->getGSM();
 	AnimatedSprite *player = gsm->getSpriteManager()->getPlayer();
-	PhysicalProperties *pp = player->getPhysicalProperties();
+	b2Body *body = player->getBody();
 	Viewport *viewport = game->getGUI()->getViewport();
 
 	// IF THE GAME IS IN PROGRESS
 	if (gsm->isGameInProgress())
 	{
-		if (input->isKeyDownForFirstTime(P_KEY))
-		{
-			gsm->getPhysics()->togglePhysics();
-		}
-		if (input->isKeyDownForFirstTime(T_KEY))
-		{
-			gsm->getPhysics()->activateForSingleUpdate();
-		}
 		if (input->isKeyDownForFirstTime(D_KEY))
 		{
 			viewport->toggleDebugView();
@@ -77,34 +69,48 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 			player->setCurrentState(DYING);
 		}
 		if (input->isKeyDownForFirstTime(I_KEY)){
-			player->setCurrentState(IDLE);
+			player->setCurrentState(IDLE_DOWN);
 		}
 		bool viewportMoved = false;
 		float viewportVx = 0.0f;
 		float viewportVy = 0.0f;
+		float vX = body->GetLinearVelocity().x;
+		float vY = body->GetLinearVelocity().y;
 		if (input->isKeyDown(UP_KEY))
 		{
-			viewportVy -= MAX_VIEWPORT_AXIS_VELOCITY;
+			if (body->GetTransform().p.y < (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
+				viewportVy -= MAX_PLAYER_VELOCITY;
+			vY = -1 * MAX_PLAYER_VELOCITY;
+			vX = 0;
 			viewportMoved = true;
 		}
-		if (input->isKeyDown(DOWN_KEY))
+		else if (input->isKeyDown(DOWN_KEY))
 		{
-			viewportVy += MAX_VIEWPORT_AXIS_VELOCITY;
+			if (body->GetTransform().p.y > (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
+				viewportVy += MAX_PLAYER_VELOCITY;
+			vY = MAX_PLAYER_VELOCITY;
+			vX = 0;
 			viewportMoved = true;
 		}
-		if (input->isKeyDown(LEFT_KEY))
+		else if (input->isKeyDown(LEFT_KEY))
 		{
-			viewportVx -= MAX_VIEWPORT_AXIS_VELOCITY;
+			if (body->GetTransform().p.x < (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
+				viewportVx -= MAX_PLAYER_VELOCITY;
+			vX = -1 * MAX_PLAYER_VELOCITY;
+			vY = 0;
 			viewportMoved = true;
 		}
-		if (input->isKeyDown(RIGHT_KEY))
+		else if (input->isKeyDown(RIGHT_KEY))
 		{
-			viewportVx += MAX_VIEWPORT_AXIS_VELOCITY;
+			if (body->GetTransform().p.x > (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
+				viewportVx += MAX_PLAYER_VELOCITY;
+			vX = MAX_PLAYER_VELOCITY;
+			vY = 0;
 			viewportMoved = true;
 		}
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx+0.5f), (int)floor(viewportVy+0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());
-
+		body->SetLinearVelocity(*new b2Vec2(vX, vY));
 	}
 
 	// 0X43 is HEX FOR THE 'C' VIRTUAL KEY
