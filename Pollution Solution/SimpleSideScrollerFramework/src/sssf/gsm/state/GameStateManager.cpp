@@ -227,7 +227,7 @@ is called.
 void GameStateManager::update(Game *game)
 {
 	float step = 30.0f;
-	//bworld->Step(1.0f/step, 8, 3);
+	bworld->Step(1.0f/step, 8, 3);
 	spriteManager->update(game);
 	world.update(game);
 }
