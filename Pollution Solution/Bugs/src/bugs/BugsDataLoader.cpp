@@ -186,29 +186,25 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	player->setRotationInRadians(0.0f);
 
 	// PLAYER SPRITE TYPE ID IS 0
-	b2World *bworld = gsm->getBWorld();
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
 	player->setSpriteType(playerSpriteType);
 	player->setAlpha(255);
 	player->setCurrentState(IDLE_DOWN);
+	
+	b2World *bworld = gsm->getBWorld();
+	
 	b2BodyDef pDef;
 	pDef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
 	pDef.type = b2_dynamicBody;
 	player->setBody(bworld->CreateBody(&pDef));
-	b2CircleShape circle;
-	circle.m_radius = spriteManager->getSpriteType(0)->getTextureWidth() / 2.0f;
+	b2PolygonShape box;
 
 	b2FixtureDef fd;
-	fd.shape = &circle;
+	fd.shape = &box;
 	fd.density = 1.0f;
 	fd.restitution = 0.0f;
-	
-	b2Vec2 minV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) - b2Vec2(0.3f,0.3f);
-	b2Vec2 maxV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) + b2Vec2(0.3f,0.3f);
-	
-	b2AABB aabb;
-	aabb.lowerBound = minV;
-	aabb.upperBound = maxV;
+	fd.friction = 0.0f;
+	box.SetAsBox(player->getSpriteType()->getTextureWidth() / 2.0, player->getSpriteType()->getTextureHeight() / 2.0);
 
 	player->getBody()->CreateFixture(&fd);
 
@@ -216,6 +212,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	v.Set(0,0);
 	player->getBody()->SetLinearVelocity(v);
 	player->getBody()->SetLinearDamping(0.0f);
+	player->getBody()->SetAwake(true);
 
 	//NPC
 	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
@@ -257,74 +254,74 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, float initX, float initY)
 {
 	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
+	/*
 	b2World *bworld = game->getGSM()->getBWorld();
 	b2BodyDef pDef;
 	pDef.position.Set(initX, initY);
 	pDef.type = b2_dynamicBody;
 	b2Body* b = bworld->CreateBody(&pDef);
-	NPC *npc = new NPC(b, 0, 0, 0);
-	npc->setBody(bworld->CreateBody(&pDef));
+	*/
+	NPC *npc = new NPC(NULL, 0, 0, 0);
+	//npc->setBody(bworld->CreateBody(&pDef));
 	npc->setCurrentState(IDLE_DOWN);
 	npc->setSpriteType(npcSpriteType);
 	npc->setAlpha(255);
 	npc->setCurrentState(IDLE_DOWN);
+	/*
+	npc->getBody()->SetAwake(true);
+
 	b2Vec2 v;
 	v.Set(0,0);
 	npc->getBody()->SetLinearVelocity(v);
 	npc->getBody()->SetLinearDamping(0.0f);
-	b2CircleShape circle;
-	circle.m_radius = spriteManager->getSpriteType(0)->getTextureWidth() / 2.0f;
+	b2PolygonShape box;
+	box.SetAsBox(npc->getSpriteType()->getTextureWidth() / 2.0, npc->getSpriteType()->getTextureHeight() / 2.0);
 
 	b2FixtureDef fd;
-	fd.shape = &circle;
+	fd.shape = &box;
 	fd.density = 1.0f;
 	fd.restitution = 0.0f;
+	fd.friction = 0.0f;
 	
-	b2Vec2 minV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) - b2Vec2(0.3f,0.3f);
-	b2Vec2 maxV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) + b2Vec2(0.3f,0.3f);
-	
-	b2AABB aabb;
-	aabb.lowerBound = minV;
-	aabb.upperBound = maxV;
-
 	npc->getBody()->CreateFixture(&fd);
-
+	*/
 	spriteManager->addBot(npc);
 }
 
 void BugsDataLoader::makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY)
 {
 	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
+	RandomJumpingBot *bot = new RandomJumpingBot(NULL, initX, initY, JUMPING_BOT_MAX_VELOCITY);
+	
+	/*
 	b2World *bworld = game->getGSM()->getBWorld();
 	b2BodyDef pDef;
 	pDef.position.Set(initX, initY);
 	pDef.type = b2_dynamicBody;
 	b2Body *body = bworld->CreateBody(&pDef);
-	RandomJumpingBot *bot = new RandomJumpingBot(body, initX, initY, JUMPING_BOT_MAX_VELOCITY);
+	*/
 	bot->setSpriteType(randomJumpingBotType);
 	bot->setAlpha(255);
 	bot->setCurrentState(IDLE_DOWN);
+	/*
 	bot->setBody(body);
+	bot->getBody()->SetAwake(true);
+
 	b2Vec2 v;
 	v.Set(0,0);
 	bot->getBody()->SetLinearVelocity(v);
 	bot->getBody()->SetLinearDamping(0.0f);
-	b2CircleShape circle;
-	circle.m_radius = spriteManager->getSpriteType(0)->getTextureWidth() / 2.0f;
+	b2PolygonShape box;
+	box.SetAsBox(bot->getSpriteType()->getTextureWidth() / 2.0, bot->getSpriteType()->getTextureHeight() / 2.0);
 
 	b2FixtureDef fd;
-	fd.shape = &circle;
+	fd.shape = &box;
 	fd.density = 1.0f;
 	fd.restitution = 0.0f;
+	fd.friction = 0.0f;
 	
-	b2Vec2 minV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) - b2Vec2(0.3f,0.3f);
-	b2Vec2 maxV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) + b2Vec2(0.3f,0.3f);
-	
-	b2AABB aabb;
-	aabb.lowerBound = minV;
-	aabb.upperBound = maxV;
-
 	bot->getBody()->CreateFixture(&fd);
+	*/
 	spriteManager->addBot(bot);
 }
 

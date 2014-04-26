@@ -17,11 +17,9 @@ RandomJumpingBot::RandomJumpingBot(	unsigned int initMin,
 	// INIT THE BASIC STUFF
 	initBot(initMin, initMax, initMaxVelocity);
 
-	cyclesRemainingBeforeThinking = 30;
 	b2Vec2 v;
 	v.Set(0,0);
 	body->SetTransform(v,0);
-	pickRandomCyclesInRange();
 }
 
 /*

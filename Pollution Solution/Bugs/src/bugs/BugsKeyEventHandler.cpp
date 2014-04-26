@@ -114,7 +114,8 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		}
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx+0.5f), (int)floor(viewportVy+0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());
-		body->SetLinearVelocity(*new b2Vec2(vX, vY));
+		//body->SetLinearVelocity(*new b2Vec2(vX, vY));
+		
 	}
 
 	// 0X43 is HEX FOR THE 'C' VIRTUAL KEY

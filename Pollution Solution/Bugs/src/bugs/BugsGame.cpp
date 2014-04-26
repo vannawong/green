@@ -112,7 +112,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	delete bugsButtonHandler;
 	delete bugsKeyHandler;
 	delete bugsGame;
-
+	
 	// AND RETURN
 	return 0;
 }
