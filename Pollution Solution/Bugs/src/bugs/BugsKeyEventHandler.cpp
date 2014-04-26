@@ -79,15 +79,15 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		if (input->isKeyDown(UP_KEY))
 		{
 			if (body->GetTransform().p.y < (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
-				viewportVy -= MAX_PLAYER_VELOCITY;
-			vY = -1 * MAX_PLAYER_VELOCITY;
+				viewportVy -= MAX_PLAYER_VELOCITY/45.0;
+			vY = -1.0 * MAX_PLAYER_VELOCITY;
 			vX = 0;
 			viewportMoved = true;
 		}
 		else if (input->isKeyDown(DOWN_KEY))
 		{
 			if (body->GetTransform().p.y > (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
-				viewportVy += MAX_PLAYER_VELOCITY;
+				viewportVy += MAX_PLAYER_VELOCITY/45.0;
 			vY = MAX_PLAYER_VELOCITY;
 			vX = 0;
 			viewportMoved = true;
@@ -95,18 +95,22 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		else if (input->isKeyDown(LEFT_KEY))
 		{
 			if (body->GetTransform().p.x < (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
-				viewportVx -= MAX_PLAYER_VELOCITY;
-			vX = -1 * MAX_PLAYER_VELOCITY;
+				viewportVx -= MAX_PLAYER_VELOCITY/45.0;
+			vX = -1.0 * MAX_PLAYER_VELOCITY;
 			vY = 0;
 			viewportMoved = true;
 		}
 		else if (input->isKeyDown(RIGHT_KEY))
 		{
 			if (body->GetTransform().p.x > (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
-				viewportVx += MAX_PLAYER_VELOCITY;
+				viewportVx += MAX_PLAYER_VELOCITY/45.0;
 			vX = MAX_PLAYER_VELOCITY;
 			vY = 0;
 			viewportMoved = true;
+		}
+		else{
+			vX = 0.0;
+			vY = 0.0;
 		}
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx+0.5f), (int)floor(viewportVy+0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());
@@ -126,6 +130,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		cursor->setActiveCursorID(id);
 	}
 
+	/*
 	// LET'S MESS WITH THE TARGET FRAME RATE IF THE USER PRESSES THE HOME OR END KEYS
 	WindowsTimer *timer = (WindowsTimer*)game->getTimer();
 	int fps = timer->getTargetFPS();
@@ -139,4 +144,5 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 	// THIS SLOWS DOWN OUR GAME LOOP, BUT WILL NOT GO BELOW 5 FRAMES PER SECOND
 	else if (input->isKeyDown(VK_END) && (fps > MIN_FPS))
 		timer->setTargetFPS(fps - FPS_INC);
+		*/
 }

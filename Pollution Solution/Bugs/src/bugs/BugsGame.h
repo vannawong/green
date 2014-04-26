@@ -59,8 +59,8 @@ static const wstring	SPRITE_TYPES_LIST = SPRITE_TYPES_DIR + L"sprite_type_list.x
 static const wstring	JUMPING = L"JUMPING";
 
 // FOR THE GAME WORLD
-static const float		MAX_VIEWPORT_AXIS_VELOCITY = 20.0f;
-static const float		MAX_PLAYER_VELOCITY = 7.5f;
+static const float		MAX_VIEWPORT_AXIS_VELOCITY = 50.0f;
+static const float		MAX_PLAYER_VELOCITY = 200.0f;
 static const float		W_GRAVITY = 0.0f;
 static const float		JUMPING_BOT_MIN_CYCLES = 30;
 static const float		JUMPING_BOT_MAX_CYCLES = 120;

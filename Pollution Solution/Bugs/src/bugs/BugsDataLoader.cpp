@@ -195,9 +195,27 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	pDef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
 	pDef.type = b2_dynamicBody;
 	player->setBody(bworld->CreateBody(&pDef));
+	b2CircleShape circle;
+	circle.m_radius = spriteManager->getSpriteType(0)->getTextureWidth() / 2.0f;
+
+	b2FixtureDef fd;
+	fd.shape = &circle;
+	fd.density = 1.0f;
+	fd.restitution = 0.0f;
+	
+	b2Vec2 minV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) - b2Vec2(0.3f,0.3f);
+	b2Vec2 maxV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) + b2Vec2(0.3f,0.3f);
+	
+	b2AABB aabb;
+	aabb.lowerBound = minV;
+	aabb.upperBound = maxV;
+
+	player->getBody()->CreateFixture(&fd);
+
 	b2Vec2 v;
 	v.Set(0,0);
 	player->getBody()->SetLinearVelocity(v);
+	player->getBody()->SetLinearDamping(0.0f);
 
 	//NPC
 	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
@@ -253,6 +271,24 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	b2Vec2 v;
 	v.Set(0,0);
 	npc->getBody()->SetLinearVelocity(v);
+	npc->getBody()->SetLinearDamping(0.0f);
+	b2CircleShape circle;
+	circle.m_radius = spriteManager->getSpriteType(0)->getTextureWidth() / 2.0f;
+
+	b2FixtureDef fd;
+	fd.shape = &circle;
+	fd.density = 1.0f;
+	fd.restitution = 0.0f;
+	
+	b2Vec2 minV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) - b2Vec2(0.3f,0.3f);
+	b2Vec2 maxV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) + b2Vec2(0.3f,0.3f);
+	
+	b2AABB aabb;
+	aabb.lowerBound = minV;
+	aabb.upperBound = maxV;
+
+	npc->getBody()->CreateFixture(&fd);
+
 	spriteManager->addBot(npc);
 }
 
@@ -272,6 +308,23 @@ void BugsDataLoader::makeRandomJumpingBot(Game *game, AnimatedSpriteType *random
 	b2Vec2 v;
 	v.Set(0,0);
 	bot->getBody()->SetLinearVelocity(v);
+	bot->getBody()->SetLinearDamping(0.0f);
+	b2CircleShape circle;
+	circle.m_radius = spriteManager->getSpriteType(0)->getTextureWidth() / 2.0f;
+
+	b2FixtureDef fd;
+	fd.shape = &circle;
+	fd.density = 1.0f;
+	fd.restitution = 0.0f;
+	
+	b2Vec2 minV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) - b2Vec2(0.3f,0.3f);
+	b2Vec2 maxV = b2Vec2(PLAYER_INIT_X, PLAYER_INIT_Y) + b2Vec2(0.3f,0.3f);
+	
+	b2AABB aabb;
+	aabb.lowerBound = minV;
+	aabb.upperBound = maxV;
+
+	bot->getBody()->CreateFixture(&fd);
 	spriteManager->addBot(bot);
 }
 

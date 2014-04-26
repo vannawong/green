@@ -26,6 +26,7 @@ GameStateManager::GameStateManager()
 {
 	const b2Vec2 v(0,0);
 	setBWorld(new b2World(v));
+	bworld->SetAllowSleeping(false);
 	spriteManager = new SpriteManager();
 	currentGameState = GS_SPLASH_SCREEN;
 	currentLevel = NO_LEVEL_LOADED;
@@ -225,7 +226,8 @@ is called.
 */
 void GameStateManager::update(Game *game)
 {
-	bworld->Step(1/30, 8, 3);
+	float step = 1/30.00f;
+	bworld->Step(step, 50, 3);
 	spriteManager->update(game);
 	world.update(game);
 }

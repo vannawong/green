@@ -1,9 +1,22 @@
-﻿Build started 4/25/2014 6:50:04 PM.
+﻿Build started 4/25/2014 9:48:51 PM.
      1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Bugs\Bugs.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\\" /Fd"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\bugs\BugsDataLoader.cpp
+         BugsDataLoader.cpp
+     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(303): warning C4244: 'argument' : conversion from 'const float' to 'unsigned int', possible loss of data
+     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(303): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Apps\Bugs\Bugs.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9.lib Box2D.lib winmm.lib PoseurSpriteTypesImporter.lib SimpleSideScrollerFramework.lib tinyxml.lib TMXMapImporter.lib XMLFileImporter.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Apps\Bugs\Bugs.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Apps\Bugs\Bugs.lib" /MACHINE:X86 "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\BugsButtonEventHandler.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\BugsCollisionListener.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\BugsDataLoader.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\BugsGame.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\BugsKeyEventHandler.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\BugsMouseEventHandler.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\BugsTextGenerator.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\stdafx.obj"
          Bugs.vcxproj -> C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Apps\Bugs\Bugs.exe
      1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.52
+Time Elapsed 00:00:07.05

@@ -15,6 +15,7 @@
 #include "sssf\gsm\world\Tile.h"
 #include "sssf\gsm\world\TiledLayer.h"
 #include "sssf\gui\Viewport.h"
+#include "Box2D\Box2D.h"
 
 /*
 	TiledLayer - Constructor, it initializes the data structures
