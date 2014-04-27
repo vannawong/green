@@ -1,0 +1,13 @@
+﻿Build started 4/26/2014 10:35:03 AM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" on node 5 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\tmxmi\TMXMapImporter.cpp src\tmxmi_VS\stdafx.cpp
+         TMXMapImporter.cpp
+     1>src\tmxmi\TMXMapImporter.cpp(1): fatal error C1083: Cannot open include file: 'tmxmi_VS\stdafx.h': No such file or directory
+         stdafx.cpp
+     1>src\tmxmi_VS\stdafx.cpp(5): fatal error C1083: Cannot open include file: 'tmxmi_VS\stdafx.h': No such file or directory
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.46

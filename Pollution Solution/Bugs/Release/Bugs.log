@@ -1,0 +1,25 @@
+﻿Build started 4/26/2014 10:35:06 AM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Bugs\Bugs.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\bugs\BugsButtonEventHandler.cpp src\bugs\BugsCollisionListener.cpp src\bugs\BugsDataLoader.cpp src\bugs\BugsGame.cpp src\bugs\BugsKeyEventHandler.cpp src\bugs\BugsMouseEventHandler.cpp src\bugs\BugsTextGenerator.cpp src\bugs_VS\stdafx.cpp
+         BugsButtonEventHandler.cpp
+     1>src\bugs\BugsButtonEventHandler.cpp(11): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+         BugsCollisionListener.cpp
+     1>src\bugs\BugsCollisionListener.cpp(1): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+         BugsDataLoader.cpp
+     1>src\bugs\BugsDataLoader.cpp(1): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+         BugsGame.cpp
+     1>src\bugs\BugsGame.cpp(16): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+         BugsKeyEventHandler.cpp
+     1>src\bugs\BugsKeyEventHandler.cpp(11): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+         BugsMouseEventHandler.cpp
+     1>src\bugs\BugsMouseEventHandler.cpp(1): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+         BugsTextGenerator.cpp
+     1>src\bugs\BugsTextGenerator.cpp(11): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+         stdafx.cpp
+     1>src\bugs_VS\stdafx.cpp(5): fatal error C1083: Cannot open include file: 'bugs_VS\stdafx.h': No such file or directory
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.53

@@ -1,0 +1,28 @@
+﻿Build started 4/17/2014 7:33:14 PM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomFloatingBot.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp
+         TopDownSprite.cpp
+         SpriteManager.cpp
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\sprite\spritemanager.cpp(32): error C2039: 'getPhysicalProperties' : is not a member of 'AnimatedSprite'
+                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\sprite\animatedsprite.h(20) : see declaration of 'AnimatedSprite'
+         AnimatedSprite.cpp
+         RandomJumpingBot.cpp
+         RandomFloatingBot.cpp
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\randomfloatingbot.cpp(102): error C2039: 'pp' : is not a member of 'RandomFloatingBot'
+                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\randomfloatingbot.h(9) : see declaration of 'RandomFloatingBot'
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\randomfloatingbot.cpp(102): error C2228: left of '.setVelocity' must have class/struct/union
+         NPC.cpp
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.h(23): error C2535: 'NPC::NPC(unsigned int,unsigned int,unsigned int)' : member function already defined or declared
+                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.h(18) : see declaration of 'NPC::NPC'
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.cpp(11): error C2059: syntax error : 'private'
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.cpp(14): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.cpp(14): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.cpp(80): error C2039: 'pickRandomVelocity' : is not a member of 'NPC'
+                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.h(9) : see declaration of 'NPC'
+         Generating Code...
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:35.18

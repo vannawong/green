@@ -1,0 +1,21 @@
+﻿Build started 4/26/2014 10:35:03 AM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\tinyxml\tinyxml.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\tinyxml\tinystr.cpp src\tinyxml\tinyxml.cpp src\tinyxml\tinyxmlerror.cpp src\tinyxml\tinyxmlparser.cpp src\tinyxml\xmltest.cpp src\tinyxml_VS\stdafx.cpp
+         tinystr.cpp
+     1>src\tinyxml\tinystr.cpp(24): fatal error C1083: Cannot open include file: 'tinyxml_VS\stdafx.h': No such file or directory
+         tinyxml.cpp
+     1>src\tinyxml\tinyxml.cpp(25): fatal error C1083: Cannot open include file: 'tinyxml_VS\stdafx.h': No such file or directory
+         tinyxmlerror.cpp
+     1>src\tinyxml\tinyxmlerror.cpp(25): fatal error C1083: Cannot open include file: 'tinyxml_VS\stdafx.h': No such file or directory
+         tinyxmlparser.cpp
+     1>src\tinyxml\tinyxmlparser.cpp(26): fatal error C1083: Cannot open include file: 'tinyxml_VS\stdafx.h': No such file or directory
+         xmltest.cpp
+     1>src\tinyxml\xmltest.cpp(5): fatal error C1083: Cannot open include file: 'tinyxml_VS\stdafx.h': No such file or directory
+         stdafx.cpp
+     1>src\tinyxml_VS\stdafx.cpp(5): fatal error C1083: Cannot open include file: 'tinyxml_VS\stdafx.h': No such file or directory
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\tinyxml\tinyxml.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.67

@@ -1,0 +1,53 @@
+﻿Build started 4/16/2014 11:27:18 PM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\.." /I"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\Collision" /I"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\Common" /I"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\Dynamics" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Box2D.dir\Debug\\" /Fd"Box2D.dir\Debug\vc110.pdb" /Gd /TP /errorReport:prompt ..\..\Box2D\Collision\Shapes\b2CircleShape.cpp ..\..\Box2D\Collision\b2CollideCircle.cpp ..\..\Box2D\Collision\b2Distance.cpp ..\..\Box2D\Collision\b2TimeOfImpact.cpp ..\..\Box2D\Dynamics\b2Fixture.cpp ..\..\Box2D\Dynamics\b2World.cpp
+         b2CircleShape.cpp
+         b2CollideCircle.cpp
+         b2Distance.cpp
+         b2TimeOfImpact.cpp
+         b2Fixture.cpp
+         b2World.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Common\Box2D.lib" /NOLOGO /MACHINE:X64 Box2D.dir\Debug\b2DistanceJoint.obj
+         Box2D.dir\Debug\b2FrictionJoint.obj
+         Box2D.dir\Debug\b2GearJoint.obj
+         Box2D.dir\Debug\b2Joint.obj
+         Box2D.dir\Debug\b2LineJoint.obj
+         Box2D.dir\Debug\b2MouseJoint.obj
+         Box2D.dir\Debug\b2PrismaticJoint.obj
+         Box2D.dir\Debug\b2PulleyJoint.obj
+         Box2D.dir\Debug\b2RevoluteJoint.obj
+         Box2D.dir\Debug\b2WeldJoint.obj
+         Box2D.dir\Debug\b2CircleContact.obj
+         Box2D.dir\Debug\b2Contact.obj
+         Box2D.dir\Debug\b2ContactSolver.obj
+         Box2D.dir\Debug\b2PolygonAndCircleContact.obj
+         Box2D.dir\Debug\b2PolygonContact.obj
+         Box2D.dir\Debug\b2TOISolver.obj
+         Box2D.dir\Debug\b2Body.obj
+         Box2D.dir\Debug\b2ContactManager.obj
+         Box2D.dir\Debug\b2Fixture.obj
+         Box2D.dir\Debug\b2Island.obj
+         Box2D.dir\Debug\b2World.obj
+         Box2D.dir\Debug\b2WorldCallbacks.obj
+         Box2D.dir\Debug\b2BlockAllocator.obj
+         Box2D.dir\Debug\b2Math.obj
+         Box2D.dir\Debug\b2Settings.obj
+         Box2D.dir\Debug\b2StackAllocator.obj
+         Box2D.dir\Debug\b2CircleShape.obj
+         Box2D.dir\Debug\b2PolygonShape.obj
+         Box2D.dir\Debug\b2BroadPhase.obj
+         Box2D.dir\Debug\b2CollideCircle.obj
+         Box2D.dir\Debug\b2CollidePolygon.obj
+         Box2D.dir\Debug\b2Collision.obj
+         Box2D.dir\Debug\b2Distance.obj
+         Box2D.dir\Debug\b2DynamicTree.obj
+         Box2D.dir\Debug\b2TimeOfImpact.obj
+         Box2D.vcxproj -> C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Common\Box2D.lib
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.54

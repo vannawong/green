@@ -1,0 +1,76 @@
+﻿Build started 4/26/2014 10:35:03 AM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\data_loader\GameDataLoader.cpp src\sssf\game\Game.cpp src\sssf\game\WStringTable.cpp src\sssf\graphics\GameGraphics.cpp src\sssf\graphics\RenderList.cpp src\sssf\graphics\TextureManager.cpp src\sssf\gsm\ai\BotRecycler.cpp src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomFloatingBot.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\AnimatedSpriteType.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp src\sssf\gsm\state\GameStateManager.cpp src\sssf\gsm\world\SparseLayer.cpp src\sssf\gsm\world\TiledLayer.cpp src\sssf\gsm\world\World.cpp src\sssf\gui\Button.cpp src\sssf\gui\Cursor.cpp src\sssf\gui\GameGUI.cpp src\sssf\gui\ScreenGUI.cpp src\sssf\gui\Viewport.cpp src\sssf\input\GameInput.cpp src\sssf\platforms\DirectX\DirectXGraphics.cpp src\sssf\platforms\DirectX\DirectXTextureManager.cpp src\sssf\platforms\Windows\WindowsInput.cpp src\sssf\platforms\Windows\WindowsOS.cpp src\sssf\platforms\Windows\WindowsTimer.cpp src\sssf\text\BufferedTextFileReader.cpp src\sssf\text\GameText.cpp src\sssf\text\TextFileWriter.cpp src\sssf_VS\stdafx.cpp
+         GameDataLoader.cpp
+     1>src\sssf\data_loader\GameDataLoader.cpp(1): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         Game.cpp
+     1>src\sssf\game\Game.cpp(10): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         WStringTable.cpp
+     1>src\sssf\game\WStringTable.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         GameGraphics.cpp
+     1>src\sssf\graphics\GameGraphics.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         RenderList.cpp
+     1>src\sssf\graphics\RenderList.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         TextureManager.cpp
+     1>src\sssf\graphics\TextureManager.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         BotRecycler.cpp
+     1>src\sssf\gsm\ai\BotRecycler.cpp(1): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         NPC.cpp
+     1>src\sssf\gsm\ai\bots\NPC.cpp(1): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         RandomFloatingBot.cpp
+     1>src\sssf\gsm\ai\bots\RandomFloatingBot.cpp(1): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         RandomJumpingBot.cpp
+     1>src\sssf\gsm\ai\bots\RandomJumpingBot.cpp(1): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         AnimatedSprite.cpp
+     1>src\sssf\gsm\sprite\AnimatedSprite.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         AnimatedSpriteType.cpp
+     1>src\sssf\gsm\sprite\AnimatedSpriteType.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         SpriteManager.cpp
+     1>src\sssf\gsm\sprite\SpriteManager.cpp(12): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         TopDownSprite.cpp
+     1>src\sssf\gsm\sprite\TopDownSprite.cpp(1): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         GameStateManager.cpp
+     1>src\sssf\gsm\state\GameStateManager.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         SparseLayer.cpp
+     1>src\sssf\gsm\world\SparseLayer.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         TiledLayer.cpp
+     1>src\sssf\gsm\world\TiledLayer.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         World.cpp
+     1>src\sssf\gsm\world\World.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         Button.cpp
+     1>src\sssf\gui\Button.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         Cursor.cpp
+     1>src\sssf\gui\Cursor.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         Compiling...
+         GameGUI.cpp
+     1>src\sssf\gui\GameGUI.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         ScreenGUI.cpp
+     1>src\sssf\gui\ScreenGUI.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         Viewport.cpp
+     1>src\sssf\gui\Viewport.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         GameInput.cpp
+     1>src\sssf\input\GameInput.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         DirectXGraphics.cpp
+     1>src\sssf\platforms\DirectX\DirectXGraphics.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         DirectXTextureManager.cpp
+     1>src\sssf\platforms\DirectX\DirectXTextureManager.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         WindowsInput.cpp
+     1>src\sssf\platforms\Windows\WindowsInput.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         WindowsOS.cpp
+     1>src\sssf\platforms\Windows\WindowsOS.cpp(12): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         WindowsTimer.cpp
+     1>src\sssf\platforms\Windows\WindowsTimer.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         BufferedTextFileReader.cpp
+     1>src\sssf\text\BufferedTextFileReader.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         GameText.cpp
+     1>src\sssf\text\GameText.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         TextFileWriter.cpp
+     1>src\sssf\text\TextFileWriter.cpp(11): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+         stdafx.cpp
+     1>src\sssf_VS\stdafx.cpp(5): fatal error C1083: Cannot open include file: 'sssf_VS\stdafx.h': No such file or directory
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.07

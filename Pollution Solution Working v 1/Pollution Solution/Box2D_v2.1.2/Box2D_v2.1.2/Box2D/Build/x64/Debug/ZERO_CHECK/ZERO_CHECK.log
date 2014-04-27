@@ -1,0 +1,15 @@
+﻿Build started 4/26/2014 11:33:23 AM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Checking Build System
+         CMake does not need to re-run because C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/CMakeFiles/generate.stamp is up-to-date.
+         CMake does not need to re-run because C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/Box2D/CMakeFiles/generate.stamp is up-to-date.
+         CMake does not need to re-run because C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/HelloWorld/CMakeFiles/generate.stamp is up-to-date.
+         CMake does not need to re-run because C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/freeglut/CMakeFiles/generate.stamp is up-to-date.
+         CMake does not need to re-run because C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/glui/CMakeFiles/generate.stamp is up-to-date.
+         CMake does not need to re-run because C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/Testbed/CMakeFiles/generate.stamp is up-to-date.
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\ZERO_CHECK.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.84
