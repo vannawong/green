@@ -35,7 +35,7 @@ RandomJumpingBot::RandomJumpingBot(	Physics *physics,
 
 	// AND START THE BOT OFF IN A RANDOM DIRECTION AND VELOCITY
 	// AND WITH RANDOM INTERVAL UNTIL IT THINKS AGAIN
-	this->pp.setVelocity(0, 0);
+	this->pp.setVelocity(1, 1);
 	
 	//pickRandomJump(physics);
 	pickRandomCyclesInRange();

@@ -113,7 +113,7 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	//INIT THE MUSIC
 	//FMOD_SOUND *s;
 	FMOD_SYSTEM *system;
-	FMOD_SOUND *audio;
+	//FMOD_SOUND *audio;
 	FMOD_SOUND *audiostream;
 	unsigned int version;
 	FMOD_RESULT res;
@@ -143,6 +143,9 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
     // Set the speaker mode to match that in Control Panel
     //res = FMOD_System_SetSpeakerPosition(speakerMode);
 
+	FMOD_CHANNELGROUP *channelMusic = NULL;
+	FMOD_CHANNEL *songchan = NULL;
+
 	res = FMOD_System_Init (system, 100, FMOD_INIT_NORMAL, 0);
 	if (res != FMOD_OK)
 		printf ("system init failed");
@@ -151,6 +154,8 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	if (res != FMOD_OK)
 		printf ("system createStream failed");
 	//FMOD_System_PlaySound(system,audiostream,0,false,0);
+	FMOD_Channel_SetChannelGroup (songchan, channelMusic);
+	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
 
 	/*FMOD_CHANNELGROUP *channelMusic;
 	//FMOD_CHANNELGROUP *channelEffects;
