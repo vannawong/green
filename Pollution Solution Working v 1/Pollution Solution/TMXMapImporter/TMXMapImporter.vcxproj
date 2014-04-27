@@ -42,8 +42,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Common\</OutDir>
     <IntDir>$(SolutionDir)Temp\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)src\;$(SolutionDir)tinyxml\src\;$(SolutionDir)XMLFileImporter\src\;$(SolutionDir)SimpleSideScrollerFramework\src\;$(SolutionDir)Box2D_v2.1.2\Box2D_v2.1.2\Box2D;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(SolutionDir)Common\;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)src\;$(SolutionDir)tinyxml\src\;$(SolutionDir)XMLFileImporter\src\;$(SolutionDir)SimpleSideScrollerFramework\src\;$(SolutionDir)Box2D_v2.1.2\Box2D_v2.1.2\Box2D;$(SolutionDir)FMOD SoundSystem\FMOD Studio API Windows\api\fsbank\inc\;$(SolutionDir)FMOD SoundSystem\FMOD Studio API Windows\api\lowlevel\inc\;$(SolutionDir)FMOD SoundSystem\FMOD Studio API Windows\api\studio\inc\;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(SolutionDir)Common\;$(SolutionDir)FMOD SoundSystem\FMOD Studio API Windows\api\fsbank\lib\;$(SolutionDir)FMOD SoundSystem\FMOD Studio API Windows\api\lowlevel\lib\;$(SolutionDir)FMOD SoundSystem\FMOD Studio API Windows\api\studio\lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
