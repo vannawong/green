@@ -150,7 +150,7 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	if (res != FMOD_OK)
 		printf ("system init failed");
 	//FMOD_System_CreateSound (system, ".mp3", FMOD_DEFAULT, 0, &audio);
-	res = FMOD_System_CreateStream (system, "C:\\Users\\Stellar\\Music\\planetarium.mp3", FMOD_DEFAULT, 0, &audiostream);
+	res = FMOD_System_CreateStream (system, "data\\music\\planetarium.mp3", FMOD_DEFAULT, 0, &audiostream);
 	if (res != FMOD_OK)
 		printf ("system createStream failed");
 	//FMOD_System_PlaySound(system,audiostream,0,false,0);
