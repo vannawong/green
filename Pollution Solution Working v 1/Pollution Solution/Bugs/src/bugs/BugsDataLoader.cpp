@@ -338,6 +338,7 @@ void BugsDataLoader::hardCodedLoadGUIExample(Game *game)
 	initSplashScreen(game, gui, guiTextureManager);
 	initMainMenu(gui, guiTextureManager);
 	initInGameGUI(gui, guiTextureManager);
+	initQuestsScreen(gui, guiTextureManager);
 }
 
 /*
@@ -494,6 +495,25 @@ void BugsDataLoader::initInGameGUI(GameGUI *gui, DirectXTextureManager *guiTextu
 
 	// AND LET'S ADD OUR SCREENS
 	gui->addScreenGUI(GS_GAME_IN_PROGRESS,	inGameGUI);
+}
+
+void BugsDataLoader::initQuestsScreen(GameGUI *gui, DirectXTextureManager *guiTextureManager){
+		// NOW ADD THE IN-GAME GUI
+	ScreenGUI *questsScreen = new ScreenGUI();
+
+	unsigned int normalTextureID = guiTextureManager->loadTexture(W_QUEST_SCREEN_PATH);
+	OverlayImage *imageToAdd = new OverlayImage();
+	imageToAdd->x = 100;
+	imageToAdd->y = 200;
+	imageToAdd->z = 0;
+	imageToAdd->alpha = 200;
+	imageToAdd->width = 1123;
+	imageToAdd->height = 517;
+	imageToAdd->imageID = normalTextureID;
+	questsScreen->addOverlayImage(imageToAdd);
+
+	// AND LET'S ADD OUR SCREENS
+	gui->addScreenGUI(GS_QUEST_SCREEN,	questsScreen);
 }
 
 /*
