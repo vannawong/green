@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 4/27/2014 9:29:45 PM.
      1>Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(944,5): error MSB3191: Unable to create directory "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\CMakeFiles\". Access to the path 'C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\CMakeFiles\' is denied.
@@ -7,7 +8,14 @@
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(944,5): error MSB3191: Unable to create directory "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\glui\CMakeFiles\". Access to the path 'C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\glui\CMakeFiles\' is denied.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(944,5): error MSB3191: Unable to create directory "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Testbed\CMakeFiles\". Access to the path 'C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Testbed\CMakeFiles\' is denied.
      1>Done Building Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\ZERO_CHECK.vcxproj" (Build target(s)) -- FAILED.
+=======
+﻿Build started 4/27/2014 8:28:08 PM.
+>>>>>>> origin/master
 
 Build FAILED.
 
+<<<<<<< HEAD
 Time Elapsed 00:00:00.05
+=======
+Time Elapsed 00:00:00.44
+>>>>>>> origin/master
