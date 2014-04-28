@@ -14,14 +14,14 @@
 #include "sssf\game\Game.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
-
+class Music;
 class BugsDataLoader : public GameDataLoader
 {
 private:
 	// WE NEED THESE GUYS TO INIT OUR WINDOWS WINDOW
 	HINSTANCE hInstance;
 	int nCmdShow;
-
+	
 public:
 	BugsDataLoader()	{}
 	~BugsDataLoader()	{}
