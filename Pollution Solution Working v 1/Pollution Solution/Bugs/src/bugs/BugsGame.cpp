@@ -44,6 +44,19 @@
 #include "sssf\platforms\DirectX\DirectXGraphics.h"
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
 
+#include "LuaPlusFramework\LuaPlus.h"
+using namespace LuaPlus;
+#include "stdio.h"
+using namespace std;
+#include <locale>
+#include <codecvt>
+#include <string>
+
+#include <cstdio>
+#include <iostream>
+#include <cmath>
+#include <limits> 
+
 /*
 	WinMain - This is the application's starting point. In this method we will construct a Game object, 
 	then initialize all the platform-dependent technologies, then construct all the custom data for our 
@@ -63,6 +76,19 @@ int WINAPI WinMain(HINSTANCE hInstance,
 {
 	// CREATE THE GAME
 	Game *bugsGame = new Game();
+
+	string luaFile("luaConstants.lua");
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
+	LuaState* luaPState = LuaState::Create();
+	if (luaPState->DoFile(luaFile.c_str()));
+		OutputDebugStringA(luaPState->StackTop().GetString());
+
+	string hi(luaPState->GetGlobal("W_INIT_FILE").GetString());
+	std::wstring W_INIT_FILE = converter.from_bytes(hi);
+	
+	hi = luaPState->GetGlobal("W_GUI_INIT_FILE").GetString();
+	std::wstring W_GUI_INIT_FILE = converter.from_bytes(hi);
 
 	// FIRST WE'LL SETUP THE DATA LOADER, SINCE IT MAY NEED TO READ
 	// IN DATA TO SETUP OTHER STUFF
@@ -109,6 +135,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	delete bugsButtonHandler;
 	delete bugsKeyHandler;
 	delete bugsGame;
+	LuaState::Destroy(luaPState);
 
 	// AND RETURN
 	return 0;

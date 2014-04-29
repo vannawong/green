@@ -80,7 +80,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\..;C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\Collision;C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\Common;C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Box2D\Dynamics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>

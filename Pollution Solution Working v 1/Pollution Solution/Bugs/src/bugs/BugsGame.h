@@ -8,14 +8,15 @@
 	all of this data would better serve us if loaded from files.
 */
 
+
 // HERE IS THE Green GAME SETUP/INIT FILE. EVERYTHING WOULD START FROM HERE
 static const wstring	W_LEVEL_1_DIR			= L"data/levels/village/";
 static const wstring	W_LEVEL_1_NAME			= L"village.tmx";
 //static const wstring	W_LEVEL_1_DIR			= L"data/levels/TopDownDesert/";
 //static const wstring	W_LEVEL_1_NAME			= L"TopDownDesert.tmx";
 static const wstring	W_LEVEL_1_PATH			= W_LEVEL_1_DIR + W_LEVEL_1_NAME;
-static const wstring	W_INIT_FILE				= L"data/BugsInit.txt";
-static const wstring	W_GUI_INIT_FILE			= L"data/BugsGUI.txt";
+//static const wstring	W_INIT_FILE				= L"data/BugsInit.txt";
+//static const wstring	W_GUI_INIT_FILE			= L"data/BugsGUI.txt";
 static const string		W_DEBUG_FILE			= "DebugOutput.txt";
 
 // HERE ARE THE GAME PROPERTIES WE ARE LOADING FROM FROM THE SETUP FILE
