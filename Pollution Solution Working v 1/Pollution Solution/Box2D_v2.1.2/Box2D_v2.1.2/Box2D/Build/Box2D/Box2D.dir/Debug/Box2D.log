@@ -1,9 +1,24 @@
-﻿Build started 4/27/2014 7:31:52 PM.
-     1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" on node 2 (Build target(s)).
+<<<<<<< HEAD
+﻿Build started 4/27/2014 9:29:46 PM.
+     1>Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" on node 2 (Build target(s)).
      1>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1422,5): warning : The referenced project 'C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/ZERO_CHECK.vcxproj' does not exist.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(944,5): error MSB3191: Unable to create directory "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\CMakeFiles\". Access to the path 'C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\CMakeFiles\' is denied.
-     1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" (Build target(s)) -- FAILED.
+     1>Done Building Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" (Build target(s)) -- FAILED.
+=======
+﻿Build started 4/27/2014 8:28:09 PM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Box2D/CMakeLists.txt
+         CMake does not need to re-run because C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\CMakeFiles\generate.stamp is up-to-date.
+       Lib:
+         Box2D.vcxproj -> C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common\Box2D.lib
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" (Build target(s)).
+>>>>>>> origin/master
 
 Build FAILED.
 
-Time Elapsed 00:00:00.01
+<<<<<<< HEAD
+Time Elapsed 00:00:00.11
+=======
+Time Elapsed 00:00:00.73
+>>>>>>> origin/master

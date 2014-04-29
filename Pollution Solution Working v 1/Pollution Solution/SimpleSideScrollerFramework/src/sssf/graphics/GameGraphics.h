@@ -57,6 +57,7 @@ protected:
 
 	// TOGGLES WHETHER OR NOT TO RENDER THE TEXT, WHICH IS USEFUL
 	// FOR DISPLAYING DEBUG INFORMATION
+	map<string, boolean> renderValues;
 	bool debugTextShouldBeRendered;
 	bool pathfindingPathShouldBeRendered;
 	bool pathfindingGridShouldBeRendered;

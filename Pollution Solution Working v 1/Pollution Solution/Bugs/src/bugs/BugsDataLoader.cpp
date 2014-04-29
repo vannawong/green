@@ -6,6 +6,7 @@
 #include "bugs\BugsGame.h"
 #include "bugs\BugsKeyEventHandler.h"
 #include "bugs\BugsTextGenerator.h"
+#include "bugs\Music.h"
 
 // GAME OBJECT INCLUDES
 #include "sssf\game\Game.h"
@@ -110,10 +111,14 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	// INIT THE VIEWPORT TOO
 	initViewport(game->getGUI(), properties);	
 
-	//INIT THE MUSIC
+	//game->playMusic ("planetarium.mp3");
+	Music *mus = new Music();
+	const char* music = "data\\music\\planetarium.mp3";
+	mus->playMusic(music);
+	/*//INIT THE MUSIC
 	//FMOD_SOUND *s;
 	FMOD_SYSTEM *system;
-	FMOD_SOUND *audio;
+	//FMOD_SOUND *audio;
 	FMOD_SOUND *audiostream;
 	unsigned int version;
 	FMOD_RESULT res;
@@ -143,14 +148,19 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
     // Set the speaker mode to match that in Control Panel
     //res = FMOD_System_SetSpeakerPosition(speakerMode);
 
+	FMOD_CHANNELGROUP *channelMusic = NULL;
+	FMOD_CHANNEL *songchan = NULL;
+
 	res = FMOD_System_Init (system, 100, FMOD_INIT_NORMAL, 0);
 	if (res != FMOD_OK)
 		printf ("system init failed");
 	//FMOD_System_CreateSound (system, ".mp3", FMOD_DEFAULT, 0, &audio);
-	res = FMOD_System_CreateStream (system, "C:\Users\Jackie Wei\Music\Ano Hana ED Single - secret base ~Kimi ga Kureta Mono~\01 - secret base ~Kimi ga Kureta Mono~ (10 years after Ver.)", FMOD_DEFAULT, 0, &audiostream);
+	res = FMOD_System_CreateStream (system, "data\\music\\planetarium.mp3", FMOD_DEFAULT, 0, &audiostream);
 	if (res != FMOD_OK)
 		printf ("system createStream failed");
-	FMOD_System_PlaySound(system,audiostream,0,false,0);
+	//FMOD_System_PlaySound(system,audiostream,0,false,0);
+	FMOD_Channel_SetChannelGroup (songchan, channelMusic);
+	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
 
 	/*FMOD_CHANNELGROUP *channelMusic;
 	//FMOD_CHANNELGROUP *channelEffects;
@@ -333,6 +343,7 @@ void BugsDataLoader::hardCodedLoadGUIExample(Game *game)
 	initSplashScreen(game, gui, guiTextureManager);
 	initMainMenu(gui, guiTextureManager);
 	initInGameGUI(gui, guiTextureManager);
+	initQuestsScreen(gui, guiTextureManager);
 }
 
 /*
@@ -489,6 +500,25 @@ void BugsDataLoader::initInGameGUI(GameGUI *gui, DirectXTextureManager *guiTextu
 
 	// AND LET'S ADD OUR SCREENS
 	gui->addScreenGUI(GS_GAME_IN_PROGRESS,	inGameGUI);
+}
+
+void BugsDataLoader::initQuestsScreen(GameGUI *gui, DirectXTextureManager *guiTextureManager){
+		// NOW ADD THE IN-GAME GUI
+	ScreenGUI *questsScreen = new ScreenGUI();
+
+	unsigned int normalTextureID = guiTextureManager->loadTexture(W_QUEST_SCREEN_PATH);
+	OverlayImage *imageToAdd = new OverlayImage();
+	imageToAdd->x = 100	;
+	imageToAdd->y = 200;
+	imageToAdd->z = 0;
+	imageToAdd->alpha = 200;
+	imageToAdd->width = 1123;
+	imageToAdd->height = 517;
+	imageToAdd->imageID = normalTextureID;
+	questsScreen->addOverlayImage(imageToAdd);
+
+	// AND LET'S ADD OUR SCREENS
+	gui->addScreenGUI(GS_QUEST_SCREEN,	questsScreen);
 }
 
 /*

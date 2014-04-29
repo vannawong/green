@@ -1,18 +1,23 @@
-﻿Build started 4/29/2014 5:25:12 PM.
-     1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 2 (Build target(s)).
+<<<<<<< HEAD
+﻿Build started 4/27/2014 9:29:45 PM.
+     1>Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 5 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\data_loader\GameDataLoader.cpp src\sssf\game\Game.cpp src\sssf\game\WStringTable.cpp src\sssf\graphics\GameGraphics.cpp src\sssf\graphics\RenderList.cpp src\sssf\graphics\TextureManager.cpp src\sssf\gsm\ai\BotRecycler.cpp src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomFloatingBot.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\physics\AABB.cpp src\sssf\gsm\physics\CollidableObject.cpp src\sssf\gsm\physics\Physics.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\AnimatedSpriteType.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp src\sssf\gsm\state\GameStateManager.cpp src\sssf\gsm\world\SparseLayer.cpp src\sssf\gsm\world\TiledLayer.cpp src\sssf\gsm\world\World.cpp src\sssf\gui\Button.cpp src\sssf\gui\Cursor.cpp src\sssf\gui\GameGUI.cpp src\sssf\gui\ScreenGUI.cpp src\sssf\gui\Viewport.cpp src\sssf\input\GameInput.cpp src\sssf\platforms\DirectX\DirectXGraphics.cpp src\sssf\platforms\DirectX\DirectXTextureManager.cpp src\sssf\platforms\Windows\WindowsInput.cpp src\sssf\platforms\Windows\WindowsOS.cpp src\sssf\platforms\Windows\WindowsTimer.cpp src\sssf\text\BufferedTextFileReader.cpp src\sssf\text\GameText.cpp src\sssf\text\TextFileWriter.cpp src\sssf_VS\stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\data_loader\GameDataLoader.cpp src\sssf\game\Game.cpp src\sssf\game\WStringTable.cpp src\sssf\graphics\GameGraphics.cpp src\sssf\graphics\RenderList.cpp src\sssf\graphics\TextureManager.cpp src\sssf\gsm\ai\BotRecycler.cpp src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomFloatingBot.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\physics\AABB.cpp src\sssf\gsm\physics\CollidableObject.cpp src\sssf\gsm\physics\Physics.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\AnimatedSpriteType.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp src\sssf\gsm\state\GameStateManager.cpp src\sssf\gsm\world\SparseLayer.cpp src\sssf\gsm\world\TiledLayer.cpp src\sssf\gsm\world\World.cpp src\sssf\gui\Button.cpp src\sssf\gui\Cursor.cpp src\sssf\gui\GameGUI.cpp src\sssf\gui\ScreenGUI.cpp src\sssf\gui\Viewport.cpp src\sssf\input\GameInput.cpp src\sssf\platforms\DirectX\DirectXGraphics.cpp src\sssf\platforms\DirectX\DirectXTextureManager.cpp src\sssf\platforms\Windows\WindowsInput.cpp src\sssf\platforms\Windows\WindowsOS.cpp src\sssf\platforms\Windows\WindowsTimer.cpp src\sssf\text\BufferedTextFileReader.cpp src\sssf\text\GameText.cpp src\sssf\text\TextFileWriter.cpp src\sssf_VS\stdafx.cpp
          stdafx.cpp
          TextFileWriter.cpp
+=======
+﻿Build started 4/27/2014 8:13:32 PM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\data_loader\GameDataLoader.cpp src\sssf\game\Game.cpp src\sssf\graphics\GameGraphics.cpp src\sssf\graphics\TextureManager.cpp src\sssf\gsm\ai\BotRecycler.cpp src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomFloatingBot.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\physics\Physics.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp src\sssf\gsm\state\GameStateManager.cpp src\sssf\gsm\world\SparseLayer.cpp src\sssf\gsm\world\TiledLayer.cpp src\sssf\gsm\world\World.cpp src\sssf\gui\Button.cpp src\sssf\gui\Cursor.cpp src\sssf\gui\GameGUI.cpp src\sssf\gui\ScreenGUI.cpp src\sssf\input\GameInput.cpp src\sssf\platforms\DirectX\DirectXGraphics.cpp src\sssf\platforms\DirectX\DirectXTextureManager.cpp src\sssf\platforms\Windows\WindowsInput.cpp src\sssf\platforms\Windows\WindowsOS.cpp src\sssf\platforms\Windows\WindowsTimer.cpp src\sssf\text\GameText.cpp
+>>>>>>> origin/master
          GameText.cpp
-         BufferedTextFileReader.cpp
          WindowsTimer.cpp
          WindowsOS.cpp
          WindowsInput.cpp
          DirectXTextureManager.cpp
          DirectXGraphics.cpp
          GameInput.cpp
-         Viewport.cpp
          ScreenGUI.cpp
          GameGUI.cpp
          Cursor.cpp
@@ -22,66 +27,70 @@
          SparseLayer.cpp
          GameStateManager.cpp
          TopDownSprite.cpp
-         Generating Code...
-         Compiling...
          SpriteManager.cpp
-         AnimatedSpriteType.cpp
          AnimatedSprite.cpp
          Physics.cpp
+<<<<<<< HEAD
          CollidableObject.cpp
          AABB.cpp
+     1>Done Building Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)) -- FAILED.
+=======
          RandomJumpingBot.cpp
+         Generating Code...
+         Compiling...
          RandomFloatingBot.cpp
          NPC.cpp
          BotRecycler.cpp
          TextureManager.cpp
-         RenderList.cpp
          GameGraphics.cpp
-         WStringTable.cpp
          Game.cpp
          GameDataLoader.cpp
          Generating Code...
-     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\graphics\renderlist.cpp(104): warning C4715: 'RenderList::next' : not all control paths return a value
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib" /LIBPATH:Box2D_d.lib /NOLOGO "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameDataLoader.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Game.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WStringTable.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameGraphics.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RenderList.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TextureManager.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\BotRecycler.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\NPC.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RandomFloatingBot.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RandomJumpingBot.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\AABB.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\CollidableObject.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Physics.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\AnimatedSprite.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\AnimatedSpriteType.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\SpriteManager.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TopDownSprite.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameStateManager.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\SparseLayer.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TiledLayer.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\World.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Button.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Cursor.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameGUI.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\ScreenGUI.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Viewport.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameInput.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\DirectXGraphics.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\DirectXTextureManager.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WindowsInput.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WindowsOS.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WindowsTimer.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\BufferedTextFileReader.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameText.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TextFileWriter.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\stdafx.obj"
-         SimpleSideScrollerFramework.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib
-     1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib" /LIBPATH:Box2D_d.lib /NOLOGO "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameDataLoader.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Game.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WStringTable.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameGraphics.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RenderList.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TextureManager.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\BotRecycler.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\NPC.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RandomFloatingBot.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RandomJumpingBot.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\AABB.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\CollidableObject.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Physics.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\AnimatedSprite.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\AnimatedSpriteType.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\SpriteManager.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TopDownSprite.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameStateManager.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\SparseLayer.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TiledLayer.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\World.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Button.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Cursor.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameGUI.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\ScreenGUI.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Viewport.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameInput.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\DirectXGraphics.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\DirectXTextureManager.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WindowsInput.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WindowsOS.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WindowsTimer.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\BufferedTextFileReader.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameText.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TextFileWriter.obj"
+         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\stdafx.obj"
+         SimpleSideScrollerFramework.vcxproj -> C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)).
+>>>>>>> origin/master
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:01:07.42
+<<<<<<< HEAD
+Time Elapsed 00:00:41.13
+=======
+Time Elapsed 00:03:40.69
+>>>>>>> origin/master
