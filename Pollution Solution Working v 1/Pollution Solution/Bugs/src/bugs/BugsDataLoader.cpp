@@ -6,6 +6,7 @@
 #include "bugs\BugsGame.h"
 #include "bugs\BugsKeyEventHandler.h"
 #include "bugs\BugsTextGenerator.h"
+#include "bugs\Music.h"
 
 // GAME OBJECT INCLUDES
 #include "sssf\game\Game.h"
@@ -110,7 +111,11 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	// INIT THE VIEWPORT TOO
 	initViewport(game->getGUI(), properties);	
 
-	//INIT THE MUSIC
+	//game->playMusic ("planetarium.mp3");
+	Music *mus = new Music();
+	const char* music = "data\\music\\planetarium.mp3";
+	mus->playMusic(music);
+	/*//INIT THE MUSIC
 	//FMOD_SOUND *s;
 	FMOD_SYSTEM *system;
 	//FMOD_SOUND *audio;

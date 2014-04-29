@@ -106,6 +106,9 @@
     <ClInclude Include="src\sssf_VS\stdafx.h" />
     <ClInclude Include="src\sssf_VS\targetver.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6A8E84CB-7249-4DD5-AD55-E152664974FD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -159,7 +162,7 @@
       </AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>Box2D_d.lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Box2D_d.lib;fmod_vc.lib</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

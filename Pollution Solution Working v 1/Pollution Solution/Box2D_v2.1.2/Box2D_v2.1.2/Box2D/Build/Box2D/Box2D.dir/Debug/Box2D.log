@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+﻿Build started 4/27/2014 9:29:46 PM.
+     1>Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" on node 2 (Build target(s)).
+     1>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1422,5): warning : The referenced project 'C:/Users/Rhododendron/Documents/GitHub/green/Pollution Solution/Box2D_v2.1.2/Box2D_v2.1.2/Box2D/Build/ZERO_CHECK.vcxproj' does not exist.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(944,5): error MSB3191: Unable to create directory "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\CMakeFiles\". Access to the path 'C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\CMakeFiles\' is denied.
+     1>Done Building Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" (Build target(s)) -- FAILED.
+=======
 ﻿Build started 4/27/2014 8:28:09 PM.
      1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" on node 2 (Build target(s)).
      1>CustomBuild:
@@ -6,7 +13,12 @@
        Lib:
          Box2D.vcxproj -> C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common\Box2D.lib
      1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Box2D_v2.1.2\Box2D_v2.1.2\Box2D\Build\Box2D\Box2D.vcxproj" (Build target(s)).
+>>>>>>> origin/master
 
-Build succeeded.
+Build FAILED.
 
+<<<<<<< HEAD
+Time Elapsed 00:00:00.11
+=======
 Time Elapsed 00:00:00.73
+>>>>>>> origin/master

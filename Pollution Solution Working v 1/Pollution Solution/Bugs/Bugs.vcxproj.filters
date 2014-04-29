@@ -36,6 +36,9 @@
     <ClCompile Include="src\bugs_VS\stdafx.cpp">
       <Filter>src\bugs_VS</Filter>
     </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>src\Bugs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\bugs\BugsButtonEventHandler.h">
@@ -68,10 +71,17 @@
     <ClInclude Include="src\bugs_VS\targetver.h">
       <Filter>src\bugs_VS</Filter>
     </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>src\Bugs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\bugs_VS\ReadMe.txt">
       <Filter>src\bugs_VS</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

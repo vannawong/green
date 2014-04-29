@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Music.cpp" />
     <ClCompile Include="src\bugs\BugsButtonEventHandler.cpp" />
     <ClCompile Include="src\bugs\BugsCollisionListener.cpp" />
     <ClCompile Include="src\bugs\BugsDataLoader.cpp" />
@@ -21,6 +22,7 @@
     <ClCompile Include="src\bugs_VS\stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Music.h" />
     <ClInclude Include="src\bugs\BugsButtonEventHandler.h" />
     <ClInclude Include="src\bugs\BugsCollisionListener.h" />
     <ClInclude Include="src\bugs\BugsDataLoader.h" />
@@ -34,6 +36,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="src\bugs_VS\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BA25DE62-784B-4A2C-9FC0-115872D53819}</ProjectGuid>

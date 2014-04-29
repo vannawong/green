@@ -1,7 +1,16 @@
+<<<<<<< HEAD
+﻿Build started 4/27/2014 9:29:45 PM.
+     1>Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 5 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\data_loader\GameDataLoader.cpp src\sssf\game\Game.cpp src\sssf\game\WStringTable.cpp src\sssf\graphics\GameGraphics.cpp src\sssf\graphics\RenderList.cpp src\sssf\graphics\TextureManager.cpp src\sssf\gsm\ai\BotRecycler.cpp src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomFloatingBot.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\physics\AABB.cpp src\sssf\gsm\physics\CollidableObject.cpp src\sssf\gsm\physics\Physics.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\AnimatedSpriteType.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp src\sssf\gsm\state\GameStateManager.cpp src\sssf\gsm\world\SparseLayer.cpp src\sssf\gsm\world\TiledLayer.cpp src\sssf\gsm\world\World.cpp src\sssf\gui\Button.cpp src\sssf\gui\Cursor.cpp src\sssf\gui\GameGUI.cpp src\sssf\gui\ScreenGUI.cpp src\sssf\gui\Viewport.cpp src\sssf\input\GameInput.cpp src\sssf\platforms\DirectX\DirectXGraphics.cpp src\sssf\platforms\DirectX\DirectXTextureManager.cpp src\sssf\platforms\Windows\WindowsInput.cpp src\sssf\platforms\Windows\WindowsOS.cpp src\sssf\platforms\Windows\WindowsTimer.cpp src\sssf\text\BufferedTextFileReader.cpp src\sssf\text\GameText.cpp src\sssf\text\TextFileWriter.cpp src\sssf_VS\stdafx.cpp
+         stdafx.cpp
+         TextFileWriter.cpp
+=======
 ﻿Build started 4/27/2014 8:13:32 PM.
      1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\data_loader\GameDataLoader.cpp src\sssf\game\Game.cpp src\sssf\graphics\GameGraphics.cpp src\sssf\graphics\TextureManager.cpp src\sssf\gsm\ai\BotRecycler.cpp src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomFloatingBot.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\physics\Physics.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp src\sssf\gsm\state\GameStateManager.cpp src\sssf\gsm\world\SparseLayer.cpp src\sssf\gsm\world\TiledLayer.cpp src\sssf\gsm\world\World.cpp src\sssf\gui\Button.cpp src\sssf\gui\Cursor.cpp src\sssf\gui\GameGUI.cpp src\sssf\gui\ScreenGUI.cpp src\sssf\input\GameInput.cpp src\sssf\platforms\DirectX\DirectXGraphics.cpp src\sssf\platforms\DirectX\DirectXTextureManager.cpp src\sssf\platforms\Windows\WindowsInput.cpp src\sssf\platforms\Windows\WindowsOS.cpp src\sssf\platforms\Windows\WindowsTimer.cpp src\sssf\text\GameText.cpp
+>>>>>>> origin/master
          GameText.cpp
          WindowsTimer.cpp
          WindowsOS.cpp
@@ -21,6 +30,11 @@
          SpriteManager.cpp
          AnimatedSprite.cpp
          Physics.cpp
+<<<<<<< HEAD
+         CollidableObject.cpp
+         AABB.cpp
+     1>Done Building Project "C:\Users\Stellar\Documents\git\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)) -- FAILED.
+=======
          RandomJumpingBot.cpp
          Generating Code...
          Compiling...
@@ -71,7 +85,12 @@
          "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\stdafx.obj"
          SimpleSideScrollerFramework.vcxproj -> C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib
      1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)).
+>>>>>>> origin/master
 
-Build succeeded.
+Build FAILED.
 
+<<<<<<< HEAD
+Time Elapsed 00:00:41.13
+=======
 Time Elapsed 00:03:40.69
+>>>>>>> origin/master
