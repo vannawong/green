@@ -503,7 +503,7 @@ void BugsDataLoader::initQuestsScreen(GameGUI *gui, DirectXTextureManager *guiTe
 
 	unsigned int normalTextureID = guiTextureManager->loadTexture(W_QUEST_SCREEN_PATH);
 	OverlayImage *imageToAdd = new OverlayImage();
-	imageToAdd->x = 100;
+	imageToAdd->x = 100	;
 	imageToAdd->y = 200;
 	imageToAdd->z = 0;
 	imageToAdd->alpha = 200;
