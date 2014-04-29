@@ -25,9 +25,11 @@
 */
 GameGraphics::GameGraphics()
 {
-	debugTextShouldBeRendered = false;
-	pathfindingGridShouldBeRendered = false;
-	renderQuests = false;
+	map<string, bool>(renderValues);
+	renderValues.insert("debugText", false);
+	renderValues.insert("pathFind", false);
+	renderValues.insert("quests", false);
+	renderValues.insert("inventory", false);
 }
 
 /*
