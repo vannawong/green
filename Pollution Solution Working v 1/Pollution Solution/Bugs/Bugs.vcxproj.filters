@@ -71,7 +71,7 @@
     <ClInclude Include="src\bugs_VS\targetver.h">
       <Filter>src\bugs_VS</Filter>
     </ClInclude>
-    <ClInclude Include="Music.h">
+    <ClInclude Include="src\bugs\Music.h">
       <Filter>src\Bugs</Filter>
     </ClInclude>
   </ItemGroup>
