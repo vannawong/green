@@ -57,11 +57,7 @@ protected:
 
 	// TOGGLES WHETHER OR NOT TO RENDER THE TEXT, WHICH IS USEFUL
 	// FOR DISPLAYING DEBUG INFORMATION
-	map<string, boolean> renderValues;
-	bool debugTextShouldBeRendered;
-	bool pathfindingPathShouldBeRendered;
-	bool pathfindingGridShouldBeRendered;
-	bool renderQuests;
+	std::map<std::string, bool> *renderValues;
 
 public:	
 	// INLINED ACCESSOR METHODS
@@ -69,19 +65,19 @@ public:
 	TextureManager*			getGUITextureManager()		{ return guiTextureManager;		}
 	RenderList*				getWorldRenderList()		{ return worldRenderList;		}
 	TextureManager*			getWorldTextureManager()	{ return worldTextureManager;	}
-	boolean					isRenderQuests()			{ return renderQuests;			}
+	boolean					isRenderQuests()			{ return renderValues->at("quests"); }
 
 	// AND A METHOD FOR TURNING DEBUG TEXT ON AND OFF
 	void toggleDebugTextShouldBeRendered()
-	{ debugTextShouldBeRendered = !debugTextShouldBeRendered; }
+	{ renderValues->at("debugText") = !renderValues->at("debugText"); }
 	void togglePathfindingGridShouldBeRendered()
-	{ pathfindingGridShouldBeRendered = !pathfindingGridShouldBeRendered; }
-	void togglePathfindingPathShouldBeRendered()
-	{ pathfindingPathShouldBeRendered = !pathfindingPathShouldBeRendered; }
-
+	{ renderValues->at("pathFind") = !renderValues->at("pathFind");  }
+	
 	// AND OTHER OVERLAYS
 	void toggleRenderQuests()
-	{ renderQuests = !renderQuests;										  }
+	{ renderValues->at("quests") = !renderValues->at("quests"); }
+	void toggleInventory()
+	{ renderValues->at("inventory") = !renderValues->at("inventory"); }
 
 	// VIRTUAL METHODS TO BE OVERRIDDEN BY TECHNOLOGY
 	// SPECIFIC CLASSES

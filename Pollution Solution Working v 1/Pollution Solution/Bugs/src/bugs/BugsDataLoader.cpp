@@ -11,7 +11,7 @@
 // GAME OBJECT INCLUDES
 #include "sssf\game\Game.h"
 #include "sssf\graphics\GameGraphics.h"
-#include "sssf\gsm\ai\bots\RandomJumpingBot.h"
+#include "sssf\gsm\ai\bots\GarbageMon.h"
 #include "sssf\gsm\ai\bots\NPC.h"
 #include "sssf\gsm\sprite\TopDownSprite.h"
 #include "sssf\gsm\state\GameState.h"
@@ -258,8 +258,18 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	player->setOnTileLastFrame(false);
 	player->affixTightAABBBoundingVolume();
 
+	// MAKING A HEALTH BAR
+	AnimatedSpriteType *healthBarSpriteType = spriteManager->getSpriteType(4);
+	AnimatedSprite *healthBar = spriteManager->getHealthBar();
+	healthBar->setSpriteType(healthBarSpriteType);
+	healthBar->setAlpha(255);
+	healthBar->setCurrentState(L"100");
+	PhysicalProperties *healthprops = healthBar->getPhysicalProperties();
+	healthprops->setX(HEALTH_INIT_X);
+	healthprops->setY(HEALTH_INIT_Y);
+
 	//NPC
-	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
+	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(0);
 	makeNPC(game, npcSpriteType, 300, 500);
 
 	AnimatedSpriteType *botSpriteType = spriteManager->getSpriteType(2);
@@ -276,8 +286,8 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	}*/
 
 	// AND THEN STRATEGICALLY PLACED AROUND THE LEVEL
-	makeRandomJumpingBot(game, botSpriteType, 400, 100);
-	makeRandomJumpingBot(game, botSpriteType, 200, 400);
+	makeGarbageMon(game, botSpriteType, 400, 100);
+	makeGarbageMon(game, botSpriteType, 200, 400);
 /*	makeRandomJumpingBot(game, botSpriteType, 400, 400);
 	makeRandomJumpingBot(game, botSpriteType, 800, 700);
 	makeRandomJumpingBot(game, botSpriteType, 900, 700);
@@ -311,15 +321,16 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 }
 
 
-void BugsDataLoader::makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY)
+void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonType, float initX, float initY)
 {
 	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
 	Physics *physics = game->getGSM()->getPhysics();
-	RandomJumpingBot *bot = new RandomJumpingBot(physics, 30, 120, 40);
+	GarbageMon *bot = new GarbageMon(physics, 30, 120, 40);
 	physics->addCollidableObject(bot);
 	PhysicalProperties *pp = bot->getPhysicalProperties();
 	pp->setPosition(initX, initY);
-	bot->setSpriteType(randomJumpingBotType);
+	bot->setSpriteType(garbageMonType);
+	pp->setVelocity(0, 0);
 	bot->setCurrentState(IDLE);
 	bot->setAlpha(255);
 	spriteManager->addBot(bot);

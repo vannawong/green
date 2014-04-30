@@ -54,10 +54,6 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		{
 			game->getGraphics()->togglePathfindingGridShouldBeRendered();
 		}
-		if (input->isKeyDownForFirstTime(F_KEY))
-		{
-			game->getGraphics()->togglePathfindingPathShouldBeRendered();
-		}
 		if (input->isKeyDownForFirstTime(Q_KEY))
 		{
 			game->getGraphics()->toggleRenderQuests();

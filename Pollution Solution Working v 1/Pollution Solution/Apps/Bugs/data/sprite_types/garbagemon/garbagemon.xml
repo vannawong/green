@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sprite_type>
 	<image_config>SEPARATED</image_config>
-    <width>128</width>
-    <height>128</height>
+    <width>55</width>
+    <height>63</height>
     <images_list>
         <image_file id="1" file_name="Garbagemon_IDLE_0.png"/>
     </images_list>

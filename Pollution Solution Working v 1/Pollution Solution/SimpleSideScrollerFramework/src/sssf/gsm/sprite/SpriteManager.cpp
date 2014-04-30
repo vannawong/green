@@ -18,6 +18,9 @@
 #include "sssf\gsm\sprite\SpriteManager.h"
 #include "sssf\gsm\state\GameStateManager.h"
 
+static const float		HEALTH_INIT_X = 500.0f;
+static const float		HEALTH_INIT_Y = 0.0f;
+
 /*
 	addSpriteToRenderList - This method checks to see if the sprite
 	parameter is inside the viewport. If it is, a RenderItem is generated
@@ -70,6 +73,9 @@ void SpriteManager::addSpriteItemsToRenderList(	Game *game)
 
 		// ADD THE PLAYER SPRITE
 		addSpriteToRenderList(&player, renderList, viewport);
+
+		// ADD THE HEALTH BAR TO THE LIST
+		addSpriteToRenderList(&health_bar, renderList, viewport);
 
 		// NOW ADD THE REST OF THE SPRITES
 		list<Bot*>::iterator botIterator;
@@ -186,6 +192,11 @@ void SpriteManager::update(Game *game)
 
 	// THEN UPDATE THE PLAYER SPRITE ANIMATION FRAME/STATE/ROTATION
 	player.updateSprite();
+
+	// THEN THE HEALTH BAR
+	health_bar.updateSprite();
+	health_bar.getPhysicalProperties()->setX(game->getGUI()->getViewport()->getViewportX() + HEALTH_INIT_X);
+	health_bar.getPhysicalProperties()->setY(game->getGUI()->getViewport()->getViewportY() + HEALTH_INIT_Y);
 
 	// NOW UPDATE THE REST OF THE SPRITES ANIMATION FRAMES/STATES/ROTATIONS
 	botIterator = bots.begin();

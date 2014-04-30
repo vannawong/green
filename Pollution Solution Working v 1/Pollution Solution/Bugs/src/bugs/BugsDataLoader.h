@@ -47,8 +47,8 @@ public:
 	void initColors(GameGraphics *graphics,	map<wstring,wstring> *properties);
 	void initViewport(GameGUI *gui, map<wstring,wstring> *properties);
 	void makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, float initX, float initY);
-	void makeGarbageMons(Game *game, AnimatedSpriteType *garmon, float initX, float initY);
-	void makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY);
+	void makeGarbageMon(Game *game, AnimatedSpriteType *garmon, float initX, float initY);
+	//void makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY);
 
 
 	// AND SOME HELPER METHODS FOR LOADING THE GUI
