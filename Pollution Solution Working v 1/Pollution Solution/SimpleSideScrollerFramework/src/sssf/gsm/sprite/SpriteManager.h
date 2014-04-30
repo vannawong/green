@@ -36,6 +36,9 @@ private:
 	// WE NEED TO SPAWN THEM, INSTEAD IT WILL RECYCLE THEM FOR US
 	BotRecycler recyclableBots;
 
+	// WE NEED A HEALTH BAR
+	AnimatedSprite health_bar;
+
 public:
 	// NOTHING TO INIT OR DESTROY
 	SpriteManager()		{}
@@ -46,6 +49,7 @@ public:
 	TopDownSprite*			getPlayer()				{ return &player;			}
 	list<Bot*>::iterator	getBotsIterator()		{ return bots.begin();		}
 	list<Bot*>::iterator	getEndOfBotsIterator()	{ return bots.end();		}
+	AnimatedSprite*			getHealthBar()			{ return &health_bar;		}
 
 	// METHODS DEFINED IN SpriteManager.cpp
 	void				addBot(Bot *botToAdd);

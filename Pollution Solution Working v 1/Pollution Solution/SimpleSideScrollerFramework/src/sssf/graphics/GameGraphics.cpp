@@ -1,11 +1,11 @@
 /*
-	Author: Richard McKenna
-			Stony Brook University
-			Computer Science Department
+Author: Richard McKenna
+Stony Brook University
+Computer Science Department
 
-	GameGraphics.cpp
+GameGraphics.cpp
 
-	See GameGraphics.h for a class description.
+See GameGraphics.h for a class description.
 */
 
 #include "sssf_VS\stdafx.h"
@@ -19,22 +19,32 @@
 #include "sssf\os\GameOS.h"
 #include "sssf\text\GameText.h"
 #include "sssf\text\TextFileWriter.h"
+#include <string>
 
 /*
-	GameGraphics - Default constructor, nothing to initialize.
+GameGraphics - Default constructor, nothing to initialize.
 */
 GameGraphics::GameGraphics()
 {
-	map<string, bool>(renderValues);
-	renderValues.insert("debugText", false);
-	renderValues.insert("pathFind", false);
-	renderValues.insert("quests", false);
-	renderValues.insert("inventory", false);
+
+	renderValues = new std::map<std::string, bool>();
+	/*
+	renderValues->insert(std::make_pair("debugText", false));
+	renderValues->insert(std::make_pair("pathFind", false));
+	renderValues->insert(std::make_pair("quests", false));
+	renderValues->insert(std::make_pair("inventory", false));
+	*/
+
+	(*renderValues)["debugText"] = false;
+	(*renderValues)["pathFind"] = false;
+	(*renderValues)["quests"] = false;
+	(*renderValues)["inventory"] = false;
+
 }
 
 /*
-	~GameGraphics - Destructor, it cleans up the render lists and texture
-	managers. This should only be called when the application is closing.
+~GameGraphics - Destructor, it cleans up the render lists and texture
+managers. This should only be called when the application is closing.
 */
 GameGraphics::~GameGraphics()
 {
@@ -45,9 +55,9 @@ GameGraphics::~GameGraphics()
 }
 
 /*
-	clearWorldTextures - When the game leaves a level we have to clear
-	out these data structures. Calling clear on these will delete
-	all the objects inside.
+clearWorldTextures - When the game leaves a level we have to clear
+out these data structures. Calling clear on these will delete
+all the objects inside.
 */
 void GameGraphics::clearWorldTextures()
 {	
@@ -57,8 +67,8 @@ void GameGraphics::clearWorldTextures()
 }
 
 /*
-	fillRenderLists - This method causes the render lists to be 
-	filled with the things that have to be drawn this frame.
+fillRenderLists - This method causes the render lists to be 
+filled with the things that have to be drawn this frame.
 */
 void GameGraphics::fillRenderLists(Game *game)
 {
@@ -70,9 +80,9 @@ void GameGraphics::fillRenderLists(Game *game)
 }
 
 /*
-	init - This method constructs the data structures for managing textures
-	and render lists. It calls the createTextureManager, which is technology
-	specific, and so is implemented only by child classes.
+init - This method constructs the data structures for managing textures
+and render lists. It calls the createTextureManager, which is technology
+specific, and so is implemented only by child classes.
 */
 void GameGraphics::init(int initScreenWidth, int initScreenHeight)
 {
@@ -90,14 +100,14 @@ void GameGraphics::init(int initScreenWidth, int initScreenHeight)
 }
 
 /*
-	renderText - This method will go through the GameText argument,
-	pull out each TextToDraw object, and use a technology-specific
-	method in a child class, renderTextToDraw, to render each
-	piece of text.
+renderText - This method will go through the GameText argument,
+pull out each TextToDraw object, and use a technology-specific
+method in a child class, renderTextToDraw, to render each
+piece of text.
 */
 void GameGraphics::renderText(GameText *text)
 {
-	if (debugTextShouldBeRendered)
+	if (renderValues->at("debugText"))
 	{
 		int numTextObjects = text->getNumTextObjectsToDraw();
 		for (int i = 0; i < numTextObjects; i++)

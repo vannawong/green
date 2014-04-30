@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sprite_type>
 	<image_config>SEPARATED</image_config>
-    <width>128</width>
-    <height>128</height>
+    <width>69</width>
+    <height>127</height>
     <images_list>
         <image_file id="1" file_name="npc_IDLE_0.png"/>
     </images_list>
