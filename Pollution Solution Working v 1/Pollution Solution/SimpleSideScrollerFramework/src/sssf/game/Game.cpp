@@ -42,6 +42,7 @@ Game::Game()
 	// ARE CUSTOM GAME OBJECTS. DEPENDING ON WHAT TECHNOLOGY 
 	// IS TO BE USED THESE OBJECT SHOULD BE CONSTRUCTED
 	// AND THEN FED TO THIS Game USING THE init METHOD
+	initMusic();
 	gsm = new GameStateManager();
 	gui = new GameGUI();
 	text = new GameText();
@@ -117,6 +118,7 @@ void Game::runGameLoop()
 
 	// LET'S START THE TIMER FROM SCRATCH
 	timer->resetTimer();
+	curchan = playMusic ("data\\music\\planetarium.mp3");
 
 	// KEEP RENDERING UNTIL SOMEONE PULLS THE PLUG
 	while(gsm->isAppActive())
@@ -155,6 +157,7 @@ void Game::processGameData()
 	if (gsm->isGameInProgress())
 	{
 		gsm->update(this);
+		FMOD_System_Update (system);
 	}
 	else if (gsm->isGameLevelLoading())
 	{
@@ -221,7 +224,42 @@ void Game::startGame()
 	dataLoader->loadWorld(this, currentLevelFileName);
 }
 
-void Game::playMusic (const char* songName) {
+//MUSIC METHODS
+
+void Game::initMusic() {
+	FMOD_System_Create (&system);
+	FMOD_System_Init (system, 100, FMOD_INIT_NORMAL, 0);
+	FMOD_System_SetOutput(system, FMOD_OUTPUTTYPE_NOSOUND);
+	songMusic = NULL;
+	soundMusic = NULL;
+	curchan = NULL;
+	cursong = NULL;
+	
+	/*	unsigned int version;
+	int numDrivers = 0;
+
+	FMOD_System_GetVersion(system, &version);
+ 
+	FMOD_System_GetNumDrivers (system, &numDrivers);
+	if (numDrivers == 0)
+	{
+		FMOD_System_SetOutput(system, FMOD_OUTPUTTYPE_NOSOUND);
+	}
+	*/
+}
+
+FMOD_CHANNEL* Game::playMusic (const char* songName) {
+	FMOD_SOUND *audiostream;
+	songchan = NULL;
+
+	FMOD_System_CreateStream (system, songName, FMOD_DEFAULT, 0, &audiostream);
+	FMOD_Channel_SetChannelGroup (songchan, songMusic);
+	FMOD_System_PlaySound(system,audiostream,songMusic,false,&songchan);
+	cursong = audiostream;
+	return songchan;
+}
+
+/*void Game::playMusic(const char* songName) {
 	//INIT THE MUSIC
 	FMOD_SYSTEM *system;
 	FMOD_SOUND *audiostream;
@@ -232,8 +270,6 @@ void Game::playMusic (const char* songName) {
 	printf ("Starting fmod");
 
 	res = FMOD_System_Create (&system);
-	if (res != FMOD_OK)
-		printf ("system create failed");
 
 	// Check version
 	res= FMOD_System_GetVersion(system, &version);
@@ -243,8 +279,6 @@ void Game::playMusic (const char* songName) {
 	if (numDrivers == 0)
 	{
 		res = FMOD_System_SetOutput(system, FMOD_OUTPUTTYPE_NOSOUND);
-		if (res != FMOD_OK)
-			printf ("no sound card");
 	}
 
 	// Get the capabilities of the default (0) sound card
@@ -256,14 +290,11 @@ void Game::playMusic (const char* songName) {
 	FMOD_CHANNELGROUP *channelMusic = NULL;
 	FMOD_CHANNEL *songchan = NULL;
 
+	const char* path = "data\\music\\";
+	//path + songName;
+
 	res = FMOD_System_Init (system, 100, FMOD_INIT_NORMAL, 0);
-	if (res != FMOD_OK)
-		printf ("system init failed");
-	//FMOD_System_CreateSound (system, ".mp3", FMOD_DEFAULT, 0, &audio);
 	res = FMOD_System_CreateStream (system, songName, FMOD_DEFAULT, 0, &audiostream);
-	if (res != FMOD_OK)
-		printf ("system createStream failed");
-	//FMOD_System_PlaySound(system,audiostream,0,false,0);
 	FMOD_Channel_SetChannelGroup (songchan, channelMusic);
 	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
 
@@ -272,5 +303,18 @@ void Game::playMusic (const char* songName) {
 	FMOD_CHANNEL *songchan;
 	
 	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
-	FMOD_Channel_SetChannelGroup(songchan, channelMusic);*/
+	FMOD_Channel_SetChannelGroup(songchan, channelMusic);
+}*/
+
+void Game::stopMusic (FMOD_CHANNEL* channel) {
+	FMOD_Channel_Stop (channel);
+}
+
+void Game::playSound (const char* soundName) {
+	FMOD_SOUND *audiostream;
+	FMOD_CHANNEL *soundchan = NULL;
+
+	FMOD_System_CreateStream (system, soundName, FMOD_DEFAULT, 0, &audiostream);
+	FMOD_Channel_SetChannelGroup (soundchan, soundMusic);
+	FMOD_System_PlaySound(system,audiostream,soundMusic,false,&soundchan);
 }

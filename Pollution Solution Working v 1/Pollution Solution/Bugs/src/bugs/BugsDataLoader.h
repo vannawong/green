@@ -14,7 +14,7 @@
 #include "sssf\game\Game.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
-class Music;
+
 class BugsDataLoader : public GameDataLoader
 {
 private:

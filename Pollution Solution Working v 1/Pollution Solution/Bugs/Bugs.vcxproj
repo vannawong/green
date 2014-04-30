@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Music.cpp" />
     <ClCompile Include="src\bugs\BugsButtonEventHandler.cpp" />
     <ClCompile Include="src\bugs\BugsCollisionListener.cpp" />
     <ClCompile Include="src\bugs\BugsDataLoader.cpp" />

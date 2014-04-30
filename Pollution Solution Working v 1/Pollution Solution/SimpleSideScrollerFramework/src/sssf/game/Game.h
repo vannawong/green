@@ -31,6 +31,7 @@
 // PREPROCESSOR INCLUDE STATEMENTS
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\state\GameState.h"
+#include "fmod.h"
 
 // FORWARD DECLARATIONS OF CLASSES USED BY GAME
 class GameDataLoader;
@@ -41,7 +42,6 @@ class GameTimer;
 class GameStateManager;
 class GameGUI;
 class GameText;
-class Music;
 
 static const float PI = 3.1415926535897932384626433f;
 
@@ -73,6 +73,14 @@ private:
 	// THAT IS CURRENTLY BEING USED
 	wstring				currentLevelFileName;
 
+	//Music
+	FMOD_SYSTEM* system;
+	FMOD_CHANNELGROUP *songMusic;
+	FMOD_CHANNELGROUP *soundMusic;
+	FMOD_CHANNEL* curchan;
+	FMOD_SOUND* cursong;
+	FMOD_CHANNEL *songchan;
+
 public:
 	// INLINED ACCESSOR METHODS - THE REAL THINGS
 	GameStateManager*	getGSM()				{ return gsm;								}
@@ -100,12 +108,16 @@ public:
 									GameInput *initInput, 
 									GameOS *initOS,
 									GameTimer *initTimer);
-	void	processGameData();
-	void	quitApp();
-	void	quitGame();
-	void	reloadAllDevices();
-	void	runGameLoop();
-	void	shutdown();
-	void	startGame();
-	void	playMusic (const char* songName);
+	void			processGameData();
+	void			quitApp();
+	void			quitGame();
+	void			reloadAllDevices();
+	void			runGameLoop();
+	void			shutdown();
+	void			startGame();
+	void			initMusic ();
+	FMOD_CHANNEL*	playMusic (const char* songName);
+	//void			playMusic (const char* songName);
+	void			stopMusic (FMOD_CHANNEL* channel);
+	void			playSound (const char* soundName);
 };
