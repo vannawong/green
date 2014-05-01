@@ -13,6 +13,7 @@ private:
 	unsigned int minCyclesBeforeThinking;
 	unsigned int maxCyclesBeforeThinking;
 	unsigned int maxVelocity;
+	unsigned int direction;
 
 	// THIS PRIVATE CONSTRUCTOR IS ONLY USED FOR CLONING
 	GarbageMon(	unsigned int initMin, 

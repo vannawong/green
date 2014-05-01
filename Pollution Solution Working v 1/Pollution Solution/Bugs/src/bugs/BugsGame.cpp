@@ -77,12 +77,18 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	// CREATE THE GAME
 	Game *bugsGame = new Game();
 
-	string luaFile("luaConstants.lua");
+/*	wstring luaFile = L"luaConstants.lua";
+	string s(luaFile.begin(), luaFile.end());
+	s.assign(luaFile.begin(), luaFile.end());
+
+	//string luaFile("luaConstants.lua");
 	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 
 	LuaState* luaPState = LuaState::Create();
-	if (luaPState->DoFile(luaFile.c_str()));
-		OutputDebugStringA(luaPState->StackTop().GetString());
+	luaPState->DoFile(s.c_str());
+		//OutputDebugStringA(luaPState->StackTop().GetString());
+
+		//OutputDebugStringA("HI");
 
 	string hi(luaPState->GetGlobal("W_INIT_FILE").GetString());
 	std::wstring W_INIT_FILE = converter.from_bytes(hi);
@@ -90,6 +96,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	hi = luaPState->GetGlobal("W_GUI_INIT_FILE").GetString();
 	std::wstring W_GUI_INIT_FILE = converter.from_bytes(hi);
 
+		LuaState::Destroy(luaPState);
+		*/
 	// FIRST WE'LL SETUP THE DATA LOADER, SINCE IT MAY NEED TO READ
 	// IN DATA TO SETUP OTHER STUFF
 	BugsDataLoader *bugsDataLoader = new BugsDataLoader();
@@ -135,7 +143,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	delete bugsButtonHandler;
 	delete bugsKeyHandler;
 	delete bugsGame;
-	LuaState::Destroy(luaPState);
 
 	// AND RETURN
 	return 0;

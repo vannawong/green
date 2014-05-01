@@ -71,6 +71,18 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		if (input->isKeyDownForFirstTime(I_KEY)){
 			player->setCurrentState(IDLE);
 		}
+		if (input->isKeyDownForFirstTime(ONE_KEY)){
+			game->quitGame();
+			game->setCurrentLevelFileName(LEVEL_1);
+			game->startGame();
+		}
+		if (input->isKeyDownForFirstTime(TWO_KEY)){
+			game->quitGame();
+			game->setCurrentLevelFileName(LEVEL_2);
+			game->startGame();
+		}
+
+
 		bool viewportMoved = false;
 		float viewportVx = 0.0f;
 		float viewportVy = 0.0f;

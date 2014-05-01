@@ -183,6 +183,8 @@ void Game::quitGame()
 {
 	// CLEAN UP ALL THE WORLD TEXTURES
 	graphics->clearWorldTextures();
+	gsm->getSpriteManager->clearSprites();
+	gsm->getWorld()->unloadWorld();
 
 	// WE'RE GOING BACK TO THE MAIN MENU
 	gsm->goToMainMenu();

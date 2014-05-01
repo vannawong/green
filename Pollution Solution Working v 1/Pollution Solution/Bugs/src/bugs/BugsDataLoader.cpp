@@ -38,6 +38,12 @@
 #include "psti\PoseurSpriteTypesImporter.h"
 #include "fmod.h"
 
+#include "LuaPlusFramework\LuaPlus.h"
+using namespace LuaPlus;
+#include <locale>
+#include <codecvt>
+#include <string>
+
 /*
 	loadGame - This method loads the setup game data into the game and
 	constructs all the needed objects for the game to work.
@@ -221,9 +227,34 @@ void BugsDataLoader::loadGUI(Game *game, wstring guiInitFile)
 */
 void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)	
 {
+
+	string luaFile(levelInitFile.begin(), levelInitFile.end());
+	luaFile.assign(levelInitFile.begin(), levelInitFile.end());
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
+	LuaState* luaPState = LuaState::Create();
+	luaPState->DoFile(luaFile.c_str());
+
+	string hi(luaPState->GetGlobal("W_LEVEL_DIR").GetString());
+	std::wstring W_LEVEL_DIR = converter.from_bytes(hi);
+
+	hi = luaPState->GetGlobal("W_LEVEL_NAME").GetString();
+	std::wstring W_LEVEL_NAME = converter.from_bytes(hi);
+
+	float PLAYER_INIT_X = (float) luaPState->GetGlobal("PLAYER_INIT_X").GetInteger();
+	float PLAYER_INIT_Y = (float) luaPState->GetGlobal("PLAYER_INIT_Y").GetInteger();
+
+	float BOT_1_INIT_X = (float) luaPState->GetGlobal("BOT_1_INIT_X").GetInteger();
+	float BOT_1_INIT_Y = (float) luaPState->GetGlobal("BOT_1_INIT_Y").GetInteger();
+
+	float BOT_2_INIT_X = (float) luaPState->GetGlobal("BOT_2_INIT_X").GetInteger();
+	float BOT_2_INIT_Y = (float) luaPState->GetGlobal("BOT_2_INIT_Y").GetInteger();
+
+	LuaState::Destroy(luaPState);
+
 	// LOAD THE LEVEL'S BACKGROUND TILES
 	TMXMapImporter tmxMapImporter;
-	tmxMapImporter.loadWorld(game, W_LEVEL_1_DIR, W_LEVEL_1_NAME);
+	tmxMapImporter.loadWorld(game, W_LEVEL_DIR, W_LEVEL_NAME);
 
 	// SPECIFY WHO WILL DO THE PATHFINDING
 	GameStateManager *gsm = game->getGSM();
@@ -284,8 +315,8 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	}*/
 
 	// AND THEN STRATEGICALLY PLACED AROUND THE LEVEL
-	makeGarbageMon(game, botSpriteType, 400, 100);
-	makeGarbageMon(game, botSpriteType, 200, 400);
+	makeGarbageMon(game, botSpriteType, BOT_1_INIT_X, BOT_1_INIT_Y);
+	makeGarbageMon(game, botSpriteType, BOT_2_INIT_X, BOT_2_INIT_Y);
 /*	makeRandomJumpingBot(game, botSpriteType, 400, 400);
 	makeRandomJumpingBot(game, botSpriteType, 800, 700);
 	makeRandomJumpingBot(game, botSpriteType, 900, 700);
@@ -474,6 +505,28 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 							100,
 							false,
 							W_START_COMMAND);
+
+	// AND NOW LOAD IT INTO A ScreenGUI
+	mainMenuGUI->addButton(buttonToAdd);
+
+	// AND LET'S ADD AN EXIT BUTTON
+	buttonToAdd = new Button();
+
+	// - GET THE BUTTON COMMAND AND IMAGE IDs
+	normalTextureID = guiTextureManager->loadTexture(W_CHEAT_IMAGE_PATH);
+	mouseOverTextureID = guiTextureManager->loadTexture(W_CHEAT_IMAGE_MO_PATH);
+
+	// - INIT THE EXIT BUTTON
+	buttonToAdd->initButton(normalTextureID, 
+							mouseOverTextureID,
+							150,
+							500,
+							0,
+							255,
+							200,
+							100,
+							false,
+							W_CHEAT_COMMAND);
 
 	// AND NOW LOAD IT INTO A ScreenGUI
 	mainMenuGUI->addButton(buttonToAdd);

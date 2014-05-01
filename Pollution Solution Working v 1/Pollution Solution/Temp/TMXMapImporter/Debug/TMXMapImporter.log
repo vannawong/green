@@ -1,39 +1,5 @@
-<<<<<<< HEAD
-﻿Build started 4/30/2014 3:25:14 PM.
-     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" on node 3 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\\" /Fd"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\tmxmi\TMXMapImporter.cpp src\tmxmi_VS\stdafx.cpp
-         stdafx.cpp
-         TMXMapImporter.cpp
-     1>c:\users\rhododendron\documents\github\green\pollution solution working v 1\pollution solution\tmxmapimporter\src\tmxmi\tmxmapimporter.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\rhododendron\documents\github\green\pollution solution working v 1\pollution solution\tmxmapimporter\src\tmxmi\tmxmapimporter.cpp(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Generating Code...
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common\TMXMapImporter.lib" /NOLOGO "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\TMXMapImporter.obj"
-         "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\stdafx.obj"
-         TMXMapImporter.vcxproj -> C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\Common\TMXMapImporter.lib
-     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Working v 1\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" (Build target(s)).
+﻿Build started 4/30/2014 11:40:46 PM.
 
 Build succeeded.
 
-Time Elapsed 00:00:09.35
-=======
-﻿Build started 4/30/2014 12:50:32 AM.
-     1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\tmxmi\TMXMapImporter.cpp src\tmxmi_VS\stdafx.cpp
-         stdafx.cpp
-         TMXMapImporter.cpp
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\tmxmapimporter\src\tmxmi\tmxmapimporter.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\tmxmapimporter\src\tmxmi\tmxmapimporter.cpp(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Generating Code...
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common\TMXMapImporter.lib" /NOLOGO "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\TMXMapImporter.obj"
-         "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\stdafx.obj"
-         TMXMapImporter.vcxproj -> C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common\TMXMapImporter.lib
-     1>Done Building Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:04.09
->>>>>>> f903fd74956fc4fdb8dde40a9a0553a0daa115ac
+Time Elapsed 00:00:00.04
