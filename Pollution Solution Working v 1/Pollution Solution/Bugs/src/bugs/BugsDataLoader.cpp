@@ -36,7 +36,10 @@
 
 // ANIMATED SPRITE TYPE LOADING
 #include "psti\PoseurSpriteTypesImporter.h"
+
 #include "fmod.h"
+
+#include "sssf\gsm\ai\BotRecycler.h"
 
 #include "LuaPlusFramework\LuaPlus.h"
 using namespace LuaPlus;
@@ -61,6 +64,8 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	bool useFullscreen = false;
 	if (useFullscreenProp.compare(L"true") == 0)
 		useFullscreen = true;
+
+	//BotRecycler *recylcler = new BotRecycler();
 
 	// GET THE SCREEN WIDTH AND HEIGHT
 	int screenWidth, screenHeight;
@@ -298,10 +303,11 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	healthprops->setY(HEALTH_INIT_Y);
 
 	//NPC
-	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(0);
+	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
 	makeNPC(game, npcSpriteType, 300, 500);
 
 	AnimatedSpriteType *botSpriteType = spriteManager->getSpriteType(2);
+
 
 	// AND LET'S ADD A BUNCH OF RANDOM JUMPING BOTS, FIRST ALONG
 	// A LINE NEAR THE TOP
@@ -364,6 +370,7 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	bot->setAlpha(255);
 	spriteManager->addBot(bot);
 	bot->affixTightAABBBoundingVolume();
+	//recycler->registerBotType(L"garbageMon", bot); 
 }
 
 

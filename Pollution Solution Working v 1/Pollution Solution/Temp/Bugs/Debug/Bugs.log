@@ -1,5 +1,9 @@
-﻿Build started 4/30/2014 11:40:46 PM.
+﻿Build started 5/1/2014 6:30:20 PM.
+     1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         Bugs.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\Bugs.exe
+     1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:00.08
