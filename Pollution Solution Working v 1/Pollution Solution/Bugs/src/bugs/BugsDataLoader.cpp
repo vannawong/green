@@ -21,6 +21,7 @@
 #include "sssf\input\GameInput.h"
 #include "sssf\os\GameOS.h"
 #include "sssf\text\GameText.h"
+#include "sssf\gui\Viewport.h"
 
 // WINDOWS PLATFORM INCLUDES
 #include "sssf\platforms\Windows\WindowsOS.h"
@@ -128,9 +129,9 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 
 	//INIT THE MUSIC
 	//FMOD_SOUND *s;
-	FMOD_SYSTEM *system;
+	//FMOD_SYSTEM *system;
 	//FMOD_SOUND *audio;
-	FMOD_SOUND *audiostream;
+	/*FMOD_SOUND *audiostream;
 	unsigned int version;
 	FMOD_RESULT res;
 	int numDrivers = 0;
@@ -279,14 +280,13 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
 
-	b2Vec2 gravity(0.0f, 0.0f);
-	b2World* bworld = new b2World(gravity);
+	b2World* bworld = game->getbworld();
 
 	b2BodyDef bdef;
 	bdef.type = b2_dynamicBody;
 	bdef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
 	b2Body* body = bworld->CreateBody(&bdef);
-
+	
 
 	// NOTE THAT RED BOX MAN IS SPRITE ID 1
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
@@ -382,6 +382,12 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	spriteManager->addBot(bot);
 	bot->affixTightAABBBoundingVolume();
 	//recycler->registerBotType(L"garbageMon", bot); 
+	
+	b2BodyDef bdef;
+	bdef.type = b2_kinematicBody;
+	bdef.position.Set (initX, initY);
+	b2World* bworld = game->getbworld();
+	b2Body* body = bworld->CreateBody (&bdef);
 }
 
 

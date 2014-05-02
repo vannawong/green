@@ -16,6 +16,7 @@
 #include "sssf\gui\Cursor.h"
 #include "sssf\input\GameInput.h"
 #include "sssf\os\GameOS.h"
+#include "sssf\gui\Viewport.h"
 
 /*
 	Cursor - Default constructor, this method constructs the imageIDs vector

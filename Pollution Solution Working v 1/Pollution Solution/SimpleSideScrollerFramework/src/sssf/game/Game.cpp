@@ -24,6 +24,7 @@
 #include "sssf\timer\GameTimer.h"
 #include "fmod.h"
 #include "sssf\gsm\ai\BotRecycler.h"
+#include "Box2D\Box2D.h"
 
 /*
 	Game  - Constructor, this method begins the 
@@ -44,6 +45,7 @@ Game::Game()
 	// IS TO BE USED THESE OBJECT SHOULD BE CONSTRUCTED
 	// AND THEN FED TO THIS Game USING THE init METHOD
 	initMusic();
+	initBox2d();
 	gsm = new GameStateManager();
 	gui = new GameGUI();
 	text = new GameText();
@@ -120,7 +122,7 @@ void Game::runGameLoop()
 	// LET'S START THE TIMER FROM SCRATCH
 	timer->resetTimer();
 	curchan = playMusic ("data\\music\\planetarium.mp3");
-
+	
 	// KEEP RENDERING UNTIL SOMEONE PULLS THE PLUG
 	while(gsm->isAppActive())
 	{
@@ -128,6 +130,9 @@ void Game::runGameLoop()
 		// US TO GET USER INPUT
 		os->processOSMessages();
 
+		//Update FMOD system
+		FMOD_System_Update (system);
+		
 		// GET USER INPUT AND UPDATE GAME, GUI, OR PLAYER
 		// STATE OR WHATEVER IS NECESSARY
 		input->processInput(this);
@@ -158,7 +163,6 @@ void Game::processGameData()
 	if (gsm->isGameInProgress())
 	{
 		gsm->update(this);
-		FMOD_System_Update (system);
 	}
 	else if (gsm->isGameLevelLoading())
 	{
@@ -186,8 +190,7 @@ void Game::quitGame()
 	graphics->clearWorldTextures();
 	gsm->getWorld()->unloadWorld();
 	
-
-
+	stopMusic(curchan);
 	// WE'RE GOING BACK TO THE MAIN MENU
 	gsm->goToMainMenu();
 }
@@ -226,6 +229,17 @@ void Game::startGame()
 	
 	// THAT'S ONE THING YOU'LL BE DOING
 	dataLoader->loadWorld(this, currentLevelFileName);
+}
+
+//Box2D WORLD
+
+void Game::initBox2d () {
+	b2Vec2 gravity(0.0f, 0.0f);
+	bworld = new b2World(gravity);
+}
+
+b2World* Game::getbworld() {
+	return bworld;
 }
 
 //MUSIC METHODS

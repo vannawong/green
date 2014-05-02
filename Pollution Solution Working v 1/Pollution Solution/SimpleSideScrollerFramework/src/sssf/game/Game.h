@@ -32,6 +32,7 @@
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\state\GameState.h"
 #include "fmod.h"
+#include "Box2D\Box2D.h"
 
 // FORWARD DECLARATIONS OF CLASSES USED BY GAME
 class GameDataLoader;
@@ -72,6 +73,9 @@ private:
 	// THIS WILL KEEP TRACK OF THE NAME OF THE LEVEL FILE
 	// THAT IS CURRENTLY BEING USED
 	wstring				currentLevelFileName;
+
+	//Box2D
+	b2World *bworld;
 
 	//Music
 	FMOD_SYSTEM* system;
@@ -115,6 +119,8 @@ public:
 	void			runGameLoop();
 	void			shutdown();
 	void			startGame();
+	void			initBox2d();
+	b2World*		getbworld();
 	void			initMusic ();
 	FMOD_CHANNEL*	playMusic (const char* songName);
 	//void			playMusic (const char* songName);

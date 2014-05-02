@@ -2,16 +2,39 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bugs", "Bugs\Bugs.vcxproj", "{BA25DE62-784B-4A2C-9FC0-115872D53819}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AFCBE206-93CD-4F56-9579-C2ED194064F7} = {AFCBE206-93CD-4F56-9579-C2ED194064F7}
+		{776F7C61-3F11-4273-8C3D-3A01A71E8173} = {776F7C61-3F11-4273-8C3D-3A01A71E8173}
+		{7215E9B2-0F34-4930-B806-1717B7FC78C0} = {7215E9B2-0F34-4930-B806-1717B7FC78C0}
+		{2AEC47B4-9FE4-41EE-B16D-5837AD405AF8} = {2AEC47B4-9FE4-41EE-B16D-5837AD405AF8}
+		{63AEE7BB-3881-480C-AC34-DA38C98F0F1E} = {63AEE7BB-3881-480C-AC34-DA38C98F0F1E}
+		{6A8E84CB-7249-4DD5-AD55-E152664974FD} = {6A8E84CB-7249-4DD5-AD55-E152664974FD}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PoseurSpriteTypesImporter", "PoseurSpriteTypesImporter\PoseurSpriteTypesImporter.vcxproj", "{776F7C61-3F11-4273-8C3D-3A01A71E8173}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AFCBE206-93CD-4F56-9579-C2ED194064F7} = {AFCBE206-93CD-4F56-9579-C2ED194064F7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleSideScrollerFramework", "SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj", "{6A8E84CB-7249-4DD5-AD55-E152664974FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{776F7C61-3F11-4273-8C3D-3A01A71E8173} = {776F7C61-3F11-4273-8C3D-3A01A71E8173}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tinyxml", "tinyxml\tinyxml.vcxproj", "{2AEC47B4-9FE4-41EE-B16D-5837AD405AF8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6A8E84CB-7249-4DD5-AD55-E152664974FD} = {6A8E84CB-7249-4DD5-AD55-E152664974FD}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TMXMapImporter", "TMXMapImporter\TMXMapImporter.vcxproj", "{7215E9B2-0F34-4930-B806-1717B7FC78C0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2AEC47B4-9FE4-41EE-B16D-5837AD405AF8} = {2AEC47B4-9FE4-41EE-B16D-5837AD405AF8}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XMLFileImporter", "XMLFileImporter\XMLFileImporter.vcxproj", "{63AEE7BB-3881-480C-AC34-DA38C98F0F1E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2AEC47B4-9FE4-41EE-B16D-5837AD405AF8} = {2AEC47B4-9FE4-41EE-B16D-5837AD405AF8}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaPlusFramework", "LuaPlusFramework\LuaPlusFramework.vcxproj", "{AFCBE206-93CD-4F56-9579-C2ED194064F7}"
 EndProject
