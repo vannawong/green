@@ -1,10 +1,39 @@
-﻿Build started 5/1/2014 6:11:47 PM.
+﻿Build started 5/1/2014 11:16:39 PM.
      1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 3 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\game\Game.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\game\Game.cpp src\sssf\graphics\GameGraphics.cpp src\sssf\gsm\ai\BotRecycler.cpp src\sssf\gsm\ai\bots\GarbageMon.cpp src\sssf\gsm\ai\bots\NPC.cpp src\sssf\gsm\ai\bots\RandomJumpingBot.cpp src\sssf\gsm\physics\Physics.cpp src\sssf\gsm\sprite\AnimatedSprite.cpp src\sssf\gsm\sprite\SpriteManager.cpp src\sssf\gsm\sprite\TopDownSprite.cpp src\sssf\gsm\state\GameStateManager.cpp src\sssf\gsm\world\TiledLayer.cpp src\sssf\gsm\world\World.cpp src\sssf\gui\Button.cpp src\sssf\gui\Cursor.cpp src\sssf\gui\GameGUI.cpp src\sssf\gui\ScreenGUI.cpp src\sssf\input\GameInput.cpp src\sssf\platforms\DirectX\DirectXGraphics.cpp src\sssf\platforms\DirectX\DirectXTextureManager.cpp src\sssf\platforms\Windows\WindowsInput.cpp src\sssf\platforms\Windows\WindowsOS.cpp src\sssf\text\GameText.cpp
+         GameText.cpp
+         WindowsOS.cpp
+         WindowsInput.cpp
+         DirectXTextureManager.cpp
+         DirectXGraphics.cpp
+         GameInput.cpp
+         ScreenGUI.cpp
+         GameGUI.cpp
+         Cursor.cpp
+         Button.cpp
+         World.cpp
+         TiledLayer.cpp
+         GameStateManager.cpp
+         TopDownSprite.cpp
+         SpriteManager.cpp
+         AnimatedSprite.cpp
+         Physics.cpp
+         RandomJumpingBot.cpp
+         NPC.cpp
+         GarbageMon.cpp
+     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\garbagemon.cpp(123): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\garbagemon.cpp(124): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\garbagemon.cpp(125): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\garbagemon.cpp(126): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+         Generating Code...
+         Compiling...
+         BotRecycler.cpp
+         GameGraphics.cpp
          Game.cpp
+         Generating Code...
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib" /LIBPATH:Box2D_d.lib /LIBPATH:fmod_vc.lib /NOLOGO "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameDataLoader.obj"
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib" /LIBPATH:Box2D.lib /LIBPATH:fmod_vc.lib /NOLOGO "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameDataLoader.obj"
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Game.obj"
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\WStringTable.obj"
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameGraphics.obj"
@@ -45,4 +74,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.25
+Time Elapsed 00:00:43.68

@@ -47,6 +47,8 @@ using namespace LuaPlus;
 #include <codecvt>
 #include <string>
 
+#include "Box2D\Box2D.h"
+
 /*
 	loadGame - This method loads the setup game data into the game and
 	constructs all the needed objects for the game to work.
@@ -276,6 +278,15 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	TopDownSprite *player = spriteManager->getPlayer();
 	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
+
+	b2Vec2 gravity(0.0f, 0.0f);
+	b2World* bworld = new b2World(gravity);
+
+	b2BodyDef bdef;
+	bdef.type = b2_dynamicBody;
+	bdef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
+	b2Body* body = bworld->CreateBody(&bdef);
+
 
 	// NOTE THAT RED BOX MAN IS SPRITE ID 1
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
