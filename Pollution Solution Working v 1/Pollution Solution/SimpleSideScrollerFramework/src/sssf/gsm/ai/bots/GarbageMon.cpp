@@ -113,7 +113,9 @@ void GarbageMon::think(Game *game)
 	AnimatedSprite *player = game->getGSM()->getSpriteManager()->getPlayer();
 	int health;
 
-	if (((getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom()) < 0 ||
+	if (((getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom()) < 0 &&
+		((getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft()) > 0 ||
+		((getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight()) < 0))) ||
 		((getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop()) > 0)) &&
 		((getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft()) > 0 ||
 		((getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight()) < 0))){
