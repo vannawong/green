@@ -36,7 +36,18 @@
 
 // ANIMATED SPRITE TYPE LOADING
 #include "psti\PoseurSpriteTypesImporter.h"
+
 #include "fmod.h"
+
+#include "sssf\gsm\ai\BotRecycler.h"
+
+#include "LuaPlusFramework\LuaPlus.h"
+using namespace LuaPlus;
+#include <locale>
+#include <codecvt>
+#include <string>
+
+#include "Box2D\Box2D.h"
 
 /*
 	loadGame - This method loads the setup game data into the game and
@@ -55,6 +66,8 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	bool useFullscreen = false;
 	if (useFullscreenProp.compare(L"true") == 0)
 		useFullscreen = true;
+
+	//BotRecycler *recylcler = new BotRecycler();
 
 	// GET THE SCREEN WIDTH AND HEIGHT
 	int screenWidth, screenHeight;
@@ -221,9 +234,34 @@ void BugsDataLoader::loadGUI(Game *game, wstring guiInitFile)
 */
 void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)	
 {
+
+	string luaFile(levelInitFile.begin(), levelInitFile.end());
+	luaFile.assign(levelInitFile.begin(), levelInitFile.end());
+	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+
+	LuaState* luaPState = LuaState::Create();
+	luaPState->DoFile(luaFile.c_str());
+
+	string hi(luaPState->GetGlobal("W_LEVEL_DIR").GetString());
+	std::wstring W_LEVEL_DIR = converter.from_bytes(hi);
+
+	hi = luaPState->GetGlobal("W_LEVEL_NAME").GetString();
+	std::wstring W_LEVEL_NAME = converter.from_bytes(hi);
+
+	float PLAYER_INIT_X = (float) luaPState->GetGlobal("PLAYER_INIT_X").GetInteger();
+	float PLAYER_INIT_Y = (float) luaPState->GetGlobal("PLAYER_INIT_Y").GetInteger();
+
+	float BOT_1_INIT_X = (float) luaPState->GetGlobal("BOT_1_INIT_X").GetInteger();
+	float BOT_1_INIT_Y = (float) luaPState->GetGlobal("BOT_1_INIT_Y").GetInteger();
+
+	float BOT_2_INIT_X = (float) luaPState->GetGlobal("BOT_2_INIT_X").GetInteger();
+	float BOT_2_INIT_Y = (float) luaPState->GetGlobal("BOT_2_INIT_Y").GetInteger();
+
+	LuaState::Destroy(luaPState);
+
 	// LOAD THE LEVEL'S BACKGROUND TILES
 	TMXMapImporter tmxMapImporter;
-	tmxMapImporter.loadWorld(game, W_LEVEL_1_DIR, W_LEVEL_1_NAME);
+	tmxMapImporter.loadWorld(game, W_LEVEL_DIR, W_LEVEL_NAME);
 
 	// SPECIFY WHO WILL DO THE PATHFINDING
 	GameStateManager *gsm = game->getGSM();
@@ -240,6 +278,15 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	TopDownSprite *player = spriteManager->getPlayer();
 	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
+
+	b2Vec2 gravity(0.0f, 0.0f);
+	b2World* bworld = new b2World(gravity);
+
+	b2BodyDef bdef;
+	bdef.type = b2_dynamicBody;
+	bdef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
+	b2Body* body = bworld->CreateBody(&bdef);
+
 
 	// NOTE THAT RED BOX MAN IS SPRITE ID 1
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
@@ -267,10 +314,11 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	healthprops->setY(HEALTH_INIT_Y);
 
 	//NPC
-	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(0);
+	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
 	makeNPC(game, npcSpriteType, 300, 500);
 
 	AnimatedSpriteType *botSpriteType = spriteManager->getSpriteType(2);
+
 
 	// AND LET'S ADD A BUNCH OF RANDOM JUMPING BOTS, FIRST ALONG
 	// A LINE NEAR THE TOP
@@ -284,8 +332,8 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	}*/
 
 	// AND THEN STRATEGICALLY PLACED AROUND THE LEVEL
-	makeGarbageMon(game, botSpriteType, 400, 100);
-	makeGarbageMon(game, botSpriteType, 200, 400);
+	makeGarbageMon(game, botSpriteType, BOT_1_INIT_X, BOT_1_INIT_Y);
+	makeGarbageMon(game, botSpriteType, BOT_2_INIT_X, BOT_2_INIT_Y);
 /*	makeRandomJumpingBot(game, botSpriteType, 400, 400);
 	makeRandomJumpingBot(game, botSpriteType, 800, 700);
 	makeRandomJumpingBot(game, botSpriteType, 900, 700);
@@ -333,6 +381,7 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	bot->setAlpha(255);
 	spriteManager->addBot(bot);
 	bot->affixTightAABBBoundingVolume();
+	//recycler->registerBotType(L"garbageMon", bot); 
 }
 
 
@@ -474,6 +523,28 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 							100,
 							false,
 							W_START_COMMAND);
+
+	// AND NOW LOAD IT INTO A ScreenGUI
+	mainMenuGUI->addButton(buttonToAdd);
+
+	// AND LET'S ADD AN EXIT BUTTON
+	buttonToAdd = new Button();
+
+	// - GET THE BUTTON COMMAND AND IMAGE IDs
+	normalTextureID = guiTextureManager->loadTexture(W_CHEAT_IMAGE_PATH);
+	mouseOverTextureID = guiTextureManager->loadTexture(W_CHEAT_IMAGE_MO_PATH);
+
+	// - INIT THE EXIT BUTTON
+	buttonToAdd->initButton(normalTextureID, 
+							mouseOverTextureID,
+							150,
+							500,
+							0,
+							255,
+							200,
+							100,
+							false,
+							W_CHEAT_COMMAND);
 
 	// AND NOW LOAD IT INTO A ScreenGUI
 	mainMenuGUI->addButton(buttonToAdd);

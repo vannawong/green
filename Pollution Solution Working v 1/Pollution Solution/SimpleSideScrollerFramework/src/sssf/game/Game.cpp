@@ -23,6 +23,7 @@
 #include "sssf\text\TextGenerator.h"
 #include "sssf\timer\GameTimer.h"
 #include "fmod.h"
+#include "sssf\gsm\ai\BotRecycler.h"
 
 /*
 	Game  - Constructor, this method begins the 
@@ -183,6 +184,9 @@ void Game::quitGame()
 {
 	// CLEAN UP ALL THE WORLD TEXTURES
 	graphics->clearWorldTextures();
+	gsm->getWorld()->unloadWorld();
+	
+
 
 	// WE'RE GOING BACK TO THE MAIN MENU
 	gsm->goToMainMenu();

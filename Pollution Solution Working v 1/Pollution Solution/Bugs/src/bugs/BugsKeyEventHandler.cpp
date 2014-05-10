@@ -71,13 +71,27 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		if (input->isKeyDownForFirstTime(I_KEY)){
 			player->setCurrentState(IDLE);
 		}
+		if (input->isKeyDownForFirstTime(ONE_KEY)){
+			game->quitGame();
+			game->setCurrentLevelFileName(LEVEL_1);
+			game->startGame();
+		}
+		if (input->isKeyDownForFirstTime(TWO_KEY)){
+			game->quitGame();
+			game->setCurrentLevelFileName(LEVEL_2);
+			game->startGame();
+		}
+
+
 		bool viewportMoved = false;
 		float viewportVx = 0.0f;
 		float viewportVy = 0.0f;
 		float vX = pp->getVelocityX();
 		float vY = pp->getVelocityY();
+
 		if (input->isKeyDown(UP_KEY))
 		{
+			player->setCurrentState(L"WALKINGBACK");
 			if (pp->getY() < (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
 				viewportVy -= MAX_PLAYER_VELOCITY;
 			vY = -1 * MAX_PLAYER_VELOCITY;
@@ -86,6 +100,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		}
 		else if (input->isKeyDown(DOWN_KEY))
 		{
+			player->setCurrentState(L"WALKINGFORWARD");
 			if (pp->getY() > (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
 				viewportVy += MAX_PLAYER_VELOCITY;
 			vY = MAX_PLAYER_VELOCITY;
@@ -94,6 +109,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		}
 		else if (input->isKeyDown(LEFT_KEY))
 		{
+			player->setCurrentState(L"WALKINGLEFT");
 			if (pp->getX() < (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
 				viewportVx -= MAX_PLAYER_VELOCITY;
 			vX = -1 * MAX_PLAYER_VELOCITY;
@@ -102,6 +118,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		}
 		else if (input->isKeyDown(RIGHT_KEY))
 		{
+			player->setCurrentState(L"WALKINGRIGHT");
 			if (pp->getX() > (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
 			viewportVx += MAX_PLAYER_VELOCITY;
 			vX = MAX_PLAYER_VELOCITY;
@@ -109,6 +126,14 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 			viewportMoved = true;
 		}
 		else {
+			if((wcscmp(player->getCurrentState().c_str(), L"WALKINGRIGHT") == 0) && !input->isKeyDown(RIGHT_KEY))
+				player->setCurrentState(L"WALKINGRIGHTIDLE");
+		else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGLEFT") == 0) && !input->isKeyDown(LEFT_KEY))
+			player->setCurrentState(L"WALKINGLEFTIDLE");
+		else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGBACK") == 0) && !input->isKeyDown(UP_KEY))
+			player->setCurrentState(L"WALKINGBACKIDLE");
+		else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGFORWARD") == 0) && !input->isKeyDown(DOWN_KEY))
+			player->setCurrentState(IDLE);
 			vX = 0.0f;
 			vY = 0.0f;
 		}

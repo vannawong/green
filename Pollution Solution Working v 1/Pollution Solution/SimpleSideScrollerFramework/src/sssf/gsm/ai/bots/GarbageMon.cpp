@@ -30,8 +30,9 @@ GarbageMon::GarbageMon(	Physics *physics,
 
 	// AND START THE BOT OFF IN A RANDOM DIRECTION AND VELOCITY
 	// AND WITH RANDOM INTERVAL UNTIL IT THINKS AGAIN
-	pickRandomVelocity(physics);
-	pickRandomCyclesInRange();
+	direction = 0;
+	pp.setVelocity(10.0f, 0);
+	cyclesRemainingBeforeThinking = 30;
 }
 
 /*
@@ -113,31 +114,41 @@ void GarbageMon::think(Game *game)
 	AnimatedSprite *player = game->getGSM()->getSpriteManager()->getPlayer();
 	int health;
 
-	if (((getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom()) < 0 &&
-		((getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft()) > 0 ||
-		((getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight()) < 0))) ||
-		((getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop()) > 0)) &&
-		((getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft()) > 0 ||
-		((getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight()) < 0))){
-			int t1 = getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom();
-			int t2 = getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop();
-			int t3 = getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft();
-			int t4 = getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight();
-			health = (int) _wtoi(sm->getHealthBar()->getCurrentState().c_str());
-			if (health <= 10){
-				// WHEN PLAYER RUNS OUT OF HEALTH, SKIP TO NEXT DAY
-				// PENALTY LIES IN THE PLAYER NOT ACHIEVING THE DAY'S GOALS
-				// AND HAVE TO SUFFER INCREASE IN POLLUTION BAR
-				sm->getHealthBar()->setCurrentState(to_wstring(100));
-			}
-			else{
-				sm->getHealthBar()->setCurrentState(to_wstring(health - 10));
-			}
+
+	/*if (((getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom()) < 0 ||
+	((getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop()) > 0)) &&
+	((getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft()) > 0 ||
+	((getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight()) < 0))){*/
+	if(getBoundingVolume()->overlapsX(player->getBoundingVolume()) || getBoundingVolume()->overlapsY(player->getBoundingVolume())){
+		int t1 = getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom();
+		int t2 = getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop();
+		int t3 = getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft();
+		int t4 = getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight();
+		health = (int) _wtoi(sm->getHealthBar()->getCurrentState().c_str());
+		if (health <= 10){
+			// WHEN PLAYER RUNS OUT OF HEALTH, SKIP TO NEXT DAY
+			// PENALTY LIES IN THE PLAYER NOT ACHIEVING THE DAY'S GOALS
+			// AND HAVE TO SUFFER INCREASE IN POLLUTION BAR
+			sm->getHealthBar()->setCurrentState(to_wstring(100));
+		}
+		else{
+			sm->getHealthBar()->setCurrentState(to_wstring(health - 10));
+		}
 	}
 
 	if (cyclesRemainingBeforeThinking == 0)
 	{
-		pickRandomCyclesInRange();
+		cyclesRemainingBeforeThinking = 30;
+		//pickRandomCyclesInRange();
+
+		switch(direction){
+		case 0: pp.setVelocity(0.0, 10.0f); direction++; break;
+		case 1: pp.setVelocity(-10.0, 0.0f); direction++; break;
+		case 2: pp.setVelocity(0.0, -10.0f); direction++; break;
+		case 3: pp.setVelocity(10.0, 0.0f); direction = 0; break;
+
+		}
+
 	}
 	else
 		cyclesRemainingBeforeThinking--;

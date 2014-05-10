@@ -8,12 +8,17 @@
 	all of this data would better serve us if loaded from files.
 */
 
+
 // HERE IS THE Green GAME SETUP/INIT FILE. EVERYTHING WOULD START FROM HERE
-static const wstring	W_LEVEL_1_DIR			= L"data/levels/village/";
+/*static const wstring	W_LEVEL_1_DIR			= L"data/levels/village/";
 static const wstring	W_LEVEL_1_NAME			= L"village.tmx";
+static const wstring	W_LEVEL_2_DIR			= L"data/levels/forest/";
+static const wstring	W_LEVEL_2_NAME			= L"forest.tmx";
 //static const wstring	W_LEVEL_1_DIR			= L"data/levels/TopDownDesert/";
 //static const wstring	W_LEVEL_1_NAME			= L"TopDownDesert.tmx";
-static const wstring	W_LEVEL_1_PATH			= W_LEVEL_1_DIR + W_LEVEL_1_NAME;
+static const wstring	W_LEVEL_1_PATH			= W_LEVEL_1_DIR + W_LEVEL_1_NAME;*/
+static const wstring	LEVEL_1					= L"level1.lua";
+static const wstring	LEVEL_2					= L"level2.lua";
 static const wstring	W_INIT_FILE				= L"data/BugsInit.txt";
 static const wstring	W_GUI_INIT_FILE			= L"data/BugsGUI.txt";
 static const string		W_DEBUG_FILE			= "DebugOutput.txt";
@@ -39,6 +44,7 @@ static const wstring	W_GO_TO_MM_COMMAND		= L"Go To Main Menu";
 static const wstring	W_START_COMMAND			= L"Start";
 static const wstring	W_EXIT_COMMAND			= L"Exit";
 static const wstring	W_QUIT_COMMAND			= L"Quit";
+static const wstring	W_CHEAT_COMMAND			= L"CHEAT";
 static const wstring	W_TRASH_CURSOR_PATH		= L"data/gui/cursor/trash_cursor.png";
 static const wstring	W_RED_CURSOR_PATH		= L"data/gui/cursor/red_cursor.png";
 
@@ -52,6 +58,8 @@ static const wstring	W_EXIT_IMAGE_PATH		= L"data/gui/buttons/exit_game.png";
 static const wstring	W_EXIT_IMAGE_MO_PATH	= L"data/gui/buttons/exit_game_mo.png";
 static const wstring	W_QUIT_IMAGE_PATH		= L"data/gui/buttons/quit.png";
 static const wstring	W_QUIT_IMAGE_MO_PATH	= L"data/gui/buttons/quit_mo.png";
+static const wstring	W_CHEAT_IMAGE_PATH		= L"data/gui/buttons/cheat.png";
+static const wstring	W_CHEAT_IMAGE_MO_PATH	= L"data/gui/buttons/cheat.png";
 static const wstring	W_GRID_CELL_SELECTOR_PATH = L"data/gui/overlays/GridCellSelector.png";
 
 // FOR OUR SPRITE
@@ -96,6 +104,8 @@ const unsigned int Q_KEY = (unsigned int)'Q';
 const unsigned int R_KEY = (unsigned int)'R';
 const unsigned int I_KEY = (unsigned int)'I';
 const unsigned int Y_KEY = (unsigned int)'Y';
+const unsigned int ONE_KEY = (unsigned int)'1';
+const unsigned int TWO_KEY = (unsigned int)'2';
 const unsigned int UP_KEY = VK_UP;
 const unsigned int DOWN_KEY = VK_DOWN;
 const unsigned int LEFT_KEY = VK_LEFT;

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sprite_type>
 	<image_config>SEPARATED</image_config>
-    <width>69</width>
-    <height>127</height>
+    <width>70</width>
+    <height>120</height>
     <images_list>
-        <image_file id="1" file_name="npc_IDLE_0.png"/>
+        <image_file id="1" file_name="NPC_IDLE_1.png"/>
     </images_list>
     <animations_list>
         <animation_state>

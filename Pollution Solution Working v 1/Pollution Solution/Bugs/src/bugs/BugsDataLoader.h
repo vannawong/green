@@ -14,6 +14,7 @@
 #include "sssf\game\Game.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
+#include "sssf\gsm\ai\BotRecycler.h"
 
 class BugsDataLoader : public GameDataLoader
 {
@@ -50,6 +51,7 @@ public:
 	void makeGarbageMon(Game *game, AnimatedSpriteType *garmon, float initX, float initY);
 	//void makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY);
 
+	//BotRecycler *recycler;
 
 	// AND SOME HELPER METHODS FOR LOADING THE GUI
 	void initCursor(GameGUI *gui, DirectXTextureManager *guiTextureManager);
