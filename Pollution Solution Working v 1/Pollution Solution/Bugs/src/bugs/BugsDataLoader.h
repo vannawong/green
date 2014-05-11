@@ -16,6 +16,8 @@
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
 #include "sssf\gsm\ai\BotRecycler.h"
 
+#include "FooDraw.h"
+
 class BugsDataLoader : public GameDataLoader
 {
 private:

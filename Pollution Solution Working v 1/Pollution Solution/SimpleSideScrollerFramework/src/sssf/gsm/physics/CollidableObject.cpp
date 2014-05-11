@@ -1,6 +1,7 @@
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\physics\Collision.h"
 #include "sssf\gsm\physics\CollidableObject.h"
+#include "box2D\box2D.h"
 
 /*
 	This method updates the position and dimensions of this
@@ -26,4 +27,13 @@ void CollidableObject::updateSweptShape(float percentageOfFrameTimeRemaining)
 	float centerY = boundingVolume.getCenterY();
 	centerY = centerY + (scaledVy/2.0f);
 	sweptShape.setCenterY(centerY);
+}
+
+//box2d
+void CollidableObject::setBody(b2Body* b) {
+	body = b;
+}
+
+b2Body* CollidableObject::getBody () {
+	return body;
 }

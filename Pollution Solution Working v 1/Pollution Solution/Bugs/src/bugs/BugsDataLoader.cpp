@@ -286,7 +286,26 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	bdef.type = b2_dynamicBody;
 	bdef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
 	b2Body* body = bworld->CreateBody(&bdef);
-	
+
+	//body->SetLinearVelocity(b2Vec2 (0.0f, 0.0f));
+
+	b2PolygonShape dynamicBox; 
+	dynamicBox.SetAsBox(1.0f, 1.0f); 
+
+	b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 1.0f; 
+
+	body->CreateFixture(&fixtureDef);
+	Physics* p = gsm->getPhysics();
+
+	player->setBody(body);
+	p->addCO(player);
+
+	//FooDraw drawer;
+	//bworld->SetDebugDraw( &drawer );
+	//drawer.SetFlags( b2Draw::e_shapeBit );
 
 	// NOTE THAT RED BOX MAN IS SPRITE ID 1
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
@@ -384,10 +403,21 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	//recycler->registerBotType(L"garbageMon", bot); 
 	
 	b2BodyDef bdef;
-	bdef.type = b2_kinematicBody;
+	//bdef.type = b2_staticBody;
 	bdef.position.Set (initX, initY);
 	b2World* bworld = game->getbworld();
-	b2Body* body = bworld->CreateBody (&bdef);
+	//b2Body* body = bworld->CreateBody (&bdef);
+
+	b2PolygonShape dynamicBox; 
+	dynamicBox.SetAsBox(1.0f, 1.0f); 
+
+	/*b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 0.3f; */
+
+	//body->CreateFixture(&dynamicBox, 1.0f); //(&fixtureDef);
+	//bot->setBody(body);
 }
 
 

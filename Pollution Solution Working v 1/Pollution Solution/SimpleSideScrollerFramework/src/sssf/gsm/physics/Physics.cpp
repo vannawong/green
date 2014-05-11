@@ -23,6 +23,7 @@
 #include "sssf\gsm\world\WorldLayer.h"
 #include <vector>
 #include <list>
+#include "box2D\box2D.h"
 
 /*
 	The constructor initializes the data structures and loads
@@ -30,8 +31,13 @@
 */
 Physics::Physics()
 {
+
 	// DEFAULT GRAVITY IS 1.0f
-	gravity = DEFAULT_GRAVITY;
+
+	//c0
+	//gravity = DEFAULT_GRAVITY;
+
+	pikachu = 128.0f;
 
 	// POPULATE THEM WITH 1000 OBJECTS TO SHARE
 	// WHY 1000? BECAUSE I HAD TO PICK SOME NUMBER BIG ENOUGH
@@ -58,6 +64,7 @@ Physics::Physics()
 	// THAN DO SOME CRAZY N! COMPUTATION
 	sortedSweptShapes[LEFT_EDGE] = new vector<CollidableObject*>();
 	sortedSweptShapes[RIGHT_EDGE] = new vector<CollidableObject*>();
+
 }
 
 /*
@@ -90,6 +97,7 @@ Physics::~Physics()
 */
 void Physics::addCollidableObject(CollidableObject *collidableObjectToAdd)
 {
+	
 	set<Tile*> tileSetToAdd;
 	spriteToTileCollisionsThisFrame[collidableObjectToAdd] = tileSetToAdd;
 	sortedSweptShapes[LEFT_EDGE]->push_back(collidableObjectToAdd);
@@ -342,6 +350,24 @@ void Physics::update(Game *game)
 		spritesIt++;
 	}
 
+	//update sprites according to box2d thingies
+	list<CollidableObject*>::iterator i = co.begin();
+
+	while (i != co.end()) {
+		CollidableObject* c = *i;
+
+		PhysicalProperties* p = c->getPhysicalProperties();
+		p->setX(c->getBody()->GetPosition().x * pikachu);
+		p->setY(c->getBody()->GetPosition().y * pikachu);
+
+		i++;
+	}
+
+	float32 time = 1.0f/30.0f;
+	int32 vel = 8;
+	int32 pos = 3;
+	game->getbworld()->Step (time, vel, pos);
+
 	// WE'RE NOT GOING TO ALLOW MULTIPLE COLLISIONS TO HAPPEN IN A FRAME
 	// BETWEEN THE SAME TWO OBJECTS
 	spriteToTileCollisionsThisFrame.clear();
@@ -377,6 +403,15 @@ bool Physics::willSpriteCollideOnTile(CollidableObject *co, AABB *tileAABB)
 }
 
 // PRIVATE HELPER METHODS
+
+//box2d
+void Physics::addCO(CollidableObject* cob) {
+	co.push_back (cob);
+}
+
+list<CollidableObject*> Physics::getListCO() {
+	return co;
+}
 
 /*
 	This tricky bugger moves all the sprites to the end of this frame's time. This is

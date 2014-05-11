@@ -1,8 +1,10 @@
-﻿Build started 5/2/2014 2:03:58 AM.
+﻿Build started 5/10/2014 11:56:46 PM.
      1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\PoseurSpriteTypesImporter\PoseurSpriteTypesImporter.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\psti\PoseurSpriteTypesImporter.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\psti\PoseurSpriteTypesImporter.cpp src\psti_VS\stdafx.cpp
+         stdafx.cpp
          PoseurSpriteTypesImporter.cpp
+         Generating Code...
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common\PoseurSpriteTypesImporter.lib" /LIBPATH:Box2D.lib /LIBPATH:fmod_vc.lib /NOLOGO "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\PoseurSpriteTypesImporter.obj"
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\stdafx.obj"
@@ -11,4 +13,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.14
+Time Elapsed 00:00:04.11

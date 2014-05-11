@@ -25,6 +25,9 @@ See BugsKeyEventHandler.h for a class description.
 #include "sssf\timer\GameTimer.h"
 #include "sssf\platforms\Windows\WindowsTimer.h"
 
+//Box2D
+#include "Box2D\Box2D.h"
+
 /*
 handleKeyEvent - this method handles all keyboard interactions. Note that every frame this method
 gets called and it can respond to key interactions in any custom way. Ask the GameInput class for
@@ -41,6 +44,8 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 	AnimatedSprite *player = gsm->getSpriteManager()->getPlayer();
 	PhysicalProperties *pp = player->getPhysicalProperties();
 	Viewport *viewport = game->getGUI()->getViewport();
+	b2World* bworld = game->getbworld();
+	b2Vec2* v;
 
 	// IF THE GAME IS IN PROGRESS
 	if (gsm->isGameInProgress())
@@ -96,7 +101,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 				viewportVy -= MAX_PLAYER_VELOCITY;
 			vY = -1 * MAX_PLAYER_VELOCITY;
 			vX = 0;
-			viewportMoved = true;
+			viewportMoved = true;			
 		}
 		else if (input->isKeyDown(DOWN_KEY))
 		{
@@ -124,6 +129,8 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 			vX = MAX_PLAYER_VELOCITY;
 			vY = 0;
 			viewportMoved = true;
+			//b2Body* b = player->getBody();
+			//b->SetLinearVelocity (b2Vec2 (7.5f, 0.0f));
 		}
 		else {
 			if((wcscmp(player->getCurrentState().c_str(), L"WALKINGRIGHT") == 0) && !input->isKeyDown(RIGHT_KEY))
@@ -139,7 +146,10 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		}
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx+0.5f), (int)floor(viewportVy+0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());
-		pp->setVelocity(vX, vY);
+		//pp->setVelocity(vX, vY);
+		v = new b2Vec2 (vX * 128, vY * 128);
+		b2Vec2 moveVec(vX * 8.0f, vY * 8.0f); 
+		player->getBody()->ApplyForce (moveVec, player->getBody()->GetPosition(), true);
 	}
 
 	// 0X43 is HEX FOR THE 'C' VIRTUAL KEY

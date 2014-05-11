@@ -1,4 +1,4 @@
-﻿Build started 5/2/2014 12:21:40 AM.
+﻿Build started 5/10/2014 11:56:38 PM.
      1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\LuaPlusFramework\LuaPlusFramework.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(345,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(346,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
@@ -109,4 +109,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:29.86
+Time Elapsed 00:00:08.15

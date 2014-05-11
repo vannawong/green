@@ -22,6 +22,7 @@
     <ClInclude Include="src\bugs_VS\Resource.h" />
     <ClInclude Include="src\bugs_VS\stdafx.h" />
     <ClInclude Include="src\bugs_VS\targetver.h" />
+    <ClInclude Include="FooDraw.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
