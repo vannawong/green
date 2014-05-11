@@ -147,9 +147,11 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx+0.5f), (int)floor(viewportVy+0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());
 		//pp->setVelocity(vX, vY);
-		v = new b2Vec2 (vX * 128, vY * 128);
-		b2Vec2 moveVec(vX * 8.0f, vY * 8.0f); 
+		b2Vec2 moveVec(vX * 1.0f, vY * 1.0f); 
+		b2Vec2 a = player->getBody()->GetPosition();
 		player->getBody()->ApplyForce (moveVec, player->getBody()->GetPosition(), true);
+		player->getBody()->SetLinearVelocity(b2Vec2(0,0));
+		player->getBody()->SetAngularVelocity(0);
 	}
 
 	// 0X43 is HEX FOR THE 'C' VIRTUAL KEY

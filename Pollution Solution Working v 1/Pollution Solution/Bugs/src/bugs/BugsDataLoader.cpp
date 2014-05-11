@@ -49,6 +49,8 @@ using namespace LuaPlus;
 #include <string>
 
 #include "Box2D\Box2D.h"
+#include "DebugDraw.h"
+#include "freeglut/freeglut.h"
 
 /*
 	loadGame - This method loads the setup game data into the game and
@@ -291,9 +293,11 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 
 	b2PolygonShape dynamicBox; 
 	dynamicBox.SetAsBox(1.0f, 1.0f); 
+	b2PolygonShape polygonShape;
 
 	b2FixtureDef fixtureDef; 
-	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.shape = &polygonShape; 
+		polygonShape.SetAsBox(1.0f, 1.0f); 
 	fixtureDef.density = 1.0f; 
 	fixtureDef.friction = 1.0f; 
 
@@ -303,9 +307,14 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	player->setBody(body);
 	p->addCO(player);
 
-	//FooDraw drawer;
-	//bworld->SetDebugDraw( &drawer );
-	//drawer.SetFlags( b2Draw::e_shapeBit );
+	
+	DebugDraw drawer;
+	bworld->SetDebugDraw( &drawer );
+	uint32 flags = 0;
+	flags += b2Draw::e_shapeBit;
+	flags += b2Draw::e_jointBit;
+	drawer.SetFlags( flags );
+	bworld->DrawDebugData();
 
 	// NOTE THAT RED BOX MAN IS SPRITE ID 1
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
