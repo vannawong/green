@@ -121,7 +121,7 @@ void Game::runGameLoop()
 
 	// LET'S START THE TIMER FROM SCRATCH
 	timer->resetTimer();
-	curchan = playMusic ("data\\music\\planetarium.mp3");
+	playMusic ("data\\music\\planetarium.mp3");
 	
 	// KEEP RENDERING UNTIL SOMEONE PULLS THE PLUG
 	while(gsm->isAppActive())
@@ -190,7 +190,7 @@ void Game::quitGame()
 	graphics->clearWorldTextures();
 	gsm->getWorld()->unloadWorld();
 	
-	stopMusic(curchan);
+	stopMusic(songchan);
 	// WE'RE GOING BACK TO THE MAIN MENU
 	gsm->goToMainMenu();
 }
@@ -251,7 +251,7 @@ void Game::initMusic() {
 	songMusic = NULL;
 	soundMusic = NULL;
 	curchan = NULL;
-	cursong = NULL;
+	//cursong = NULL;
 	
 	/*	unsigned int version;
 	int numDrivers = 0;
@@ -273,66 +273,61 @@ FMOD_CHANNEL* Game::playMusic (const char* songName) {
 	FMOD_System_CreateStream (system, songName, FMOD_DEFAULT, 0, &audiostream);
 	FMOD_Channel_SetChannelGroup (songchan, songMusic);
 	FMOD_System_PlaySound(system,audiostream,songMusic,false,&songchan);
-	cursong = audiostream;
+	//cursong = audiostream;
 	return songchan;
 }
-
-/*void Game::playMusic(const char* songName) {
-	//INIT THE MUSIC
-	FMOD_SYSTEM *system;
-	FMOD_SOUND *audiostream;
-	unsigned int version;
-	FMOD_RESULT res;
-	int numDrivers = 0;
-
-	printf ("Starting fmod");
-
-	res = FMOD_System_Create (&system);
-
-	// Check version
-	res= FMOD_System_GetVersion(system, &version);
- 
-	FMOD_System_GetNumDrivers (system, &numDrivers);
-	// No sound cards (disable sound)
-	if (numDrivers == 0)
-	{
-		res = FMOD_System_SetOutput(system, FMOD_OUTPUTTYPE_NOSOUND);
-	}
-
-	// Get the capabilities of the default (0) sound card
-    //res = FMOD_System_GetDriver(system, 0, &caps, 0, &speakerMode);
- 
-    // Set the speaker mode to match that in Control Panel
-    //res = FMOD_System_SetSpeakerPosition(speakerMode);
-
-	FMOD_CHANNELGROUP *channelMusic = NULL;
-	FMOD_CHANNEL *songchan = NULL;
-
-	const char* path = "data\\music\\";
-	//path + songName;
-
-	res = FMOD_System_Init (system, 100, FMOD_INIT_NORMAL, 0);
-	res = FMOD_System_CreateStream (system, songName, FMOD_DEFAULT, 0, &audiostream);
-	FMOD_Channel_SetChannelGroup (songchan, channelMusic);
-	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
-
-	/*FMOD_CHANNELGROUP *channelMusic;
-	//FMOD_CHANNELGROUP *channelEffects;
-	FMOD_CHANNEL *songchan;
-	
-	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
-	FMOD_Channel_SetChannelGroup(songchan, channelMusic);
-}*/
 
 void Game::stopMusic (FMOD_CHANNEL* channel) {
 	FMOD_Channel_Stop (channel);
 }
 
 void Game::playSound (const char* soundName) {
-	FMOD_SOUND *audiostream;
+	FMOD_SOUND *audiosound;
 	FMOD_CHANNEL *soundchan = NULL;
 
-	FMOD_System_CreateStream (system, soundName, FMOD_DEFAULT, 0, &audiostream);
+	FMOD_System_CreateSound (system, soundName, FMOD_DEFAULT, 0, &audiosound);
 	FMOD_Channel_SetChannelGroup (soundchan, soundMusic);
-	FMOD_System_PlaySound(system,audiostream,soundMusic,false,&soundchan);
+	FMOD_System_PlaySound(system,audiosound,soundMusic,false,&soundchan);
+}
+
+void Game::playExplosion () {
+	FMOD_SOUND *a;
+	FMOD_CHANNEL *soundchan = NULL;
+
+	FMOD_System_CreateSound (system, "data\\music\\Explosion6.wav", FMOD_DEFAULT, 0, &a);
+	FMOD_Channel_SetChannelGroup (soundchan, soundMusic);
+	FMOD_System_PlaySound (system, a, soundMusic, false, &soundchan);
+}
+
+void Game::playHurt () {
+	FMOD_SOUND *a;
+	FMOD_CHANNEL *soundchan = NULL;
+
+	FMOD_System_CreateSound (system, "data\\music\\Hit_Hurt17.wav", FMOD_DEFAULT, 0, &a);
+	FMOD_Channel_SetChannelGroup (soundchan, soundMusic);
+	FMOD_System_PlaySound (system, a, soundMusic, false, &soundchan);
+}
+void Game::playAttack () {
+	FMOD_SOUND *a;
+	FMOD_CHANNEL *soundchan = NULL;
+
+	FMOD_System_CreateSound (system, "data\\music\\Laser_Shoot3.wav", FMOD_DEFAULT, 0, &a);
+	FMOD_Channel_SetChannelGroup (soundchan, soundMusic);
+	FMOD_System_PlaySound (system, a, soundMusic, false, &soundchan);
+}
+void Game::playPickup () {
+	FMOD_SOUND *a;
+	FMOD_CHANNEL *soundchan = NULL;
+
+	FMOD_System_CreateSound (system, "data\\music\\Pickup_Coin.wav", FMOD_DEFAULT, 0, &a);
+	FMOD_Channel_SetChannelGroup (soundchan, soundMusic);
+	FMOD_System_PlaySound (system, a, soundMusic, false, &soundchan);
+}
+void Game::playPowerUp () {
+	FMOD_SOUND *a;
+	FMOD_CHANNEL *soundchan = NULL;
+
+	FMOD_System_CreateSound (system, "data\\music\\Powerup2.wav", FMOD_DEFAULT, 0, &a);
+	FMOD_Channel_SetChannelGroup (soundchan, soundMusic);
+	FMOD_System_PlaySound (system, a, soundMusic, false, &soundchan);
 }

@@ -82,7 +82,7 @@ private:
 	FMOD_CHANNELGROUP *songMusic;
 	FMOD_CHANNELGROUP *soundMusic;
 	FMOD_CHANNEL* curchan;
-	FMOD_SOUND* cursong;
+	//FMOD_SOUND* cursong;
 	FMOD_CHANNEL *songchan;
 
 public:
@@ -126,4 +126,9 @@ public:
 	//void			playMusic (const char* songName);
 	void			stopMusic (FMOD_CHANNEL* channel);
 	void			playSound (const char* soundName);
+	void			playExplosion ();
+	void			playHurt ();
+	void			playAttack ();
+	void			playPickup ();
+	void			playPowerUp ();
 };
