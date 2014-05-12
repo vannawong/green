@@ -48,6 +48,7 @@ void BugsTextGenerator::appendMouseCoords(Game *game)
 	wss << L"\n";
 	if (game->getGSM()->isGameInProgress())
 		wss << game->getGSM()->getSpriteManager()->getPlayer()->getBody()->GetPosition().y;
+	//game->getGSM()->getSpriteManager()->getBotsIterator;
 	textToGenerate.append(wss.str());
 }
 

@@ -151,10 +151,22 @@ void GarbageMon::think(Game *game)
 		}*/
 		b2Vec2 bah;
 		switch(direction){
-		case 0: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (0.0f, 2.0f), bah, true); direction++; break;
-		case 1: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (-2.0f, 0.0f), bah, true);; direction++; break;
-		case 2: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (0.0f, -2.0f), bah, true); direction++; break;
-		case 3: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (2.0f, 0.0f), bah, true);; direction = 0; break;
+		case 0: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (0.0f, 2.0f), bah, true); direction++; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
+		case 1: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (-2.0f, 0.0f), bah, true);; direction++; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
+		case 2: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (0.0f, -2.0f), bah, true); direction++; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
+		case 3: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (2.0f, 0.0f), bah, true);; direction = 0; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
 		}
 	}
 	else

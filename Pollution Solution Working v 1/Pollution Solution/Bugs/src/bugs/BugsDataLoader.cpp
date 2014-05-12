@@ -292,22 +292,15 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	body->SetFixedRotation (true);
 
 	//body->SetLinearVelocity(b2Vec2 (0.0f, 0.0f));
-
-	b2PolygonShape dynamicBox; 
-	dynamicBox.SetAsBox(1.0f, 1.0f); 
+ 
 	b2PolygonShape polygonShape;
 
 	b2FixtureDef fixtureDef; 
-<<<<<<< HEAD
-	fixtureDef.shape = &dynamicBox; 
-	fixtureDef.density = 18.0f; 
-	fixtureDef.friction = 200.0f;
-=======
 	fixtureDef.shape = &polygonShape; 
-		polygonShape.SetAsBox(1.0f, 1.0f); 
+	//polygonShape.SetAsBox(player->getBoundingVolume()->getHeight()/320, player->getBoundingVolume()->getWidth()/320); 
+	polygonShape.SetAsBox(0.8f, 0.9f);
 	fixtureDef.density = 1.0f; 
 	fixtureDef.friction = 1.0f; 
->>>>>>> 9f3242754938c1d7b96cc49de47303cd37277360
 
 	body->CreateFixture(&fixtureDef);
 	Physics* p = gsm->getPhysics();
@@ -337,7 +330,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	playerProps->setAccelerationY(0);
 	player->setOnTileThisFrame(false);
 	player->setOnTileLastFrame(false);
-	player->affixTightAABBBoundingVolume();
+	//player->affixTightAABBBoundingVolume();
 
 	// MAKING A HEALTH BAR
 	AnimatedSpriteType *healthBarSpriteType = spriteManager->getSpriteType(4);
@@ -351,9 +344,10 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 
 	//NPC
 	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
-	makeNPC(game, npcSpriteType, 300, 500);
+	makeNPC(game, npcSpriteType, 3, 5);
 
 	AnimatedSpriteType *botSpriteType = spriteManager->getSpriteType(2);
+	AnimatedSpriteType *item = spriteManager->getSpriteType(5);
 
 
 	// AND LET'S ADD A BUNCH OF RANDOM JUMPING BOTS, FIRST ALONG
@@ -366,6 +360,10 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 		float botY = 100.0f;
 		makeRandomJumpingBot(game, botSpriteType, botX, botY);
 	}*/
+
+	//add trash item
+
+	addItem (game, item, 6, 6);
 
 	// AND THEN STRATEGICALLY PLACED AROUND THE LEVEL
 	makeGarbageMon(game, botSpriteType, BOT_1_INIT_X, BOT_1_INIT_Y);
@@ -399,7 +397,26 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	npc->setCurrentState(IDLE);
 	npc->setAlpha(255);
 	spriteManager->addBot(npc);
-	npc->affixTightAABBBoundingVolume();
+	//npc->affixTightAABBBoundingVolume();
+
+	b2BodyDef bdef;
+	bdef.type = b2_dynamicBody;
+	bdef.position.Set (initX, initY);
+	b2World* bworld = game->getbworld();
+	b2Body* body = bworld->CreateBody (&bdef);
+
+	b2PolygonShape dynamicBox; 
+	dynamicBox.SetAsBox(0.01f, 0.01f); 
+
+	b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 0.3f;
+	fixtureDef.restitution = 0.0f;
+
+	body->CreateFixture (&fixtureDef);
+	npc->setBody(body);
+	game->getGSM()->getPhysics()->addCO(npc);
 }
 
 
@@ -416,7 +433,7 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	bot->setCurrentState(IDLE);
 	bot->setAlpha(255);
 	spriteManager->addBot(bot);
-	bot->affixTightAABBBoundingVolume();
+	//bot->affixTightAABBBoundingVolume();
 	//recycler->registerBotType(L"garbageMon", bot); 
 	
 	b2BodyDef bdef;
@@ -426,7 +443,7 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	b2Body* body = bworld->CreateBody (&bdef);
 
 	b2PolygonShape dynamicBox; 
-	dynamicBox.SetAsBox(1.0f, 1.0f); 
+	dynamicBox.SetAsBox(0.01f, 0.01f); 
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
@@ -685,4 +702,38 @@ void BugsDataLoader::initViewport(GameGUI *gui, map<wstring,wstring> *properties
 	viewport->setViewportOffsetX(viewportOffsetX);
 	viewport->setViewportOffsetY(viewportOffsetY);
 	viewport->setToggleOffsetY(toggleOffsetY);
+}
+
+void BugsDataLoader::addItem (Game* game, AnimatedSpriteType* item, float initX, float initY) {
+	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
+	Physics *physics = game->getGSM()->getPhysics();
+	Bot *trash = new NPC (physics, 0, 0, 0);
+	//physics->addCollidableObject(trash);
+	PhysicalProperties *pp = trash->getPhysicalProperties();
+	pp->setPosition(initX, initY);
+	trash->setSpriteType(item);
+	trash->setCurrentState(CAN);
+	trash->setAlpha(255);
+	spriteManager->addBot(trash);
+	//npc->affixTightAABBBoundingVolume();
+
+	b2BodyDef bdef;
+	bdef.type = b2_staticBody;
+	bdef.position.Set (initX, initY);
+	b2World* bworld = game->getbworld();
+	b2Body* body = bworld->CreateBody (&bdef);
+
+	b2PolygonShape dynamicBox; 
+	//dynamicBox.SetAsBox(0.01f, 0.01f); 
+	dynamicBox.SetAsBox(0.01f, 0.01f);
+
+	b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 0.3f;
+	fixtureDef.restitution = 0.0f;
+
+	body->CreateFixture (&fixtureDef);
+	trash->setBody(body);
+	game->getGSM()->getPhysics()->addCO(trash);
 }

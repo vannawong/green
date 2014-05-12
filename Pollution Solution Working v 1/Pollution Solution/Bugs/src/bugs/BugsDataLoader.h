@@ -52,6 +52,9 @@ public:
 	void makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, float initX, float initY);
 	void makeGarbageMon(Game *game, AnimatedSpriteType *garmon, float initX, float initY);
 	//void makeRandomJumpingBot(Game *game, AnimatedSpriteType *randomJumpingBotType, float initX, float initY);
+	
+	//item stuff
+	void addItem (Game* game, AnimatedSpriteType* item, float initX, float initY);
 
 	//BotRecycler *recycler;
 

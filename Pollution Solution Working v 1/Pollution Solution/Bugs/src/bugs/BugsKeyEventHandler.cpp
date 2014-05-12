@@ -147,18 +147,16 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		}
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx+0.5f), (int)floor(viewportVy+0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());
-<<<<<<< HEAD
-		b2Vec2 moveVec(vX * 0.2f, vY * 0.2f); 
-		player->getBody()->ApplyLinearImpulse (moveVec, player->getBody()->GetPosition(), true);
 
-=======
+		//b2Vec2 moveVec(vX * 0.2f, vY * 0.2f); 
+		//player->getBody()->ApplyLinearImpulse (moveVec, player->getBody()->GetPosition(), true);
+
 		//pp->setVelocity(vX, vY);
 		b2Vec2 moveVec(vX * 1.0f, vY * 1.0f); 
 		b2Vec2 a = player->getBody()->GetPosition();
 		player->getBody()->ApplyForce (moveVec, player->getBody()->GetPosition(), true);
 		player->getBody()->SetLinearVelocity(b2Vec2(0,0));
 		player->getBody()->SetAngularVelocity(0);
->>>>>>> 9f3242754938c1d7b96cc49de47303cd37277360
 	}
 
 	// 0X43 is HEX FOR THE 'C' VIRTUAL KEY

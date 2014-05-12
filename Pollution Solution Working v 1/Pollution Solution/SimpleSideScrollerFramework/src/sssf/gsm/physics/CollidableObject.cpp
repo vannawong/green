@@ -17,8 +17,8 @@ void CollidableObject::updateSweptShape(float percentageOfFrameTimeRemaining)
 
 	// NOTE THE DIMENSIONS OF THE SWEPT SHAPE ARE CALCULATED USING
 	// THE ABOLUTE VALUE OF THE VELOCITY
-	sweptShape.setWidth(boundingVolume.getWidth() + abs(scaledVx));
-	sweptShape.setHeight(boundingVolume.getHeight() + abs(scaledVy));
+	sweptShape.setWidth(boundingVolume.getWidth() + abs(pp.getX()));//scaledVx));
+	sweptShape.setHeight(boundingVolume.getHeight() + abs(pp.getY()));//scaledVy));
 
 	// UPDATE ITS CENTER?
 	float centerX = boundingVolume.getCenterX();
