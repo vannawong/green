@@ -37,7 +37,7 @@ Physics::Physics()
 	//c0
 	//gravity = DEFAULT_GRAVITY;
 
-	pikachu = 128.0f;
+	pikachu = 89.0f;
 
 	// POPULATE THEM WITH 1000 OBJECTS TO SHARE
 	// WHY 1000? BECAUSE I HAD TO PICK SOME NUMBER BIG ENOUGH

@@ -11,6 +11,8 @@
 #include "sssf\game\Game.h"
 #include "sssf\graphics\GameGraphics.h"
 #include "sssf\gsm\ai\bots\GarbageMon.h"
+#include "sssf\gsm\ai\bots\Item.h"
+#include "sssf\gsm\ai\bots\Attack.h"
 #include "sssf\gsm\ai\bots\NPC.h"
 #include "sssf\gsm\sprite\TopDownSprite.h"
 #include "sssf\gsm\state\GameState.h"
@@ -293,12 +295,22 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 
 	//body->SetLinearVelocity(b2Vec2 (0.0f, 0.0f));
  
-	b2PolygonShape polygonShape;
+	//b2PolygonShape polygonShape;
 
 	b2FixtureDef fixtureDef; 
-	fixtureDef.shape = &polygonShape; 
+	//fixtureDef.shape = &polygonShape; 
 	//polygonShape.SetAsBox(player->getBoundingVolume()->getHeight()/320, player->getBoundingVolume()->getWidth()/320); 
-	polygonShape.SetAsBox(0.8f, 0.9f);
+	//polygonShape.SetAsBox(0.8f, 0.9f);
+	b2PolygonShape dynamicBox; 
+	b2Vec2 v [4];
+	v[0].Set (0,0);
+	v[1].Set (0, 1);
+	v[2].Set (1, 1);
+	v[3].Set (1, 0);
+	int32 c = 4;
+	dynamicBox.Set(v, c);
+	fixtureDef.shape = &dynamicBox;
+	
 	fixtureDef.density = 1.0f; 
 	fixtureDef.friction = 1.0f; 
 
@@ -406,7 +418,13 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	b2Body* body = bworld->CreateBody (&bdef);
 
 	b2PolygonShape dynamicBox; 
-	dynamicBox.SetAsBox(0.01f, 0.01f); 
+	b2Vec2 v [4];
+	v[0].Set (0,0);
+	v[1].Set (0, 1);
+	v[2].Set (1, 1);
+	v[3].Set (1, 0);
+	int32 c = 4;
+	dynamicBox.Set(v, c);
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
@@ -442,8 +460,16 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	b2World* bworld = game->getbworld();
 	b2Body* body = bworld->CreateBody (&bdef);
 
+	//b2PolygonShape dynamicBox; 
+	//dynamicBox.SetAsBox(1.0f, 1.0f); 
 	b2PolygonShape dynamicBox; 
-	dynamicBox.SetAsBox(0.01f, 0.01f); 
+	b2Vec2 v [4];
+	v[0].Set (0,0);
+	v[1].Set (0, 1);
+	v[2].Set (1, 1);
+	v[3].Set (1, 0);
+	int32 c = 4;
+	dynamicBox.Set(v, c);
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
@@ -707,7 +733,7 @@ void BugsDataLoader::initViewport(GameGUI *gui, map<wstring,wstring> *properties
 void BugsDataLoader::addItem (Game* game, AnimatedSpriteType* item, float initX, float initY) {
 	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
 	Physics *physics = game->getGSM()->getPhysics();
-	Bot *trash = new NPC (physics, 0, 0, 0);
+	Bot *trash = new Item (physics, 0, 0, 0);
 	//physics->addCollidableObject(trash);
 	PhysicalProperties *pp = trash->getPhysicalProperties();
 	pp->setPosition(initX, initY);
@@ -723,9 +749,16 @@ void BugsDataLoader::addItem (Game* game, AnimatedSpriteType* item, float initX,
 	b2World* bworld = game->getbworld();
 	b2Body* body = bworld->CreateBody (&bdef);
 
-	b2PolygonShape dynamicBox; 
+	//b2PolygonShape dynamicBox; 
 	//dynamicBox.SetAsBox(0.01f, 0.01f); 
-	dynamicBox.SetAsBox(0.01f, 0.01f);
+	b2PolygonShape dynamicBox; 
+	b2Vec2 v [4];
+	v[0].Set (0,0);
+	v[1].Set (0, 1);
+	v[2].Set (1, 1);
+	v[3].Set (1, 0);
+	int32 c = 4;
+	dynamicBox.Set(v, c);
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 

@@ -63,6 +63,14 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		{
 			game->getGraphics()->toggleRenderQuests();
 		}
+		
+		//item stuff
+		if (input->isKeyDownForFirstTime('A'))
+		{
+			//if (player->getPhysicalProperties()->
+			//	game->getGSM()->getSpriteManager()->removeBot();
+		}
+
 		if (input->isKeyDownForFirstTime(R_KEY))
 		{
 			if (wcscmp(player->getCurrentState().c_str(), L"RUNNING") == 0)
@@ -86,7 +94,6 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 			game->setCurrentLevelFileName(LEVEL_2);
 			game->startGame();
 		}
-
 
 		bool viewportMoved = false;
 		float viewportVx = 0.0f;

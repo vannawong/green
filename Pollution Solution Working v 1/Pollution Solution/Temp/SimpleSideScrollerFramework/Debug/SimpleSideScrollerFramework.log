@@ -1,8 +1,19 @@
-﻿Build started 5/11/2014 11:09:40 PM.
+﻿Build started 5/12/2014 5:01:15 PM.
      1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\gsm\physics\Physics.cpp
-         Physics.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\sssf\game\Game.cpp src\sssf\gsm\ai\bots\Attack.cpp src\sssf\gsm\ai\bots\Item.cpp
+         Item.cpp
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\item.cpp(124): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\item.cpp(125): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\item.cpp(126): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\item.cpp(127): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+         Attack.cpp
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\attack.cpp(124): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\attack.cpp(125): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\attack.cpp(126): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\attack.cpp(127): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+         Game.cpp
+         Generating Code...
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib" /LIBPATH:Box2D.lib /LIBPATH:fmod_vc.lib /NOLOGO "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GameDataLoader.obj"
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Game.obj"
@@ -11,6 +22,8 @@
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RenderList.obj"
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\TextureManager.obj"
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\BotRecycler.obj"
+         "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Attack.obj"
+         "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\Item.obj"
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\NPC.obj"
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\GarbageMon.obj"
          "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\SimpleSideScrollerFramework\Debug\RandomJumpingBot.obj"
@@ -45,4 +58,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.91
+Time Elapsed 00:00:07.30
