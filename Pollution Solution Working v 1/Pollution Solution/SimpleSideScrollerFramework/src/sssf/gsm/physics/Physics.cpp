@@ -363,7 +363,7 @@ void Physics::update(Game *game)
 		i++;
 	}
 
-	float32 time = 1.0f/30.0f;
+	float32 time = 1.0f/5.0f;
 	int32 vel = 8;
 	int32 pos = 3;
 	game->getbworld()->Step (time, vel, pos);

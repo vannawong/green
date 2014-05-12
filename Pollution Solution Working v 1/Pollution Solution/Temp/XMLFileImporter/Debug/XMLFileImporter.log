@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 5/11/2014 7:09:29 PM.
      1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\XMLFileImporter\XMLFileImporter.vcxproj" on node 3 (Build target(s)).
      1>ClCompile:
@@ -14,3 +15,14 @@
 Build succeeded.
 
 Time Elapsed 00:00:01.15
+=======
+﻿Build started 5/11/2014 2:00:01 AM.
+     1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\XMLFileImporter\XMLFileImporter.vcxproj" on node 3 (Build target(s)).
+     1>Lib:
+         XMLFileImporter.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\XMLFileImporter.lib
+     1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\XMLFileImporter\XMLFileImporter.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.03
+>>>>>>> 9f3242754938c1d7b96cc49de47303cd37277360
