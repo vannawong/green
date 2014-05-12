@@ -9,6 +9,7 @@
     <ClCompile Include="src\bugs\BugsMouseEventHandler.cpp" />
     <ClCompile Include="src\bugs\BugsTextGenerator.cpp" />
     <ClCompile Include="src\bugs_VS\stdafx.cpp" />
+    <ClCompile Include="src\bugs\DebugDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\bugs\BugsButtonEventHandler.h" />
@@ -18,10 +19,10 @@
     <ClInclude Include="src\bugs\BugsKeyEventHandler.h" />
     <ClInclude Include="src\bugs\BugsMouseEventHandler.h" />
     <ClInclude Include="src\bugs\BugsTextGenerator.h" />
-    <ClInclude Include="src\bugs\Music.h" />
     <ClInclude Include="src\bugs_VS\Resource.h" />
     <ClInclude Include="src\bugs_VS\stdafx.h" />
     <ClInclude Include="src\bugs_VS\targetver.h" />
+    <ClInclude Include="src\bugs\DebugDraw.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

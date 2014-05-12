@@ -90,6 +90,8 @@ static const wstring	DANCING(L"DANCING");
 static const wstring	DYING(L"DYING");
 static const wstring	WALKING(L"WALKING");
 static const wstring	RUNNING(L"RUNNING");
+static const wstring	CAN(L"CAN");
+static const wstring	PAPER(L"PAPER");
 
 // USED FOR MOVEMENT
 const unsigned int W_KEY = (unsigned int)'W';

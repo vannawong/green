@@ -1,8 +1,4 @@
 /*
-Author: Richard McKenna
-Stony Brook University
-Computer Science Department
-
 BugsKeyEventHandler.cpp
 
 See BugsKeyEventHandler.h for a class description.
@@ -24,6 +20,9 @@ See BugsKeyEventHandler.h for a class description.
 #include "sssf\input\GameInput.h"
 #include "sssf\timer\GameTimer.h"
 #include "sssf\platforms\Windows\WindowsTimer.h"
+
+//Box2D
+#include "Box2D\Box2D.h"
 
 /*
 handleKeyEvent - this method handles all keyboard interactions. Note that every frame this method
@@ -81,17 +80,32 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 			game->setCurrentLevelFileName(LEVEL_2);
 			game->startGame();
 		}
+		if (input->isKeyDownForFirstTime(C_KEY))
+		{
+			wstring* d, *attack;
+			switch(player->getDirection()){
+			case 0: d = new wstring(L"UP"); break;
+			case 1: d = new wstring(L"RIGHT"); break;
+			case 2: d = new wstring(L"DOWN"); break;
+			case 3: d = new wstring(L"LEFT"); break;
+			}
 
+			attack = new wstring(L"ATTACKING_");
+			/*
+			wcscat((*attack).c_str(), (*d).c_str());
+			player->setCurrentState(*attack);
+			*/
+		}
 
-		bool viewportMoved = false;
+			bool viewportMoved = false;
 		float viewportVx = 0.0f;
 		float viewportVy = 0.0f;
 		float vX = pp->getVelocityX();
 		float vY = pp->getVelocityY();
-
 		if (input->isKeyDown(UP_KEY))
 		{
 			player->setCurrentState(L"WALKINGBACK");
+			
 			if (pp->getY() < (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
 				viewportVy -= MAX_PLAYER_VELOCITY;
 			vY = -1 * MAX_PLAYER_VELOCITY;
@@ -101,6 +115,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		else if (input->isKeyDown(DOWN_KEY))
 		{
 			player->setCurrentState(L"WALKINGFORWARD");
+			
 			if (pp->getY() > (viewport->getViewportY() + 0.5f * viewport->getViewportHeight()))
 				viewportVy += MAX_PLAYER_VELOCITY;
 			vY = MAX_PLAYER_VELOCITY;
@@ -110,6 +125,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		else if (input->isKeyDown(LEFT_KEY))
 		{
 			player->setCurrentState(L"WALKINGLEFT");
+			
 			if (pp->getX() < (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
 				viewportVx -= MAX_PLAYER_VELOCITY;
 			vX = -1 * MAX_PLAYER_VELOCITY;
@@ -120,26 +136,27 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		{
 			player->setCurrentState(L"WALKINGRIGHT");
 			if (pp->getX() > (viewport->getViewportX() + 0.5f * viewport->getViewportWidth()))
-			viewportVx += MAX_PLAYER_VELOCITY;
+				viewportVx += MAX_PLAYER_VELOCITY;
 			vX = MAX_PLAYER_VELOCITY;
 			vY = 0;
 			viewportMoved = true;
 		}
 		else {
-			if((wcscmp(player->getCurrentState().c_str(), L"WALKINGRIGHT") == 0) && !input->isKeyDown(RIGHT_KEY))
-				player->setCurrentState(L"WALKINGRIGHTIDLE");
-		else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGLEFT") == 0) && !input->isKeyDown(LEFT_KEY))
-			player->setCurrentState(L"WALKINGLEFTIDLE");
-		else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGBACK") == 0) && !input->isKeyDown(UP_KEY))
-			player->setCurrentState(L"WALKINGBACKIDLE");
-		else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGFORWARD") == 0) && !input->isKeyDown(DOWN_KEY))
-			player->setCurrentState(IDLE);
 			vX = 0.0f;
 			vY = 0.0f;
+			if((wcscmp(player->getCurrentState().c_str(), L"WALKINGRIGHT") == 0) && !input->isKeyDown(RIGHT_KEY))
+				player->setCurrentState(L"WALKINGRIGHTIDLE");
+			else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGLEFT") == 0) && !input->isKeyDown(LEFT_KEY))
+				player->setCurrentState(L"WALKINGLEFTIDLE");
+			else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGBACK") == 0) && !input->isKeyDown(UP_KEY))
+				player->setCurrentState(L"WALKINGBACKIDLE");
+			else if((wcscmp(player->getCurrentState().c_str(), L"WALKINGFORWARD") == 0) && !input->isKeyDown(DOWN_KEY))
+				player->setCurrentState(IDLE);
 		}
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx+0.5f), (int)floor(viewportVy+0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());
-		pp->setVelocity(vX, vY);
+		pp->setVelocity(vX, vY);	
+
 	}
 
 	// 0X43 is HEX FOR THE 'C' VIRTUAL KEY

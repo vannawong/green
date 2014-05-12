@@ -29,6 +29,10 @@ class Physics
 {
 //private:
 public:
+
+	list<CollidableObject*> co;
+	float pikachu;
+
 	// THIS IS APPLIED TO EVERY SPRITE EVERY FRAME
 	float gravity;
 
@@ -81,6 +85,10 @@ public:
 	void togglePhysics() { activated = !activated; }
 	void update(Game *game);
 	bool willSpriteCollideOnTile(CollidableObject *co, AABB *tileAABB);
+
+	//box2d things
+	void addCO (CollidableObject* cob);
+	list<CollidableObject*> getListCO ();
 
 	// HELPER METHODS DEFINED INSIDE Physics.cpp - YOU ARE WELCOME TO ADD MORE AS YOU SEE FIT
 private:

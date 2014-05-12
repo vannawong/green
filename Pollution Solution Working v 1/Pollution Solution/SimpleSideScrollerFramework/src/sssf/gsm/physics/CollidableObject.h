@@ -2,6 +2,7 @@
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\physics\AABB.h"
 #include "sssf\gsm\physics\PhysicalProperties.h"
+#include "box2D\box2D.h"
 
 // THESE ARE THE SWEEP AND PRUNE ORDERINGS
 const unsigned int LEFT_EDGE = 0;
@@ -22,6 +23,7 @@ protected:
 	unsigned int collisionEdge;
 
 public:
+	b2Body *body;
 	CollidableObject()	{}
 	~CollidableObject()	{}
 
@@ -57,4 +59,8 @@ public:
 		onTileThisFrame = false;
 	}
 
+	//kirai
+	//box2d
+	void setBody (b2Body* body);
+	b2Body* getBody ();
 };

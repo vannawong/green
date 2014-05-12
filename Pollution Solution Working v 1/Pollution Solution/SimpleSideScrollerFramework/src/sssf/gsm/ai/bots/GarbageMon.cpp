@@ -3,6 +3,7 @@
 #include "sssf\gsm\ai\bots\GarbageMon.h"
 #include "sssf\gsm\state\GameStateManager.h"
 #include "sssf\gsm\physics\Physics.h"
+#include "box2D\box2D.h"
 
 /*
 This private constructor is only to be used for cloning bots, note
@@ -148,7 +149,27 @@ void GarbageMon::think(Game *game)
 		case 3: pp.setVelocity(10.0, 0.0f); direction = 0; break;
 
 		}
-
+		/*
+		b2Vec2 bah;
+		switch(direction){
+		case 0: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->SetLinearVelocity(b2Vec2 (0.0f, 2.0f)); direction++; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
+		case 1: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->SetLinearVelocity (b2Vec2 (-2.0f, 0.0f));; direction++; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
+		case 2: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->SetLinearVelocity(b2Vec2 (0.0f, -2.0f)); direction++; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
+		case 3: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->SetLinearVelocity (b2Vec2 (2.0f, 0.0f));; direction = 0; 
+			getBody()->SetLinearVelocity(b2Vec2(0,0));
+			getBody()->SetAngularVelocity(0);
+			break;
+		}
+		*/
 	}
 	else
 		cyclesRemainingBeforeThinking--;

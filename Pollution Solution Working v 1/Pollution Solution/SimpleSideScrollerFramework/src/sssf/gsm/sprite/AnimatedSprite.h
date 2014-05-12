@@ -57,6 +57,7 @@ public:
 	unsigned int		getFrameIndex()		{ return frameIndex;		}
 	AnimatedSpriteType*	getSpriteType()		{ return spriteType;		}
 	int					getAnimationCounter() { return animationCounter;}
+	int					getDirection()		{ return direction;			}
 	bool hasReachedDestination()
 	{	return currentPathNode == currentPathToFollow.end(); }
 
@@ -84,4 +85,8 @@ public:
 	void affixTightAABBBoundingVolume();
 	void correctToTightBoundingVolume();
 	virtual float getRotationInRadians() { return 0.0f; }
+
+	//Box2d Body
+	//void setBody (b2Body* body);
+	//b2Body* getBody ();
 };

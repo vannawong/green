@@ -57,6 +57,8 @@ using namespace std;
 #include <cmath>
 #include <limits> 
 
+#include "DebugDraw.h"
+
 /*
 	WinMain - This is the application's starting point. In this method we will construct a Game object, 
 	then initialize all the platform-dependent technologies, then construct all the custom data for our 
@@ -130,6 +132,14 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	BugsCollisionListener *bugsCollisionListener = new BugsCollisionListener();
 	bugsGame->getGSM()->getPhysics()->setCollisionListener(bugsCollisionListener);
+
+	DebugDraw drawer;
+	bugsGame->getbworld()->SetDebugDraw(&drawer);
+	uint32 flags = 0;
+	flags += b2Draw::e_shapeBit;
+	flags += b2Draw::e_jointBit;
+	drawer.SetFlags( flags );
+	bugsGame->getbworld()->DrawDebugData();
 
 	// START THE GAME LOOP
 	bugsGame->runGameLoop();

@@ -18,6 +18,7 @@
     <ClCompile Include="src\bugs\BugsKeyEventHandler.cpp" />
     <ClCompile Include="src\bugs\BugsMouseEventHandler.cpp" />
     <ClCompile Include="src\bugs\BugsTextGenerator.cpp" />
+    <ClCompile Include="src\bugs\DebugDraw.cpp" />
     <ClCompile Include="src\bugs_VS\stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -28,7 +29,7 @@
     <ClInclude Include="src\bugs\BugsKeyEventHandler.h" />
     <ClInclude Include="src\bugs\BugsMouseEventHandler.h" />
     <ClInclude Include="src\bugs\BugsTextGenerator.h" />
-    <ClInclude Include="src\bugs\Music.h" />
+    <ClInclude Include="src\bugs\DebugDraw.h" />
     <ClInclude Include="src\bugs_VS\Resource.h" />
     <ClInclude Include="src\bugs_VS\stdafx.h" />
     <ClInclude Include="src\bugs_VS\targetver.h" />
@@ -93,7 +94,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d9.lib;d3dx9.lib;winmm.lib;PoseurSpriteTypesImporter.lib;SimpleSideScrollerFramework.lib;tinyxml.lib;TMXMapImporter.lib;XMLFileImporter.lib;fmod_vc.lib;LuaPlusFramework.lib;LuaPlus.lib;Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;winmm.lib;PoseurSpriteTypesImporter.lib;SimpleSideScrollerFramework.lib;tinyxml.lib;TMXMapImporter.lib;XMLFileImporter.lib;fmod_vc.lib;LuaPlusFramework.lib;LuaPlus.lib;Box2D.lib;FreeGLUT.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

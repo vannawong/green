@@ -124,7 +124,7 @@ void TMXMapImporter::loadImageLayerInfo(const TiXmlNode *node)
 				string att = grandchildElement->Attribute(NAME_ATT.c_str());
 				if (strcmp(att.c_str(), COLLIDABLE_ATT.c_str()) == 0)
 				{
- 					imageLayerInfo->collidable = extractBoolAtt(grandchildNode->ToElement(), VALUE_ATT);
+					imageLayerInfo->collidable = extractBoolAtt(grandchildNode->ToElement(), VALUE_ATT);
 				}
 				else if (strcmp(att.c_str(), IMAGEHEIGHT_ATT.c_str()) == 0)
 				{
@@ -148,7 +148,7 @@ void TMXMapImporter::loadSparseLayerInfo(const TiXmlNode *node)
 	const TiXmlElement *element = node->ToElement();
 	SparseLayerInfo *sparseLayerInfo = new SparseLayerInfo();
 	sparseLayerInfo->name = extractCharAtt(element, NAME_ATT);
-	
+
 	// NOW GET THE PROPERTIES
 	const TiXmlNode *propertiesNode = node->FirstChild();
 	string eName = propertiesNode->Value();
@@ -244,7 +244,7 @@ void TMXMapImporter::loadTiledLayerInfo(const TiXmlNode *node)
 	while (tileNode)
 	{
 		const TiXmlElement *element = tileNode->ToElement();
-		
+
 		// GID IS REQUIRED
 		if (element->Attribute(GID_ATT.c_str()) != NULL)
 		{
@@ -469,25 +469,28 @@ bool TMXMapImporter::buildWorldFromInfo(Game *game)
 void TMXMapImporter::buildTiledLayer(Game *game, TiledLayerInfo *tli, int idOffset)
 {
 	TiledLayer *tiledLayerToAdd = new TiledLayer(	tli->width,
-													tli->height,
-													tli->tileSetInfo->tilewidth,
-													tli->tileSetInfo->tileheight,
-													0,
-													tli->collidable,
-													largestLayerWidth,
-													largestLayerHeight);
+		tli->height,
+		tli->tileSetInfo->tilewidth,
+		tli->tileSetInfo->tileheight,
+		0,
+		tli->collidable,
+		largestLayerWidth,
+		largestLayerHeight);
 	game->getGSM()->getWorld()->addLayer(tiledLayerToAdd);
+	b2World* bworld = game->getbworld();
 
 	// WE HAVE TO ADD ALL THE TILES
 	int uncollidableIndex = tli->tileSetInfo->firstgid;
 	for (unsigned int i = 0; i < tli->gids.size(); i++)
 	{
 		Tile *tileToAdd = new Tile();
+		b2PolygonShape polygonShape;
 		tileToAdd->textureID = tli->gids[i] + idOffset - 1;
 		if (tli->gids[i] == uncollidableIndex)
 			tileToAdd->collidable = false;
-		else
+		else {
 			tileToAdd->collidable = tli->collidable;
+		}
 		tiledLayerToAdd->addTile(tileToAdd);
 	}
 }
@@ -495,13 +498,13 @@ void TMXMapImporter::buildTiledLayer(Game *game, TiledLayerInfo *tli, int idOffs
 void TMXMapImporter::buildImageLayer(Game *game, ImageLayerInfo *ili, int idOffset)
 {
 	TiledLayer *imageLayerToAdd = new TiledLayer(	1,
-													1,
-													ili->imagewidth,
-													ili->imageheight,
-													0,
-													ili->collidable,
-													largestLayerWidth,
-													largestLayerHeight);
+		1,
+		ili->imagewidth,
+		ili->imageheight,
+		0,
+		ili->collidable,
+		largestLayerWidth,
+		largestLayerHeight);
 	game->getGSM()->getWorld()->addLayer(imageLayerToAdd);
 	TextureManager *textureManager = game->getGraphics()->getWorldTextureManager();
 	Tile *imageTile = new Tile();
@@ -549,7 +552,7 @@ TileSetInfo* TMXMapImporter::getTileSetForId(int id)
 	{
 		TileSetInfo *tsi = &(*it);
 		int columns = tsi->sourceImageWidth/tsi->tilewidth;
-			int rows = tsi->sourceImageHeight/tsi->tileheight;
+		int rows = tsi->sourceImageHeight/tsi->tileheight;
 		int numTiles = rows * columns;
 		if ((id >= tsi->firstgid) && (id < (tsi->firstgid + numTiles)))
 		{

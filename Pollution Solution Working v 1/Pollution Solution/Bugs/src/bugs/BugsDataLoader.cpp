@@ -21,6 +21,7 @@
 #include "sssf\input\GameInput.h"
 #include "sssf\os\GameOS.h"
 #include "sssf\text\GameText.h"
+#include "sssf\gui\Viewport.h"
 
 // WINDOWS PLATFORM INCLUDES
 #include "sssf\platforms\Windows\WindowsOS.h"
@@ -48,10 +49,12 @@ using namespace LuaPlus;
 #include <string>
 
 #include "Box2D\Box2D.h"
+#include "DebugDraw.h"
+#include "freeglut/freeglut.h"
 
 /*
-	loadGame - This method loads the setup game data into the game and
-	constructs all the needed objects for the game to work.
+loadGame - This method loads the setup game data into the game and
+constructs all the needed objects for the game to work.
 */
 void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 {
@@ -79,12 +82,12 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	// MAKE A CUSTOM GameOS OBJECT (WindowsOS) FOR SOME WINDOWS
 	// PLATFORM STUFF, INCLUDING A Window OF COURSE
 	WindowsOS *BugsOS = new WindowsOS(	hInstance, 
-										nCmdShow,
-										useFullscreen,
-										titleProp,
-										screenWidth, screenHeight,
-										game);
-	
+		nCmdShow,
+		useFullscreen,
+		titleProp,
+		screenWidth, screenHeight,
+		game);
+
 	int textFontSize;
 	wstring textFontSizeProp = (*properties)[W_TEXT_FONT_SIZE];
 	wstringstream(textFontSizeProp) >> textFontSize;
@@ -108,9 +111,9 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	// NOW INITIALIZE THE Game WITH ALL THE
 	// PLATFORM AND GAME SPECIFIC DATA WE JUST CREATED
 	game->initplatforms(	(GameGraphics*)BugsGraphics,
-								(GameInput*)BugsInput,
-								(GameOS*)BugsOS,
-								(GameTimer*)BugsTimer);
+		(GameInput*)BugsInput,
+		(GameOS*)BugsOS,
+		(GameTimer*)BugsTimer);
 
 	// LOAD OUR CUSTOM TEXT GENERATOR, WHICH DRAWS
 	// TEXT ON THE SCREEN EACH FRAME
@@ -128,9 +131,9 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 
 	//INIT THE MUSIC
 	//FMOD_SOUND *s;
-	FMOD_SYSTEM *system;
+	//FMOD_SYSTEM *system;
 	//FMOD_SOUND *audio;
-	FMOD_SOUND *audiostream;
+	/*FMOD_SOUND *audiostream;
 	unsigned int version;
 	FMOD_RESULT res;
 	int numDrivers = 0;
@@ -139,36 +142,36 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 
 	res = FMOD_System_Create (&system);
 	if (res != FMOD_OK)
-		printf ("system create failed");
+	printf ("system create failed");
 
 	// Check version
 	res= FMOD_System_GetVersion(system, &version);
- 
+
 	FMOD_System_GetNumDrivers (system, &numDrivers);
 	// No sound cards (disable sound)
 	if (numDrivers == 0)
 	{
-		res = FMOD_System_SetOutput(system, FMOD_OUTPUTTYPE_NOSOUND);
-		if (res != FMOD_OK)
-			printf ("no sound card");
+	res = FMOD_System_SetOutput(system, FMOD_OUTPUTTYPE_NOSOUND);
+	if (res != FMOD_OK)
+	printf ("no sound card");
 	}
 
 	// Get the capabilities of the default (0) sound card
-    //res = FMOD_System_GetDriver(system, 0, &caps, 0, &speakerMode);
- 
-    // Set the speaker mode to match that in Control Panel
-    //res = FMOD_System_SetSpeakerPosition(speakerMode);
+	//res = FMOD_System_GetDriver(system, 0, &caps, 0, &speakerMode);
+
+	// Set the speaker mode to match that in Control Panel
+	//res = FMOD_System_SetSpeakerPosition(speakerMode);
 
 	FMOD_CHANNELGROUP *channelMusic = NULL;
 	FMOD_CHANNEL *songchan = NULL;
 
 	res = FMOD_System_Init (system, 100, FMOD_INIT_NORMAL, 0);
 	if (res != FMOD_OK)
-		printf ("system init failed");
+	printf ("system init failed");
 	//FMOD_System_CreateSound (system, ".mp3", FMOD_DEFAULT, 0, &audio);
 	res = FMOD_System_CreateStream (system, "data\\music\\planetarium.mp3", FMOD_DEFAULT, 0, &audiostream);
 	if (res != FMOD_OK)
-		printf ("system createStream failed");
+	printf ("system createStream failed");
 	//FMOD_System_PlaySound(system,audiostream,0,false,0);
 	FMOD_Channel_SetChannelGroup (songchan, channelMusic);
 	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
@@ -176,7 +179,7 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 	/*FMOD_CHANNELGROUP *channelMusic;
 	//FMOD_CHANNELGROUP *channelEffects;
 	FMOD_CHANNEL *songchan;
-	
+
 	FMOD_System_PlaySound(system,audiostream,channelMusic,false,&songchan);
 	FMOD_Channel_SetChannelGroup(songchan, channelMusic);*/
 
@@ -185,11 +188,11 @@ void BugsDataLoader::loadGame(Game *game, wstring gameInitFile)
 }
 
 /*
-	initColors - this helper method loads the color key, used for loading
-	images, and the font color, used for rendering text.
+initColors - this helper method loads the color key, used for loading
+images, and the font color, used for rendering text.
 */
 void BugsDataLoader::initColors(	GameGraphics *graphics,
-									map<wstring,wstring> *properties)
+								map<wstring,wstring> *properties)
 {
 	int fontRed, fontGreen, fontBlue;
 	wstring fontRedProp = (*properties)[W_FONT_COLOR_RED];
@@ -217,9 +220,9 @@ void BugsDataLoader::initColors(	GameGraphics *graphics,
 }
 
 /*
-	loadGUI - This method loads all the GUI assets described in the guiInitFile
-	argument. Note that we are loading all GUI art for all GUIs when the application
-	first starts. We'll learn a better technique later in the semester.
+loadGUI - This method loads all the GUI assets described in the guiInitFile
+argument. Note that we are loading all GUI art for all GUIs when the application
+first starts. We'll learn a better technique later in the semester.
 */
 void BugsDataLoader::loadGUI(Game *game, wstring guiInitFile)
 {
@@ -229,8 +232,8 @@ void BugsDataLoader::loadGUI(Game *game, wstring guiInitFile)
 }
 
 /*
-	loadLevel - This method should load the data the level described by the
-	levelInitFile argument in to the Game's game state manager.
+loadLevel - This method should load the data the level described by the
+levelInitFile argument in to the Game's game state manager.
 */
 void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)	
 {
@@ -267,7 +270,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	GameStateManager *gsm = game->getGSM();
 	World *world = gsm->getWorld();
 	SpriteManager *spriteManager = gsm->getSpriteManager();
-	
+
 	// LOAD THE LEVEL'S SPRITE IMAGES
 	PoseurSpriteTypesImporter psti;
 	psti.loadSpriteTypes(game, SPRITE_TYPES_LIST);
@@ -279,14 +282,44 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
 
-	b2Vec2 gravity(0.0f, 0.0f);
-	b2World* bworld = new b2World(gravity);
+	/*
+	b2World* bworld = game->getbworld();
 
 	b2BodyDef bdef;
 	bdef.type = b2_dynamicBody;
 	bdef.position.Set(PLAYER_INIT_X, PLAYER_INIT_Y);
 	b2Body* body = bworld->CreateBody(&bdef);
+	body->SetAngularDamping (1.0f);
+	body->SetFixedRotation (true);
 
+	//body->SetLinearVelocity(b2Vec2 (0.0f, 0.0f));
+
+	b2PolygonShape polygonShape;
+
+	b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &polygonShape; 
+	polygonShape.SetAsBox(player->getBoundingVolume()->getHeight()/2 * 0.02f, player->getBoundingVolume()->getWidth() / 2 * 0.02f); 
+	//polygonShape.SetAsBox(0.8f, 0.9f);
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 1.0f; 
+	fixtureDef.restitution = 0;
+
+	body->CreateFixture(&fixtureDef);
+	Physics* p = gsm->getPhysics();
+
+	player->setBody(body);
+	p->addCO(player);
+
+
+	DebugDraw drawer;
+	bworld->SetDebugDraw( &drawer );
+	uint32 flags = 0;
+	flags += b2Draw::e_shapeBit;
+	flags += b2Draw::e_jointBit;
+	drawer.SetFlags( flags );
+
+	bworld->DrawDebugData();
+	*/
 
 	// NOTE THAT RED BOX MAN IS SPRITE ID 1
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
@@ -315,26 +348,30 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 
 	//NPC
 	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
-	makeNPC(game, npcSpriteType, 300, 500);
+	makeNPC(game, npcSpriteType, 100, 200);
 
 	AnimatedSpriteType *botSpriteType = spriteManager->getSpriteType(2);
+	AnimatedSpriteType *item = spriteManager->getSpriteType(5);
 
 
 	// AND LET'S ADD A BUNCH OF RANDOM JUMPING BOTS, FIRST ALONG
 	// A LINE NEAR THE TOP
 
-// UNCOMMENT THE FOLLOWING CODE BLOCK WHEN YOU ARE READY TO ADD SOME BOTS
-/*	for (int i = 2; i <= 26; i++)
+	// UNCOMMENT THE FOLLOWING CODE BLOCK WHEN YOU ARE READY TO ADD SOME BOTS
+	/*	for (int i = 2; i <= 26; i++)
 	{
-		float botX = 400.0f + (i * 100.0f);
-		float botY = 100.0f;
-		makeRandomJumpingBot(game, botSpriteType, botX, botY);
+	float botX = 400.0f + (i * 100.0f);
+	float botY = 100.0f;
+	makeRandomJumpingBot(game, botSpriteType, botX, botY);
 	}*/
+
+	//add trash item
+	addItem (game, item, 15.0, 15.0);
 
 	// AND THEN STRATEGICALLY PLACED AROUND THE LEVEL
 	makeGarbageMon(game, botSpriteType, BOT_1_INIT_X, BOT_1_INIT_Y);
 	makeGarbageMon(game, botSpriteType, BOT_2_INIT_X, BOT_2_INIT_Y);
-/*	makeRandomJumpingBot(game, botSpriteType, 400, 400);
+	/*	makeRandomJumpingBot(game, botSpriteType, 400, 400);
 	makeRandomJumpingBot(game, botSpriteType, 800, 700);
 	makeRandomJumpingBot(game, botSpriteType, 900, 700);
 	makeRandomJumpingBot(game, botSpriteType, 1000, 700);
@@ -347,8 +384,8 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 
 	// AND THEN A BUNCH LINED UP NEAR THE LEVEL EXIT
 	for (int i = 0; i < 14; i++)
-		makeRandomJumpingBot(game, botSpriteType, 1700.0f + (i*100.0f), 1300.0f);
-*/		
+	makeRandomJumpingBot(game, botSpriteType, 1700.0f + (i*100.0f), 1300.0f);
+	*/		
 }
 
 void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, float initX, float initY)
@@ -364,6 +401,28 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	npc->setAlpha(255);
 	spriteManager->addBot(npc);
 	npc->affixTightAABBBoundingVolume();
+
+	/*
+	b2BodyDef bdef;
+	bdef.type = b2_dynamicBody;
+	bdef.position.Set (initX, initY);
+	b2World* bworld = game->getbworld();
+	b2Body* body = bworld->CreateBody (&bdef);
+
+	b2PolygonShape dynamicBox; 
+	dynamicBox.SetAsBox(0.01f, 0.01f); 
+
+	b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 0.3f;
+	fixtureDef.restitution = 0.0f;
+
+	body->CreateFixture (&fixtureDef);
+	
+	npc->setBody(body);
+	game->getGSM()->getPhysics()->addCO(npc);
+	*/
 }
 
 
@@ -380,15 +439,37 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	bot->setCurrentState(IDLE);
 	bot->setAlpha(255);
 	spriteManager->addBot(bot);
-	bot->affixTightAABBBoundingVolume();
+	//bot->affixTightAABBBoundingVolume();
 	//recycler->registerBotType(L"garbageMon", bot); 
+
+	/*
+	b2BodyDef bdef;
+	bdef.type = b2_kinematicBody;
+	bdef.position.Set (initX, initY);
+	b2World* bworld = game->getbworld();
+	b2Body* body = bworld->CreateBody (&bdef);
+
+	b2PolygonShape dynamicBox; 
+	dynamicBox.SetAsBox(0.01f, 0.01f); 
+
+	b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 0.3f;
+	fixtureDef.restitution = 0.0f;
+
+	body->CreateFixture (&fixtureDef);
+	bot->setBody(body);
+
+	game->getGSM()->getPhysics()->addCO(bot);
+	*/
 }
 
 
 /*
-	initBugsGUI - This method builds a GUI for the Bugs Game application.
-	Note that we load all the GUI components from this method, including
-	the ScreenGUI with Buttons and Overlays and the Cursor.
+initBugsGUI - This method builds a GUI for the Bugs Game application.
+Note that we load all the GUI components from this method, including
+the ScreenGUI with Buttons and Overlays and the Cursor.
 */
 void BugsDataLoader::hardCodedLoadGUIExample(Game *game)
 {
@@ -405,7 +486,7 @@ void BugsDataLoader::hardCodedLoadGUIExample(Game *game)
 }
 
 /*
-	initCursor - initializes a simple little cursor for the gui.
+initCursor - initializes a simple little cursor for the gui.
 */
 void BugsDataLoader::initCursor(GameGUI *gui, DirectXTextureManager *guiTextureManager)
 {
@@ -424,18 +505,18 @@ void BugsDataLoader::initCursor(GameGUI *gui, DirectXTextureManager *guiTextureM
 	// - NOW BUILD AND LOAD THE CURSOR
 	Cursor *cursor = new Cursor();
 	cursor->initCursor(	imageIDs,
-						*(imageIDs->begin()),
-						0,
-						0,
-						0,
-						255,
-						32,
-						32);
+		*(imageIDs->begin()),
+		0,
+		0,
+		0,
+		255,
+		32,
+		32);
 	gui->setCursor(cursor);
 }
 
 /*
-	initSplashScreen - initializes the game's splash screen gui.
+initSplashScreen - initializes the game's splash screen gui.
 */
 void BugsDataLoader::initSplashScreen(Game *game, GameGUI *gui,	DirectXTextureManager *guiTextureManager)
 {
@@ -449,15 +530,15 @@ void BugsDataLoader::initSplashScreen(Game *game, GameGUI *gui,	DirectXTextureMa
 	// INIT THE QUIT BUTTON
 	Button *buttonToAdd = new Button();
 	buttonToAdd->initButton(normalTextureID, 
-							mouseOverTextureID,
-							0,
-							0,
-							0,
-							255,
-							game->getGraphics()->getScreenWidth(),
-							game->getGraphics()->getScreenHeight(),
-							false,
-							W_GO_TO_MM_COMMAND);
+		mouseOverTextureID,
+		0,
+		0,
+		0,
+		255,
+		game->getGraphics()->getScreenWidth(),
+		game->getGraphics()->getScreenHeight(),
+		false,
+		W_GO_TO_MM_COMMAND);
 	splashScreenGUI->addButton(buttonToAdd);
 
 	// AND REGISTER IT WITH THE GUI
@@ -465,7 +546,7 @@ void BugsDataLoader::initSplashScreen(Game *game, GameGUI *gui,	DirectXTextureMa
 }
 
 /*
-	initMainMenu - initializes the game's main menu gui.
+initMainMenu - initializes the game's main menu gui.
 */
 void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextureManager)
 {
@@ -481,7 +562,7 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 	imageToAdd->height = 768;
 	imageToAdd->imageID = imageID;
 	mainMenuGUI->addOverlayImage(imageToAdd);
-	
+
 	// AND LET'S ADD AN EXIT BUTTON
 	Button *buttonToAdd = new Button();
 
@@ -491,15 +572,15 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 
 	// - INIT THE EXIT BUTTON
 	buttonToAdd->initButton(normalTextureID, 
-							mouseOverTextureID,
-							1000,
-							200,
-							0,
-							255,
-							200,
-							100,
-							false,
-							W_EXIT_COMMAND);
+		mouseOverTextureID,
+		1000,
+		200,
+		0,
+		255,
+		200,
+		100,
+		false,
+		W_EXIT_COMMAND);
 
 	// AND NOW LOAD IT INTO A ScreenGUI
 	mainMenuGUI->addButton(buttonToAdd);
@@ -514,15 +595,15 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 
 	// - INIT THE START BUTTON
 	buttonToAdd->initButton(normalTextureID, 
-							mouseOverTextureID,
-							150,
-							200,
-							0,
-							255,
-							200,
-							100,
-							false,
-							W_START_COMMAND);
+		mouseOverTextureID,
+		150,
+		200,
+		0,
+		255,
+		200,
+		100,
+		false,
+		W_START_COMMAND);
 
 	// AND NOW LOAD IT INTO A ScreenGUI
 	mainMenuGUI->addButton(buttonToAdd);
@@ -536,15 +617,15 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 
 	// - INIT THE EXIT BUTTON
 	buttonToAdd->initButton(normalTextureID, 
-							mouseOverTextureID,
-							150,
-							500,
-							0,
-							255,
-							200,
-							100,
-							false,
-							W_CHEAT_COMMAND);
+		mouseOverTextureID,
+		150,
+		500,
+		0,
+		255,
+		200,
+		100,
+		false,
+		W_CHEAT_COMMAND);
 
 	// AND NOW LOAD IT INTO A ScreenGUI
 	mainMenuGUI->addButton(buttonToAdd);
@@ -554,7 +635,7 @@ void BugsDataLoader::initMainMenu(GameGUI *gui,	DirectXTextureManager *guiTextur
 }
 
 /*
-	initInGameGUI - initializes the game's in-game gui.
+initInGameGUI - initializes the game's in-game gui.
 */
 void BugsDataLoader::initInGameGUI(GameGUI *gui, DirectXTextureManager *guiTextureManager)
 {
@@ -567,15 +648,15 @@ void BugsDataLoader::initInGameGUI(GameGUI *gui, DirectXTextureManager *guiTextu
 	// INIT THE QUIT BUTTON
 	Button *buttonToAdd = new Button();
 	buttonToAdd->initButton(normalTextureID, 
-							mouseOverTextureID,
-							0,
-							0,
-							0,
-							255,
-							200,
-							100,
-							false,
-							W_QUIT_COMMAND);
+		mouseOverTextureID,
+		0,
+		0,
+		0,
+		255,
+		200,
+		100,
+		false,
+		W_QUIT_COMMAND);
 	inGameGUI->addButton(buttonToAdd);
 
 	// AND LET'S ADD OUR SCREENS
@@ -583,7 +664,7 @@ void BugsDataLoader::initInGameGUI(GameGUI *gui, DirectXTextureManager *guiTextu
 }
 
 void BugsDataLoader::initQuestsScreen(GameGUI *gui, DirectXTextureManager *guiTextureManager){
-		// NOW ADD THE IN-GAME GUI
+	// NOW ADD THE IN-GAME GUI
 	ScreenGUI *questsScreen = new ScreenGUI();
 
 	unsigned int normalTextureID = guiTextureManager->loadTexture(W_QUEST_SCREEN_PATH);
@@ -602,7 +683,7 @@ void BugsDataLoader::initQuestsScreen(GameGUI *gui, DirectXTextureManager *guiTe
 }
 
 /*
-	initViewport - initializes the game's viewport.
+initViewport - initializes the game's viewport.
 */
 void BugsDataLoader::initViewport(GameGUI *gui, map<wstring,wstring> *properties)
 {
@@ -630,4 +711,38 @@ void BugsDataLoader::initViewport(GameGUI *gui, map<wstring,wstring> *properties
 	viewport->setViewportOffsetX(viewportOffsetX);
 	viewport->setViewportOffsetY(viewportOffsetY);
 	viewport->setToggleOffsetY(toggleOffsetY);
+}
+
+void BugsDataLoader::addItem (Game* game, AnimatedSpriteType* item, float initX, float initY) {
+	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
+	Physics *physics = game->getGSM()->getPhysics();
+	Bot *trash = new NPC (physics, 0, 0, 0);
+	//physics->addCollidableObject(trash);
+	PhysicalProperties *pp = trash->getPhysicalProperties();
+	pp->setPosition(initX, initY);
+	trash->setSpriteType(item);
+	trash->setCurrentState(CAN);
+	trash->setAlpha(255);
+	spriteManager->addBot(trash);
+	//npc->affixTightAABBBoundingVolume();
+
+	b2BodyDef bdef;
+	bdef.type = b2_staticBody;
+	bdef.position.Set (initX, initY);
+	b2World* bworld = game->getbworld();
+	b2Body* body = bworld->CreateBody (&bdef);
+
+	b2PolygonShape dynamicBox; 
+	//dynamicBox.SetAsBox(0.01f, 0.01f); 
+	dynamicBox.SetAsBox(0.01f, 0.01f);
+
+	b2FixtureDef fixtureDef; 
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 0.3f;
+	fixtureDef.restitution = 0.0f;
+
+	body->CreateFixture (&fixtureDef);
+	trash->setBody(body);
+	game->getGSM()->getPhysics()->addCO(trash);
 }

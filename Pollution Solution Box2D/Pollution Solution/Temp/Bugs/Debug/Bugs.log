@@ -1,67 +1,9 @@
-﻿Build started 4/17/2014 7:33:14 PM.
-     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Bugs\Bugs.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Ibox2d_d.lib /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\\" /Fd"C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Temp\Bugs\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\bugs\BugsButtonEventHandler.cpp src\bugs\BugsDataLoader.cpp src\bugs\BugsGame.cpp src\bugs\BugsKeyEventHandler.cpp src\bugs\BugsTextGenerator.cpp
-         BugsKeyEventHandler.cpp
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugskeyeventhandler.cpp(42): error C2039: 'getPhysicalProperties' : is not a member of 'AnimatedSprite'
-                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\sprite\animatedsprite.h(20) : see declaration of 'AnimatedSprite'
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugskeyeventhandler.cpp(72): error C2065: 'IDLE' : undeclared identifier
-         BugsGame.cpp
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsgame.cpp(97): error C2228: left of '.SetContactListener' must have class/struct/union
-                 type is 'b2World *'
-                 did you intend to use '->' instead?
-         BugsDataLoader.cpp
-     1>c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.h(23): error C2535: 'NPC::NPC(unsigned int,unsigned int,unsigned int)' : member function already defined or declared
-                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.h(18) : see declaration of 'NPC::NPC'
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(185): error C2440: 'initializing' : cannot convert from 'b2World *' to 'b2World'
-                 No constructor could take the source type, or constructor overload resolution was ambiguous
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(189): error C2065: 'IDLE' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(234): error C2248: 'NPC::NPC' : cannot access private member declared in class 'NPC'
-                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.h(18) : see declaration of 'NPC::NPC'
-                 c:\users\rhododendron\documents\github\green\pollution solution\simplesidescrollerframework\src\sssf\gsm\ai\bots\npc.h(9) : see declaration of 'NPC'
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(238): error C2065: 'IDLE' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(249): error C2374: 'spriteManager' : redefinition; multiple initialization
-                 c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(248) : see declaration of 'spriteManager'
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(250): error C2512: 'RandomJumpingBot' : no appropriate default constructor available
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(252): error C2065: 'npc' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(252): error C2227: left of '->setSpriteType' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(253): error C2065: 'npc' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(253): error C2227: left of '->setAlpha' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(254): error C2065: 'npc' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(254): error C2227: left of '->setCurrentState' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(257): error C2065: 'npc' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(257): error C2227: left of '->setBody' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(258): error C2065: 'npc' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(258): error C2227: left of '->setCurrentState' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(258): error C2065: 'IDLE' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(259): error C2065: 'npc' : undeclared identifier
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(268): error C2601: 'BugsDataLoader::hardCodedLoadGUIExample' : local function definitions are illegal
-                 c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(247): this line contains a '{' which has not yet been matched
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(284): error C2601: 'BugsDataLoader::initCursor' : local function definitions are illegal
-                 c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(247): this line contains a '{' which has not yet been matched
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(314): error C2601: 'BugsDataLoader::initSplashScreen' : local function definitions are illegal
-                 c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(247): this line contains a '{' which has not yet been matched
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(344): error C2601: 'BugsDataLoader::initMainMenu' : local function definitions are illegal
-                 c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(247): this line contains a '{' which has not yet been matched
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(411): error C2601: 'BugsDataLoader::initInGameGUI' : local function definitions are illegal
-                 c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(247): this line contains a '{' which has not yet been matched
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(440): error C2601: 'BugsDataLoader::initViewport' : local function definitions are illegal
-                 c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(247): this line contains a '{' which has not yet been matched
-     1>c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(466): fatal error C1075: end of file found before the left brace '{' at 'c:\users\rhododendron\documents\github\green\pollution solution\bugs\src\bugs\bugsdataloader.cpp(247)' was matched
-         Generating Code...
-         Compiling...
-         BugsButtonEventHandler.cpp
-         Generating Code...
-         Compiling...
-         BugsTextGenerator.cpp
-         Generating Code...
-     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)) -- FAILED.
+﻿Build started 5/12/2014 7:08:44 PM.
+     1>Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Box2D\Pollution Solution\Bugs\Bugs.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.Cpp.Platform.targets(44,5): error MSB8020: The builds tools for v120 (Platform Toolset = 'v120') cannot be found. To build using the v120 build tools, either click the Project menu or right-click the solution, and then select "Update VC++ Projects...". Install v120 to build using the v120 build tools.
+     1>Done Building Project "C:\Users\Rhododendron\Documents\GitHub\green\Pollution Solution Box2D\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:38.07
+Time Elapsed 00:00:00.01

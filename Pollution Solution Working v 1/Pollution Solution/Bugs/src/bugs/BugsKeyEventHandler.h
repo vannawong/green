@@ -20,6 +20,7 @@ class Game;
 class BugsKeyEventHandler : public KeyEventHandler
 {
 public:
+
 	BugsKeyEventHandler()		{}
 	~BugsKeyEventHandler()		{}
 	void handleKeyEvents(Game *game);

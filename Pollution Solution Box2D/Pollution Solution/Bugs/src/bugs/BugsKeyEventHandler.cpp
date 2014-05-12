@@ -69,7 +69,7 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 			player->setCurrentState(DYING);
 		}
 		if (input->isKeyDownForFirstTime(I_KEY)){
-			player->setCurrentState(IDLE);
+			player->setCurrentState(L"IDLE");
 		}
 		bool viewportMoved = false;
 		float viewportVx = 0.0f;

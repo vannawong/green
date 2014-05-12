@@ -32,6 +32,7 @@
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\state\GameState.h"
 #include "fmod.h"
+#include "Box2D\Box2D.h"
 
 // FORWARD DECLARATIONS OF CLASSES USED BY GAME
 class GameDataLoader;
@@ -73,12 +74,15 @@ private:
 	// THAT IS CURRENTLY BEING USED
 	wstring				currentLevelFileName;
 
+	//Box2D
+	b2World *bworld;
+
 	//Music
 	FMOD_SYSTEM* system;
 	FMOD_CHANNELGROUP *songMusic;
 	FMOD_CHANNELGROUP *soundMusic;
 	FMOD_CHANNEL* curchan;
-	FMOD_SOUND* cursong;
+	//FMOD_SOUND* cursong;
 	FMOD_CHANNEL *songchan;
 
 public:
@@ -115,9 +119,16 @@ public:
 	void			runGameLoop();
 	void			shutdown();
 	void			startGame();
+	void			initBox2d();
+	b2World*		getbworld();
 	void			initMusic ();
 	FMOD_CHANNEL*	playMusic (const char* songName);
 	//void			playMusic (const char* songName);
 	void			stopMusic (FMOD_CHANNEL* channel);
 	void			playSound (const char* soundName);
+	void			playExplosion ();
+	void			playHurt ();
+	void			playAttack ();
+	void			playPickup ();
+	void			playPowerUp ();
 };
