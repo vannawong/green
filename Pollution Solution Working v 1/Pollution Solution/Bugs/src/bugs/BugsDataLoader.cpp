@@ -292,13 +292,19 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	body->SetFixedRotation (true);
 
 	//body->SetLinearVelocity(b2Vec2 (0.0f, 0.0f));
- 
+
+	b2PolygonShape dynamicBox; 
+	dynamicBox.SetAsBox(1.0f, 2.5f, b2Vec2(0,1.25), 0); 
 	b2PolygonShape polygonShape;
 
 	b2FixtureDef fixtureDef; 
+
+	fixtureDef.shape = &dynamicBox; 
+	fixtureDef.density = 1.0f; 
+	fixtureDef.friction = 200.0f;
+
 	fixtureDef.shape = &polygonShape; 
-	//polygonShape.SetAsBox(player->getBoundingVolume()->getHeight()/320, player->getBoundingVolume()->getWidth()/320); 
-	polygonShape.SetAsBox(0.8f, 0.9f);
+	polygonShape.SetAsBox(1.0f, 2.5f, b2Vec2(0,1.25), 0); 
 	fixtureDef.density = 1.0f; 
 	fixtureDef.friction = 1.0f; 
 
@@ -344,7 +350,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 
 	//NPC
 	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
-	makeNPC(game, npcSpriteType, 3, 5);
+	makeNPC(game, npcSpriteType, 20, 20);
 
 	AnimatedSpriteType *botSpriteType = spriteManager->getSpriteType(2);
 	AnimatedSpriteType *item = spriteManager->getSpriteType(5);
@@ -400,13 +406,13 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	//npc->affixTightAABBBoundingVolume();
 
 	b2BodyDef bdef;
-	bdef.type = b2_dynamicBody;
+	bdef.type = b2_kinematicBody;
 	bdef.position.Set (initX, initY);
 	b2World* bworld = game->getbworld();
 	b2Body* body = bworld->CreateBody (&bdef);
 
 	b2PolygonShape dynamicBox; 
-	dynamicBox.SetAsBox(0.01f, 0.01f); 
+	dynamicBox.SetAsBox(1.5f, 2.25f, b2Vec2(0, 1.25f), 0); 
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
@@ -443,12 +449,13 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	b2Body* body = bworld->CreateBody (&bdef);
 
 	b2PolygonShape dynamicBox; 
-	dynamicBox.SetAsBox(0.01f, 0.01f); 
+
+	dynamicBox.SetAsBox(1.25f, 1.0f, b2Vec2(-0.50f, 0), 0); 
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
-	fixtureDef.density = 1.0f; 
-	fixtureDef.friction = 0.3f;
+	fixtureDef.density = 1.50f; 
+	fixtureDef.friction = 1.0f;
 	fixtureDef.restitution = 0.0f;
 
 	body->CreateFixture (&fixtureDef);
