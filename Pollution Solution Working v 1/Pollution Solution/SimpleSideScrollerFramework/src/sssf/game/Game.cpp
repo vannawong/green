@@ -146,7 +146,13 @@ void Game::runGameLoop()
 
 
 			// AND RENDER THE GAME
-			graphics->renderGame(this);
+			if(black <= 0)
+				graphics->renderGame(this);
+			else{
+				graphics->getWorldRenderList()->clear();
+				black--;
+			}
+
 		}
 	}
 }
@@ -189,7 +195,7 @@ void Game::quitGame()
 {
 	// CLEAN UP ALL THE WORLD TEXTURES
 	graphics->clearWorldTextures();
-	gsm->getWorld()->unloadWorld();
+	gsm->unloadCurrentLevel();
 	
 	stopMusic(songchan);
 	// WE'RE GOING BACK TO THE MAIN MENU
@@ -241,6 +247,10 @@ void Game::initBox2d () {
 
 b2World* Game::getbworld() {
 	return bworld;
+}
+
+void Game::blackOut () {
+	black = 20;
 }
 
 //MUSIC METHODS

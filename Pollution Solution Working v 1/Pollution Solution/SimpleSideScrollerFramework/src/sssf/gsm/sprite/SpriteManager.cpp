@@ -18,8 +18,10 @@
 #include "sssf\gsm\sprite\SpriteManager.h"
 #include "sssf\gsm\state\GameStateManager.h"
 
-static const float		HEALTH_INIT_X = 500.0f;
-static const float		HEALTH_INIT_Y = 0.0f;
+static const float		HEALTH_INIT_X = 100.0f;
+static const float		HEALTH_INIT_Y = -30.0f;
+static const float		POL_INIT_X = 700.0f;
+static const float		POL_INIT_Y = -30.0f;
 
 /*
 	addSpriteToRenderList - This method checks to see if the sprite
@@ -76,6 +78,7 @@ void SpriteManager::addSpriteItemsToRenderList(	Game *game)
 
 		// ADD THE HEALTH BAR TO THE LIST
 		addSpriteToRenderList(&health_bar, renderList, viewport);
+		addSpriteToRenderList(&pol_bar, renderList, viewport);
 
 		// NOW ADD THE REST OF THE SPRITES
 		list<Bot*>::iterator botIterator;
@@ -197,6 +200,9 @@ void SpriteManager::update(Game *game)
 	health_bar.updateSprite();
 	health_bar.getPhysicalProperties()->setX(game->getGUI()->getViewport()->getViewportX() + HEALTH_INIT_X);
 	health_bar.getPhysicalProperties()->setY(game->getGUI()->getViewport()->getViewportY() + HEALTH_INIT_Y);
+
+	pol_bar.getPhysicalProperties()->setX(game->getGUI()->getViewport()->getViewportX() + POL_INIT_X);
+	pol_bar.getPhysicalProperties()->setY(game->getGUI()->getViewport()->getViewportY() + POL_INIT_Y);
 
 	// NOW UPDATE THE REST OF THE SPRITES ANIMATION FRAMES/STATES/ROTATIONS
 	botIterator = bots.begin();

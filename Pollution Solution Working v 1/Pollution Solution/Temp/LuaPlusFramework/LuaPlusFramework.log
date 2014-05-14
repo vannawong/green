@@ -1,11 +1,112 @@
-﻿Build started 5/12/2014 4:45:42 PM.
+﻿Build started 5/14/2014 12:28:02 AM.
      1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\LuaPlusFramework\LuaPlusFramework.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(345,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppBuild.targets(346,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-     1>Lib:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W0 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt auxiliar.c LuaPlusAddons.c luathread.c Lua\lapi.c Lua\lauxlib.c Lua\lbaselib.c Lua\lcode.c Lua\ldblib.c Lua\ldebug.c Lua\ldo.c Lua\ldump.c Lua\lfunc.c Lua\lgc.c Lua\linit.c Lua\liolib.c Lua\llex.c Lua\lmathlib.c Lua\lmem.c Lua\loadlib.c Lua\lobject.c Lua\lopcodes.c Lua\loslib.c Lua\lparser.c Lua\lstate.c Lua\lstring.c Lua\lstrlib.c Lua\ltable.c Lua\ltablib.c Lua\ltm.c Lua\lundump.c Lua\lvm.c Lua\lzio.c Lua\print.c lwstrlib.c pt.c srm.c
+         srm.c
+         pt.c
+         lwstrlib.c
+         print.c
+         lzio.c
+         lvm.c
+         lundump.c
+         ltm.c
+         ltablib.c
+         ltable.c
+         lstrlib.c
+         lstring.c
+         lstate.c
+         lparser.c
+         loslib.c
+         lopcodes.c
+         lobject.c
+         loadlib.c
+         lmem.c
+         lmathlib.c
+         Generating Code...
+         Compiling...
+         llex.c
+         liolib.c
+         linit.c
+         lgc.c
+         lfunc.c
+         ldump.c
+         ldo.c
+         ldebug.c
+         ldblib.c
+         lcode.c
+         lbaselib.c
+         lauxlib.c
+         lapi.c
+         luathread.c
+         LuaPlusAddons.c
+         auxiliar.c
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W0 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt LuaCall.cpp LuaObject.cpp LuaPlus.cpp LuaPlusFunctions.cpp LuaPlus_Libs.cpp LuaStackObject.cpp LuaStackTableIterator.cpp LuaState.cpp LuaStateOutFile.cpp LuaState_DumpObject.cpp LuaTableIterator.cpp
+         LuaTableIterator.cpp
+         LuaState_DumpObject.cpp
+         LuaStateOutFile.cpp
+         LuaState.cpp
+         LuaStackTableIterator.cpp
+         LuaStackObject.cpp
+         LuaPlus_Libs.cpp
+         LuaPlusFunctions.cpp
+         LuaPlus.cpp
+         LuaObject.cpp
+         LuaCall.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\LuaPlusFramework.lib" /NOLOGO "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\auxiliar.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaCall.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaObject.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaPlus.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaPlusAddons.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaPlusFunctions.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaPlus_Libs.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaStackObject.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaStackTableIterator.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaState.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaStateOutFile.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaState_DumpObject.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\LuaTableIterator.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\luathread.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lapi.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lauxlib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lbaselib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lcode.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\ldblib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\ldebug.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\ldo.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\ldump.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lfunc.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lgc.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\linit.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\liolib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\llex.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lmathlib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lmem.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\loadlib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lobject.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lopcodes.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\loslib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lparser.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lstate.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lstring.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lstrlib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\ltable.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\ltablib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\ltm.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lundump.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lvm.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lzio.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\print.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\lwstrlib.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\pt.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\LuaPlusFramework\srm.obj"
          LuaPlusFramework.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\LuaPlusFramework.lib
      1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\LuaPlusFramework\LuaPlusFramework.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.10
+Time Elapsed 00:00:11.06

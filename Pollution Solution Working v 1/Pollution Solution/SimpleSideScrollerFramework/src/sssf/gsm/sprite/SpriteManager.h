@@ -39,6 +39,9 @@ private:
 	// WE NEED A HEALTH BAR
 	AnimatedSprite health_bar;
 
+	// WE NEED A POLLUITON BAR
+	AnimatedSprite pol_bar;
+
 public:
 	// NOTHING TO INIT OR DESTROY
 	SpriteManager()		{}
@@ -50,6 +53,7 @@ public:
 	list<Bot*>::iterator	getBotsIterator()		{ return bots.begin();		}
 	list<Bot*>::iterator	getEndOfBotsIterator()	{ return bots.end();		}
 	AnimatedSprite*			getHealthBar()			{ return &health_bar;		}
+	AnimatedSprite*			getPolBar()				{ return &pol_bar;			}
 
 	// METHODS DEFINED IN SpriteManager.cpp
 	void				addBot(Bot *botToAdd);

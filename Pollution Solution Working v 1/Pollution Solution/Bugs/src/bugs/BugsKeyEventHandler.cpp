@@ -65,10 +65,11 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		}
 		if (input->isKeyDownForFirstTime(R_KEY))
 		{
-			if (wcscmp(player->getCurrentState().c_str(), L"RUNNING") == 0)
+			game->blackOut();
+		/*	if (wcscmp(player->getCurrentState().c_str(), L"RUNNING") == 0)
 				player->setCurrentState(L"WALKING");
 			else if ((wcscmp(player->getCurrentState().c_str(), L"IDLE") != 0) && (wcscmp(player->getCurrentState().c_str(), L"DANCING") != 0))
-				player->setCurrentState(L"RUNNING");
+				player->setCurrentState(L"RUNNING");*/
 		}
 		if (input->isKeyDownForFirstTime(Y_KEY)){
 			player->setCurrentState(DYING);

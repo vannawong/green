@@ -9,6 +9,7 @@
 #include "sssf\gsm\state\GameStateManager.h"
 #include "sssf\gui\OverlayImage.h"
 #include "xmlfi\XMLFileImporter.h"
+#include "Box2D\Box2D.h"
 
 bool TMXMapImporter::loadWorld(Game *game, wstring initDir, wstring mapLevelFileName)
 {

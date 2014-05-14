@@ -69,6 +69,7 @@ private:
 	GameInput			*input;
 	GameOS				*os;
 	GameTimer			*timer;
+	int					black;
 
 	// THIS WILL KEEP TRACK OF THE NAME OF THE LEVEL FILE
 	// THAT IS CURRENTLY BEING USED
@@ -120,6 +121,7 @@ public:
 	void			shutdown();
 	void			startGame();
 	void			initBox2d();
+	void			blackOut();
 	b2World*		getbworld();
 	void			initMusic ();
 	FMOD_CHANNEL*	playMusic (const char* songName);

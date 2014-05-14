@@ -1,9 +1,16 @@
-﻿Build started 5/12/2014 4:45:43 PM.
+﻿Build started 5/14/2014 4:04:36 AM.
      1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" on node 2 (Build target(s)).
-     1>Lib:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IBox2D.lib /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\tmxmi\TMXMapImporter.cpp
+         TMXMapImporter.cpp
+     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\tmxmapimporter\src\tmxmi\tmxmapimporter.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\tmxmapimporter\src\tmxmi\tmxmapimporter.cpp(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\TMXMapImporter.lib" /NOLOGO "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\TMXMapImporter.obj"
+         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\TMXMapImporter\Debug\stdafx.obj"
          TMXMapImporter.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\TMXMapImporter.lib
      1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\TMXMapImporter\TMXMapImporter.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:03.44

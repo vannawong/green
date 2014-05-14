@@ -2,6 +2,7 @@
 #include "sssf\gsm\physics\Collision.h"
 #include "sssf\gsm\physics\CollidableObject.h"
 #include "box2D\box2D.h"
+#include "sssf\gsm\sprite\AnimatedSpriteType.h"
 
 /*
 	This method updates the position and dimensions of this
@@ -37,3 +38,4 @@ void CollidableObject::setBody(b2Body* b) {
 b2Body* CollidableObject::getBody () {
 	return body;
 }
+

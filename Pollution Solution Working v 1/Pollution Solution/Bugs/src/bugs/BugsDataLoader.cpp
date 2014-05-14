@@ -294,7 +294,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	//body->SetLinearVelocity(b2Vec2 (0.0f, 0.0f));
 
 	b2PolygonShape dynamicBox; 
-	dynamicBox.SetAsBox(1.0f, 2.5f, b2Vec2(0,1.25), 0); 
+	dynamicBox.SetAsBox(1.0f, 2.5f);//, b2Vec2(0,1.25), 0); 
 	b2PolygonShape polygonShape;
 
 	b2FixtureDef fixtureDef; 
@@ -312,6 +312,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	Physics* p = gsm->getPhysics();
 
 	player->setBody(body);
+	body->SetUserData((AnimatedSprite*)player);
 	p->addCO(player);
 
 	
@@ -347,6 +348,17 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	PhysicalProperties *healthprops = healthBar->getPhysicalProperties();
 	healthprops->setX(HEALTH_INIT_X);
 	healthprops->setY(HEALTH_INIT_Y);
+
+	// POL_BAR
+	AnimatedSpriteType *polBarSpriteType = spriteManager->getSpriteType(6);
+	AnimatedSprite *polBar = spriteManager->getPolBar();
+	polBar->setSpriteType(polBarSpriteType);
+	polBar->setAlpha(255);
+	polBar->setCurrentState(L"10");
+	PhysicalProperties *polprops = polBar->getPhysicalProperties();
+	polprops->setX(POL_INIT_X);
+	polprops->setY(POL_INIT_Y);
+
 
 	//NPC
 	AnimatedSpriteType *npcSpriteType = spriteManager->getSpriteType(1);
@@ -422,6 +434,7 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 
 	body->CreateFixture (&fixtureDef);
 	npc->setBody(body);
+	body->SetUserData((AnimatedSprite*)npc);
 	game->getGSM()->getPhysics()->addCO(npc);
 }
 
@@ -443,7 +456,7 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	//recycler->registerBotType(L"garbageMon", bot); 
 	
 	b2BodyDef bdef;
-	bdef.type = b2_kinematicBody;
+	bdef.type = b2_dynamicBody;
 	bdef.position.Set (initX, initY);
 	b2World* bworld = game->getbworld();
 	b2Body* body = bworld->CreateBody (&bdef);
@@ -454,12 +467,13 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
-	fixtureDef.density = 1.50f; 
+	fixtureDef.density = 5.50f; 
 	fixtureDef.friction = 1.0f;
 	fixtureDef.restitution = 0.0f;
 
 	body->CreateFixture (&fixtureDef);
 	bot->setBody(body);
+	body->SetUserData((AnimatedSprite*)bot);
 	game->getGSM()->getPhysics()->addCO(bot);
 }
 
@@ -742,5 +756,6 @@ void BugsDataLoader::addItem (Game* game, AnimatedSpriteType* item, float initX,
 
 	body->CreateFixture (&fixtureDef);
 	trash->setBody(body);
+	body->SetUserData((AnimatedSprite*)trash);
 	game->getGSM()->getPhysics()->addCO(trash);
 }

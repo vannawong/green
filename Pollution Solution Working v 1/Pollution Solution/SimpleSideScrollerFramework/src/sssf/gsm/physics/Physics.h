@@ -1,12 +1,12 @@
 /*	
-	Author: Richard McKenna
+Author: Richard McKenna
 
-	Physics.h
+Physics.h
 
-	This class will be used to manage all game collisions
-	and physics. This includes collision detection, and resolution.
-	Each frame we will update the collided objects velocities and
-	positions accordingly.
+This class will be used to manage all game collisions
+and physics. This includes collision detection, and resolution.
+Each frame we will update the collided objects velocities and
+positions accordingly.
 */
 
 #pragma once
@@ -25,9 +25,9 @@ const float BUFFER_BETWEEN_OBJECTS = 0.2f;
 const float NUDGE_VELOCITY = 0.3f;
 const float ENERGY_LOSS = 0.95f;
 
-class Physics
+class Physics 
 {
-//private:
+	//private:
 public:
 
 	list<CollidableObject*> co;
@@ -93,21 +93,21 @@ public:
 	// HELPER METHODS DEFINED INSIDE Physics.cpp - YOU ARE WELCOME TO ADD MORE AS YOU SEE FIT
 private:
 	float calculateTimeUntilCollision(	CollidableObject *co1, 
-										CollidableObject *co2, 
-										unsigned int &co1Edge,
-										unsigned int &co2Edge,
-										float bufferBetweenObjects);
+		CollidableObject *co2, 
+		unsigned int &co1Edge,
+		unsigned int &co2Edge,
+		float bufferBetweenObjects);
 	float calculateTimeToImpact(	float lower, float lowerV,
-									float upper, float upperV,
-									float bufferBetweenObjects);
+		float upper, float upperV,
+		float bufferBetweenObjects);
 	float calculateTimeToStartOfCollision(	float lowerLower, float lowerUpper, float lowerV,
-											float upperLower, float upperUpper, float upperV);
+		float upperLower, float upperUpper, float upperV);
 	void detectSpritesCollision(CollidableObject *co1, CollidableObject *co2);
 	void determineXAxisCollisionEdge(AABB *aabb1, AABB *aabb2, unsigned &co1Edge, unsigned int &co2Edge);
 	void determineYAxisCollisionEdge(AABB *aabb1, AABB *aabb2, unsigned &co1Edge, unsigned int &co2Edge);
 	void getAllTileCollisionsForAGivenSprite(	World *world,
-												CollidableObject *sprite,
-												float percentageOfFrameRemaining);
+		CollidableObject *sprite,
+		float percentageOfFrameRemaining);
 	float getSide(CollidableObject *co, unsigned int ordering);
 	void moveAllSpritesToEndOfFrame();
 	void moveAllSpritesUpByTimeStep(float time);
@@ -124,8 +124,8 @@ private:
 };
 
 /*
-	Provides a custom criteria for sorting for our swepts shapes when
-	we want the sorted by left edge.
+Provides a custom criteria for sorting for our swepts shapes when
+we want the sorted by left edge.
 */
 struct SweptShapesComparitorByLeft
 {
@@ -138,8 +138,8 @@ struct SweptShapesComparitorByLeft
 };
 
 /*
-	Provides a custom criteria for sorting for our swepts shapes when
-	we want the sorted by right edge.
+Provides a custom criteria for sorting for our swepts shapes when
+we want the sorted by right edge.
 */
 struct SweptShapesComparitorByRight
 {
