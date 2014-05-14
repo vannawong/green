@@ -1,33 +1,9 @@
-<<<<<<< HEAD
-﻿Build started 5/14/2014 4:03:33 AM.
+﻿Build started 5/14/2014 4:54:45 AM.
      1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\PoseurSpriteTypesImporter\PoseurSpriteTypesImporter.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\psti\PoseurSpriteTypesImporter.cpp
-         PoseurSpriteTypesImporter.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\PoseurSpriteTypesImporter.lib" /LIBPATH:Box2D.lib /LIBPATH:fmod_vc.lib /NOLOGO "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\PoseurSpriteTypesImporter.obj"
-         "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\stdafx.obj"
+     1>Lib:
          PoseurSpriteTypesImporter.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\PoseurSpriteTypesImporter.lib
      1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\PoseurSpriteTypesImporter\PoseurSpriteTypesImporter.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.69
-=======
-﻿Build started 5/14/2014 2:59:23 AM.
-     1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\PoseurSpriteTypesImporter\PoseurSpriteTypesImporter.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\psti\PoseurSpriteTypesImporter.cpp src\psti_VS\stdafx.cpp
-         stdafx.cpp
-         PoseurSpriteTypesImporter.cpp
-         Generating Code...
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common\PoseurSpriteTypesImporter.lib" /LIBPATH:Box2D.lib /LIBPATH:fmod_vc.lib /NOLOGO "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\PoseurSpriteTypesImporter.obj"
-         "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\PoseurSpriteTypesImporter\Debug\stdafx.obj"
-         PoseurSpriteTypesImporter.vcxproj -> C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Common\PoseurSpriteTypesImporter.lib
-     1>Done Building Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\PoseurSpriteTypesImporter\PoseurSpriteTypesImporter.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:03.96
->>>>>>> origin/master
+Time Elapsed 00:00:00.04

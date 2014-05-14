@@ -1,7 +1,19 @@
-<<<<<<< HEAD
-﻿Build started 5/14/2014 4:43:44 AM.
+﻿Build started 5/14/2014 5:42:40 AM.
      1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IBox2D.lib /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\\" /Fd"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\bugs\BugsButtonEventHandler.cpp src\bugs\BugsCollisionListener.cpp src\bugs\BugsGame.cpp src\bugs\BugsKeyEventHandler.cpp src\bugs\BugsMouseEventHandler.cpp src\bugs\BugsTextGenerator.cpp src\bugs\DebugDraw.cpp src\bugs_VS\stdafx.cpp
+         BugsKeyEventHandler.cpp
+     1>c:\users\jackie wei\documents\github\greenplus\pollution solution working v 1\pollution solution\bugs\src\bugs\bugskeyeventhandler.cpp(48): warning C4101: 'v' : unreferenced local variable
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         stdafx.cpp
+         DebugDraw.cpp
+         BugsTextGenerator.cpp
+         BugsMouseEventHandler.cpp
+         BugsGame.cpp
+         BugsCollisionListener.cpp
+         BugsButtonEventHandler.cpp
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\Bugs.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9.lib winmm.lib PoseurSpriteTypesImporter.lib SimpleSideScrollerFramework.lib tinyxml.lib TMXMapImporter.lib XMLFileImporter.lib fmod_vc.lib LuaPlusFramework.lib LuaPlus.lib Box2D.lib FreeGLUT.lib glu32.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\Bugs.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\Bugs.lib" /MACHINE:X86 "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\BugsButtonEventHandler.obj"
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\BugsCollisionListener.obj"
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\BugsDataLoader.obj"
@@ -11,121 +23,9 @@
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\BugsTextGenerator.obj"
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\DebugDraw.obj"
          "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\stdafx.obj"
-     1>Box2D.lib(b2BroadPhase.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2BroadPhase.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CollideCircle.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2CollideCircle.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CollideEdge.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2CollideEdge.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CollidePolygon.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2CollidePolygon.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Collision.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Collision.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Distance.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Distance.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2DynamicTree.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2DynamicTree.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2TimeOfImpact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2TimeOfImpact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ChainShape.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2ChainShape.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2EdgeShape.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2EdgeShape.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PolygonShape.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2PolygonShape.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2BlockAllocator.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2BlockAllocator.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Draw.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Draw.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Math.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Math.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Settings.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Settings.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2StackAllocator.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2StackAllocator.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Timer.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Timer.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Body.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Body.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ContactManager.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2ContactManager.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Fixture.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Fixture.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Island.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Island.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2World.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2World.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2WorldCallbacks.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2WorldCallbacks.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ChainAndCircleContact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2ChainAndCircleContact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ChainAndPolygonContact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2ChainAndPolygonContact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CircleContact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2CircleContact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Contact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Contact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ContactSolver.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2ContactSolver.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2EdgeAndCircleContact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2EdgeAndCircleContact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2EdgeAndPolygonContact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2EdgeAndPolygonContact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PolygonAndCircleContact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2PolygonAndCircleContact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PolygonContact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2PolygonContact.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2DistanceJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2DistanceJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2FrictionJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2FrictionJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2GearJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2GearJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2Joint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2MotorJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2MotorJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2MouseJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2MouseJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PrismaticJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2PrismaticJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PulleyJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2PulleyJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2RevoluteJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2RevoluteJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2RopeJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2RopeJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2WeldJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2WeldJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2WheelJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2WheelJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
          Bugs.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\Bugs.exe
      1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)).
-=======
-﻿Build started 5/14/2014 2:59:36 AM.
-     1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" on node 3 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IBox2D.lib /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\bugs\BugsDataLoader.cpp
-         BugsDataLoader.cpp
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(297): error C2143: syntax error : missing ';' before '<<'
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(313): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(313): error C2228: left of '.shape' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(315): error C2143: syntax error : missing ';' before '=='
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(329): error C2143: syntax error : missing ';' before '>>'
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(437): error C2143: syntax error : missing ';' before '<<'
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(439): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(439): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(440): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(440): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(441): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(441): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(442): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(442): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(444): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(445): error C2143: syntax error : missing ';' before '=='
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(447): error C2143: syntax error : missing ';' before '>>'
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(450): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(450): error C2228: left of '.shape' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(451): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(451): error C2228: left of '.density' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(452): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(452): error C2228: left of '.friction' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(453): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(453): error C2228: left of '.restitution' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(455): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(486): error C2143: syntax error : missing ';' before '<<'
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(488): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(488): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(489): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(489): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(490): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(490): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(491): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(491): error C2228: left of '.Set' must have class/struct/union
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(493): error C2065: 'v' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(494): error C2143: syntax error : missing ';' before '=='
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(497): error C2143: syntax error : missing ';' before '>>'
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(500): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(500): error C2228: left of '.shape' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(501): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(501): error C2228: left of '.density' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(502): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(502): error C2228: left of '.friction' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(503): error C2065: 'fixtureDef' : undeclared identifier
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(503): error C2228: left of '.restitution' must have class/struct/union
-                 type is ''unknown-type''
-     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(505): error C2065: 'fixtureDef' : undeclared identifier
-     1>Done Building Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)) -- FAILED.
->>>>>>> origin/master
 
-Build FAILED.
+Build succeeded.
 
-<<<<<<< HEAD
-Time Elapsed 00:00:00.96
-=======
-Time Elapsed 00:00:02.29
->>>>>>> origin/master
+Time Elapsed 00:00:03.76

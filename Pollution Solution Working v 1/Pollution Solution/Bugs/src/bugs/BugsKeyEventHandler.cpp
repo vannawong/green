@@ -165,6 +165,10 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 		player->getBody()->ApplyForce (moveVec, player->getBody()->GetPosition(), true);
 		player->getBody()->SetLinearVelocity(b2Vec2(0,0));
 		player->getBody()->SetAngularVelocity(0);
+
+		//if(vX < 0)
+			//player->
+
 	}
 
 	// 0X43 is HEX FOR THE 'C' VIRTUAL KEY

@@ -294,7 +294,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	body->SetFixedRotation (true);
 
 	//body->SetLinearVelocity(b2Vec2 (0.0f, 0.0f));
-<<<<<<< HEAD
+
  
 	//b2PolygonShape polygonShape;
 
@@ -312,7 +312,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	dynamicBox.Set(v, c);
 	fixtureDef.shape = &dynamicBox;
 	
-=======
+/*
 
 	b2PolygonShape dynamicBox; 
 	dynamicBox.SetAsBox(1.0f, 2.5f);//, b2Vec2(0,1.25), 0); 
@@ -325,8 +325,8 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	fixtureDef.friction = 200.0f;
 
 	fixtureDef.shape = &polygonShape; 
-	polygonShape.SetAsBox(1.0f, 2.5f, b2Vec2(0,1.25), 0); 
->>>>>>> a840449c17f8d5a5615d7dcc58bfe7bc31129032
+	polygonShape.SetAsBox(1.0f, 2.5f, b2Vec2(0,1.25), 0); */
+
 	fixtureDef.density = 1.0f; 
 	fixtureDef.friction = 1.0f; 
 
@@ -446,7 +446,7 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	b2Body* body = bworld->CreateBody (&bdef);
 
 	b2PolygonShape dynamicBox; 
-<<<<<<< HEAD
+
 	b2Vec2 v [4];
 	v[0].Set (0,0);
 	v[1].Set (0, 1);
@@ -454,9 +454,9 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	v[3].Set (1, 0);
 	int32 c = 4;
 	dynamicBox.Set(v, c);
-=======
-	dynamicBox.SetAsBox(1.5f, 2.25f, b2Vec2(0, 1.25f), 0); 
->>>>>>> a840449c17f8d5a5615d7dcc58bfe7bc31129032
+
+	//dynamicBox.SetAsBox(1.5f, 2.25f, b2Vec2(0, 1.25f), 0); 
+
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
@@ -496,7 +496,7 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	//b2PolygonShape dynamicBox; 
 	//dynamicBox.SetAsBox(1.0f, 1.0f); 
 	b2PolygonShape dynamicBox; 
-<<<<<<< HEAD
+
 	b2Vec2 v [4];
 	v[0].Set (0,0);
 	v[1].Set (0, 1);
@@ -504,10 +504,9 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	v[3].Set (1, 0);
 	int32 c = 4;
 	dynamicBox.Set(v, c);
-=======
 
-	dynamicBox.SetAsBox(1.25f, 1.0f, b2Vec2(-0.50f, 0), 0); 
->>>>>>> a840449c17f8d5a5615d7dcc58bfe7bc31129032
+
+	//dynamicBox.SetAsBox(1.25f, 1.0f, b2Vec2(-0.50f, 0), 0); 
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
