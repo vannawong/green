@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 5/12/2014 5:01:15 PM.
      1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -59,3 +60,14 @@
 Build succeeded.
 
 Time Elapsed 00:00:07.30
+=======
+﻿Build started 5/12/2014 4:45:42 PM.
+     1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         SimpleSideScrollerFramework.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Common\SimpleSideScrollerFramework.lib
+     1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\SimpleSideScrollerFramework\SimpleSideScrollerFramework.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.12
+>>>>>>> a840449c17f8d5a5615d7dcc58bfe7bc31129032
