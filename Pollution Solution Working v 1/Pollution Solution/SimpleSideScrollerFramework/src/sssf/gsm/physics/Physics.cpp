@@ -36,12 +36,8 @@ Physics::Physics()
 
 	//c0
 	//gravity = DEFAULT_GRAVITY;
-
-<<<<<<< HEAD
-	pikachu = 89.0f;
-=======
 	pikachu = 25.0f;
->>>>>>> a840449c17f8d5a5615d7dcc58bfe7bc31129032
+
 
 	// POPULATE THEM WITH 1000 OBJECTS TO SHARE
 	// WHY 1000? BECAUSE I HAD TO PICK SOME NUMBER BIG ENOUGH
