@@ -21,6 +21,8 @@
     <ClCompile Include="src\sssf\graphics\RenderList.cpp" />
     <ClCompile Include="src\sssf\graphics\TextureManager.cpp" />
     <ClCompile Include="src\sssf\gsm\ai\BotRecycler.cpp" />
+    <ClCompile Include="src\sssf\gsm\ai\bots\Attack.cpp" />
+    <ClCompile Include="src\sssf\gsm\ai\bots\Item.cpp" />
     <ClCompile Include="src\sssf\gsm\ai\bots\NPC.cpp" />
     <ClCompile Include="src\sssf\gsm\ai\bots\GarbageMon.cpp" />
     <ClCompile Include="src\sssf\gsm\ai\bots\RandomJumpingBot.cpp" />
@@ -62,6 +64,8 @@
     <ClInclude Include="src\sssf\graphics\TextureManager.h" />
     <ClInclude Include="src\sssf\gsm\ai\Bot.h" />
     <ClInclude Include="src\sssf\gsm\ai\BotRecycler.h" />
+    <ClInclude Include="src\sssf\gsm\ai\bots\Attack.h" />
+    <ClInclude Include="src\sssf\gsm\ai\bots\Item.h" />
     <ClInclude Include="src\sssf\gsm\ai\bots\NPC.h" />
     <ClInclude Include="src\sssf\gsm\ai\bots\GarbageMon.h" />
     <ClInclude Include="src\sssf\gsm\ai\bots\RandomJumpingBot.h" />

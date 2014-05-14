@@ -179,6 +179,10 @@
     <ClCompile Include="src\sssf\gsm\ai\bots\GarbageMon.cpp">
       <Filter>src\sssf\gsm\ai\bots</Filter>
     </ClCompile>
+    <ClCompile Include="src\sssf\gsm\ai\bots\Attack.cpp">
+      <Filter>src\sssf\gsm\ai\bots</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sssf\gsm\ai\bots\Item.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\sssf_VS\stdafx.h">
@@ -338,6 +342,12 @@
       <Filter>src\sssf\gsm\ai\bots</Filter>
     </ClInclude>
     <ClInclude Include="src\sssf\gsm\ai\bots\GarbageMon.h">
+      <Filter>src\sssf\gsm\ai\bots</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sssf\gsm\ai\bots\Attack.h">
+      <Filter>src\sssf\gsm\ai\bots</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sssf\gsm\ai\bots\Item.h">
       <Filter>src\sssf\gsm\ai\bots</Filter>
     </ClInclude>
   </ItemGroup>

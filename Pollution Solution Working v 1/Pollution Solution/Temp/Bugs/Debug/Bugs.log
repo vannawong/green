@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 5/14/2014 4:43:44 AM.
      1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" on node 2 (Build target(s)).
      1>Link:
@@ -56,7 +57,75 @@
      1>Box2D.lib(b2WheelJoint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'Box2D.lib(b2WheelJoint.obj)' or at 'C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\box2d.pdb'; linking object as if no debug info
          Bugs.vcxproj -> C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Apps\Bugs\Bugs.exe
      1>Done Building Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)).
+=======
+﻿Build started 5/14/2014 2:59:36 AM.
+     1>Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IBox2D.lib /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\\" /Fd"C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Temp\Bugs\Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\bugs\BugsDataLoader.cpp
+         BugsDataLoader.cpp
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(297): error C2143: syntax error : missing ';' before '<<'
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(313): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(313): error C2228: left of '.shape' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(315): error C2143: syntax error : missing ';' before '=='
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(329): error C2143: syntax error : missing ';' before '>>'
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(437): error C2143: syntax error : missing ';' before '<<'
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(439): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(439): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(440): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(440): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(441): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(441): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(442): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(442): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(444): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(445): error C2143: syntax error : missing ';' before '=='
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(447): error C2143: syntax error : missing ';' before '>>'
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(450): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(450): error C2228: left of '.shape' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(451): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(451): error C2228: left of '.density' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(452): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(452): error C2228: left of '.friction' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(453): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(453): error C2228: left of '.restitution' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(455): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(486): error C2143: syntax error : missing ';' before '<<'
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(488): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(488): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(489): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(489): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(490): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(490): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(491): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(491): error C2228: left of '.Set' must have class/struct/union
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(493): error C2065: 'v' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(494): error C2143: syntax error : missing ';' before '=='
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(497): error C2143: syntax error : missing ';' before '>>'
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(500): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(500): error C2228: left of '.shape' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(501): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(501): error C2228: left of '.density' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(502): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(502): error C2228: left of '.friction' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(503): error C2065: 'fixtureDef' : undeclared identifier
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(503): error C2228: left of '.restitution' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\stellar\documents\github\pollution solution working v 1\pollution solution\bugs\src\bugs\bugsdataloader.cpp(505): error C2065: 'fixtureDef' : undeclared identifier
+     1>Done Building Project "C:\Users\Stellar\Documents\github\Pollution Solution Working v 1\Pollution Solution\Bugs\Bugs.vcxproj" (Build target(s)) -- FAILED.
+>>>>>>> origin/master
 
-Build succeeded.
+Build FAILED.
 
+<<<<<<< HEAD
 Time Elapsed 00:00:00.96
+=======
+Time Elapsed 00:00:02.29
+>>>>>>> origin/master
