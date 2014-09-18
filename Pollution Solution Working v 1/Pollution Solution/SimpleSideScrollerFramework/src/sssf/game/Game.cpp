@@ -196,7 +196,9 @@ void Game::quitGame()
 	// CLEAN UP ALL THE WORLD TEXTURES
 	graphics->clearWorldTextures();
 	gsm->unloadCurrentLevel();
-	
+	gsm->getSpriteManager()->clearSprites();
+	//gsm->getPhysics()->co.empty();
+
 	stopMusic(songchan);
 	// WE'RE GOING BACK TO THE MAIN MENU
 	gsm->goToMainMenu();

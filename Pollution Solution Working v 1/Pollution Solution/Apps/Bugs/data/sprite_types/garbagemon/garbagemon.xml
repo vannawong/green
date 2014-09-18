@@ -5,12 +5,22 @@
     <height>63</height>
     <images_list>
         <image_file id="1" file_name="Garbagemon_IDLE_0.png"/>
+	<image_file id="2" file_name="Garbagemon_DYING_0.png"/>
+	<image_file id="3" file_name="Garbagemon_DEAD_0.png"/>
     </images_list>
     <animations_list>
         <animation_state>
             <state>IDLE</state>
             <animation_sequence>
                 <pose image_id="1" duration="10"/>
+            </animation_sequence>
+			<state>DYING</state>
+            <animation_sequence>
+                <pose image_id="2" duration="10"/>
+            </animation_sequence>
+			<state>DEAD</state>
+            <animation_sequence>
+                <pose image_id="3" duration="10"/>
             </animation_sequence>
         </animation_state>
     </animations_list>  

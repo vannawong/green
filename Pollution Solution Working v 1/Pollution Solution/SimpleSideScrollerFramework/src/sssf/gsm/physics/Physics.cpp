@@ -11,6 +11,8 @@ See Physics.h for a class description.
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\sprite\AnimatedSprite.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
+#include "sssf\gsm\ai\bots\Trash.h"
+#include "sssf\gsm\ai\bots\GarbageMon.h"
 #include "sssf\gsm\physics\Collision.h"
 #include "sssf\gsm\physics\CollidableObject.h"
 #include "sssf\game\Game.h"
@@ -34,7 +36,6 @@ Physics::Physics()
 
 	// DEFAULT GRAVITY IS 1.0f
 
-	//c0
 	//gravity = DEFAULT_GRAVITY;
 	pikachu = 25.0f;
 
@@ -349,7 +350,67 @@ void Physics::update(Game *game)
 		sprite->advanceOnTileStatus();
 		spritesIt++;
 	}
+//	while(!colliding){
+	for (b2Contact* contact = game->getbworld()->GetContactList(); contact; contact = contact->GetNext()) {
+		b2Body* a = contact->GetFixtureA()->GetBody(); 
+		b2Body* b = contact->GetFixtureB()->GetBody();
 
+		AnimatedSprite* c = (AnimatedSprite*) a->GetUserData(); 
+		AnimatedSprite* d = (AnimatedSprite*) b->GetUserData();
+
+		unsigned int x = c->getSpriteType()->getSpriteTypeID(); 
+		unsigned int y = d->getSpriteType()->getSpriteTypeID();
+		
+		switch(x){
+		case 0: // player 
+			break;
+		case 1: // 
+			break;
+		case 2:
+			GarbageMon *e; 
+			e= (GarbageMon*)c;
+			//co.remove(e);
+			//game->getbworld()->DestroyBody(e->getBody());
+			//e->collisionResponse(game);
+			break;
+		case 4:
+			//Trash *f = (Trash*)c;
+			//f->collisionResponse(game);
+			break;
+		}
+		
+		switch(y){
+		//	if (x == 0) {
+				case 0: // player 
+					break;
+				case 1: // 
+					break;
+				case 2:
+		//			colliding = true;
+					GarbageMon *g;
+					g= (GarbageMon*)d;
+					co.push_back(g);
+					co.remove(g);
+					//g->setCurrentState(L"DYING");
+					g->getPhysicalProperties()->setPosition(9999.9f, 9999.9f);
+					game->playExplosion();
+					//wstring s = c->getCurrentState();
+					g->getBody()->ApplyLinearImpulse(b2Vec2(99999.9f, 0.0f), g->getBody()->GetPosition(), true);
+					//game->getbworld()->DestroyBody(g->getBody());
+					//g->getBody()->DestroyFixture(g->getBody()->GetFixtureList());
+					//g->getBody()->GetWorld()->DestroyBody(g->getBody());
+					g->collisionResponse(game);
+					//colliding = false;
+					break;
+				case 5:
+					Trash *h = (Trash*)d;
+					co.remove(h);
+					//h->collisionResponse(game);
+					break;
+			}
+		}
+	//}
+	//}
 	//update sprites according to box2d thingies
 	list<CollidableObject*>::iterator i = co.begin();
 
@@ -363,7 +424,7 @@ void Physics::update(Game *game)
 		i++;
 	}
 
-	float32 time = 1.0/1.25f;
+	float32 time = 1.0f/1.25f;
 	int32 vel = 8;
 	int32 pos = 3;
 	game->getbworld()->Step (time, vel, pos);

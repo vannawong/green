@@ -1,11 +1,11 @@
 /*	
-	Author: Richard McKenna
-			Stony Brook University
-			Computer Science Department
+Author: Richard McKenna
+Stony Brook University
+Computer Science Department
 
-	SpriteManager.cpp
+SpriteManager.cpp
 
-	See SpriteManager.h for a class description.
+See SpriteManager.h for a class description.
 */
 
 #pragma once
@@ -24,9 +24,9 @@ static const float		POL_INIT_X = 700.0f;
 static const float		POL_INIT_Y = -30.0f;
 
 /*
-	addSpriteToRenderList - This method checks to see if the sprite
-	parameter is inside the viewport. If it is, a RenderItem is generated
-	for that sprite and it is added to the render list.
+addSpriteToRenderList - This method checks to see if the sprite
+parameter is inside the viewport. If it is, a RenderItem is generated
+for that sprite and it is added to the render list.
 */
 void SpriteManager::addSpriteToRenderList(AnimatedSprite *sprite,
 										  RenderList *renderList,
@@ -39,29 +39,29 @@ void SpriteManager::addSpriteToRenderList(AnimatedSprite *sprite,
 
 	// IS THE SPRITE VIEWABLE?
 	if (viewport->areWorldCoordinatesInViewport(	
-									pp->getX(),
-									pp->getY(),
-									spriteType->getTextureWidth(),
-									spriteType->getTextureHeight()))
+		pp->getX(),
+		pp->getY(),
+		spriteType->getTextureWidth(),
+		spriteType->getTextureHeight()))
 	{
 		// SINCE IT'S VIEWABLE, ADD IT TO THE RENDER LIST
 		RenderItem itemToAdd;
 		itemToAdd.id = sprite->getFrameIndex();
 		renderList->addRenderItem(	sprite->getCurrentImageID(),
-									pp->round(pp->getX()-viewport->getViewportX()),
-									pp->round(pp->getY()-viewport->getViewportY()),
-									pp->round(pp->getZ()),
-									sprite->getAlpha(),
-									spriteType->getTextureWidth(),
-									spriteType->getTextureHeight(),
-									rotation);
+			pp->round(pp->getX()-viewport->getViewportX()),
+			pp->round(pp->getY()-viewport->getViewportY()),
+			pp->round(pp->getZ()),
+			sprite->getAlpha(),
+			spriteType->getTextureWidth(),
+			spriteType->getTextureHeight(),
+			rotation);
 	}
 }
 
 /*
-	addSpriteItemsToRenderList - This method goes through all of the sprites,
-	including the player sprite, and adds the visible ones to the render list.
-	This method should be called each frame.
+addSpriteItemsToRenderList - This method goes through all of the sprites,
+including the player sprite, and adds the visible ones to the render list.
+This method should be called each frame.
 */
 void SpriteManager::addSpriteItemsToRenderList(	Game *game)
 {
@@ -93,9 +93,9 @@ void SpriteManager::addSpriteItemsToRenderList(	Game *game)
 }
 
 /*
-	addSprite - This method is for adding a new sprite to 
-	this sprite manager. Once a sprite is added it can be 
-	scheduled for rendering.
+addSprite - This method is for adding a new sprite to 
+this sprite manager. Once a sprite is added it can be 
+scheduled for rendering.
 */
 void SpriteManager::addBot(Bot *botToAdd)
 {
@@ -103,13 +103,13 @@ void SpriteManager::addBot(Bot *botToAdd)
 }
 
 /*
-	addSpriteType - This method is for adding a new sprite
-	type. Note that one sprite type can have many sprites. For
-	example, we may say that there may be a "Bunny" type of
-	sprite, and specify properties for that type. Then there might
-	be 100 different Bunnies each with their own properties, but that
-	share many things in common according to what is defined in
-	the shared sprite type object.
+addSpriteType - This method is for adding a new sprite
+type. Note that one sprite type can have many sprites. For
+example, we may say that there may be a "Bunny" type of
+sprite, and specify properties for that type. Then there might
+be 100 different Bunnies each with their own properties, but that
+share many things in common according to what is defined in
+the shared sprite type object.
 */
 unsigned int SpriteManager::addSpriteType(AnimatedSpriteType *spriteTypeToAdd)
 {
@@ -118,17 +118,17 @@ unsigned int SpriteManager::addSpriteType(AnimatedSpriteType *spriteTypeToAdd)
 }
 
 /*
-	clearSprites - This empties all of the sprites and sprite types.
+clearSprites - This empties all of the sprites and sprite types.
 */
 void SpriteManager::clearSprites()
 {
-	//spriteTypes.clear();
-	//bots.clear();
+	spriteTypes.clear();
+	bots.clear();
 }
 
 /*
-	getSpriteType - This gets the sprite type object that corresponds
-	to the index argument.
+getSpriteType - This gets the sprite type object that corresponds
+to the index argument.
 */
 AnimatedSpriteType* SpriteManager::getSpriteType(unsigned int typeIndex)
 {
@@ -139,8 +139,8 @@ AnimatedSpriteType* SpriteManager::getSpriteType(unsigned int typeIndex)
 }
 
 /*
-	unloadSprites - This method removes all artwork from memory that
-	has been allocated for game sprites.
+unloadSprites - This method removes all artwork from memory that
+has been allocated for game sprites.
 */
 void SpriteManager::unloadSprites()
 {
@@ -148,50 +148,48 @@ void SpriteManager::unloadSprites()
 	/*list<Bot*"::iterator botsIt = bots.begin();
 	while (botsIt != bots.end())
 	{
-		list<Bot*"::iterator tempIt = botsIt;
-		botsIt++;
-		Bot *botToDelete = (*tempIt);
-		delete botToDelete;
+	list<Bot*"::iterator tempIt = botsIt;
+	botsIt++;
+	Bot *botToDelete = (*tempIt);
+	delete botToDelete;
 	}
 	bots.clear();
 
 	vector<AnimatedSpriteType*>::iterator spriteTypesIt = spriteTypes.begin();
 	while (spriteTypesIt != spriteTypes.end())
 	{
-		vector<AnimatedSpriteType*>::iterator tempIt = spriteTypesIt;
-		spriteTypesIt++;
-		AnimatedSpriteType *astToDelete = (*tempIt);
-		delete astToDelete;
+	vector<AnimatedSpriteType*>::iterator tempIt = spriteTypesIt;
+	spriteTypesIt++;
+	AnimatedSpriteType *astToDelete = (*tempIt);
+	delete astToDelete;
 	}
 	spriteTypes.clear();
 
 	// DELETE THE PATHFINDER IF THERE IS ONE
 	if (pathfinder != NULL)
-		delete pathfinder;
-		*/
+	delete pathfinder;
+	*/
 }
 
 Bot* SpriteManager::removeBot(Bot *botToRemove)
 {
+	delete botToRemove;
 	return NULL;
 	// @TODO - WE'LL DO THIS LATER WHEN WE LEARN MORE ABOUT MEMORY MANAGEMENT
 }
 
 /*
-	update - This method should be called once per frame. It
-	goes through all of the sprites, including the player, and calls their
-	update method such that they may update themselves.
+update - This method should be called once per frame. It
+goes through all of the sprites, including the player, and calls their
+update method such that they may update themselves.
 */
 void SpriteManager::update(Game *game)
 {
+	Viewport *viewport = game->getGUI()->getViewport(); 
+	viewport->setViewportX(player.getPhysicalProperties()->getX() - 0.5f * viewport->getViewportWidth()); 
+	viewport->setViewportY(player.getPhysicalProperties()->getY() - 0.5f * viewport->getViewportHeight());
 	// FIRST LET'S DO THE NECESSARY PATHFINDING
 	list<Bot*>::iterator botIterator;
-	botIterator = bots.begin();
-	while (botIterator != bots.end())
-	{
-		Bot *bot = (*botIterator);
-		botIterator++;
-	}
 
 	// THEN UPDATE THE PLAYER SPRITE ANIMATION FRAME/STATE/ROTATION
 	player.updateSprite();
@@ -209,6 +207,12 @@ void SpriteManager::update(Game *game)
 	while (botIterator != bots.end())
 	{
 		Bot *bot = (*botIterator);
+		if (bot->getCurrentState() == L"DEAD"){
+			removeBot(bot);
+			//bots.erase(botIterator++);
+		}
+		else
+			botIterator++;
 		bot->think(game);
 		bot->updateSprite();
 		botIterator++;

@@ -86,14 +86,52 @@ void BugsKeyEventHandler::handleKeyEvents(Game *game)
 			player->setCurrentState(IDLE);
 		}
 		if (input->isKeyDownForFirstTime(ONE_KEY)){
+			if(wcscmp((game->getCurrentLevelFileName().c_str()), (LEVEL_1.c_str())) == 0){
+			}
+			else{
 			game->quitGame();
 			game->setCurrentLevelFileName(LEVEL_1);
 			game->startGame();
+			}
 		}
 		if (input->isKeyDownForFirstTime(TWO_KEY)){
+			if(wcscmp((game->getCurrentLevelFileName().c_str()), (LEVEL_2.c_str())) == 0){
+			}
+			else{
 			game->quitGame();
 			game->setCurrentLevelFileName(LEVEL_2);
 			game->startGame();
+			}
+		}
+		if (input->isKeyDownForFirstTime(THREE_KEY)){
+			if(wcscmp((game->getCurrentLevelFileName().c_str()), (LEVEL_3.c_str())) == 0){
+			}
+			else{
+			game->quitGame();
+			game->setCurrentLevelFileName(LEVEL_3);
+			game->startGame();
+			}
+		}
+		if (input->isKeyDownForFirstTime(U_KEY)){ 
+			SpriteManager *sm = game->getGSM()->getSpriteManager(); 
+			int counter = 0; 
+			list<Bot*>::iterator botIterator = sm->getBotsIterator(); 
+			while (botIterator != sm->getEndOfBotsIterator()) { 
+				Bot *bot = (*botIterator); 
+				if (bot->getSpriteType()->getSpriteTypeID() != 1){ 
+					if(bot->getPhysicalProperties()->getX() == 9999.9f || bot->getPhysicalProperties()->getY() == 9999.9f){}
+					counter++; 
+				} 
+				botIterator++; 
+			} 
+			AnimatedSprite *pol = sm->getPolBar(); 
+			int i = (counter / 3 * 10);
+			pol->setCurrentState(to_wstring(counter / 3 * 10)); 
+			GameDataLoader* dl = game->getDataLoader();
+			if(i >= 30){
+				AnimatedSpriteType *botSpriteType = game->getGSM()->getSpriteManager()->getSpriteType(2);
+				//dl->makeGarbageMon(game, botSpriteType, 7.0f + (i*4), 13.0f);
+			}
 		}
 
 		bool viewportMoved = false;

@@ -64,6 +64,7 @@ public:
 	// USED FOR TESTING PHYSICS BY TURNING IT ON AND OFF IN VARIOUS WAYS
 	bool activated;
 	bool activatedForSingleUpdate;
+	bool colliding;
 
 	// CONSTRUCDT/DESTRUCTOR
 	Physics();

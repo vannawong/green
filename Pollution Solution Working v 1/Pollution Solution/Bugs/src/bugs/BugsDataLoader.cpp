@@ -14,6 +14,8 @@
 #include "sssf\gsm\ai\bots\Item.h"
 #include "sssf\gsm\ai\bots\Attack.h"
 #include "sssf\gsm\ai\bots\NPC.h"
+#include "sssf\gsm\ai\bots\Trash.h"
+#include "sssf\gsm\ai\Bot.h"
 #include "sssf\gsm\sprite\TopDownSprite.h"
 #include "sssf\gsm\state\GameState.h"
 #include "sssf\gsm\world\TiledLayer.h"
@@ -283,6 +285,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	TopDownSprite *player = spriteManager->getPlayer();
 	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
+	player->setAttackCounter(0);
 
 	b2World* bworld = game->getbworld();
 
@@ -304,10 +307,10 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	//polygonShape.SetAsBox(0.8f, 0.9f);
 	b2PolygonShape dynamicBox; 
 	b2Vec2 v [4];
-	v[0].Set (0,0);
-	v[1].Set (0, 1);
-	v[2].Set (1, 1);
-	v[3].Set (1, 0);
+	v[0].Set (-1.5f, -2.5f);
+	v[1].Set (-1.5f, 2.5f);
+	v[2].Set (1.5f, 2.5f);
+	v[3].Set (1.5f, -2.5f);
 	int32 c = 4;
 	dynamicBox.Set(v, c);
 	fixtureDef.shape = &dynamicBox;
@@ -376,7 +379,7 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	AnimatedSprite *polBar = spriteManager->getPolBar();
 	polBar->setSpriteType(polBarSpriteType);
 	polBar->setAlpha(255);
-	polBar->setCurrentState(L"10");
+	polBar->setCurrentState(L"0");
 	PhysicalProperties *polprops = polBar->getPhysicalProperties();
 	polprops->setX(POL_INIT_X);
 	polprops->setY(POL_INIT_Y);
@@ -417,12 +420,12 @@ void BugsDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	makeRandomJumpingBot(game, botSpriteType, 500, 1000);
 	makeRandomJumpingBot(game, botSpriteType, 100, 1400);
 	makeRandomJumpingBot(game, botSpriteType, 400, 1400);	
-	makeRandomJumpingBot(game, botSpriteType, 700, 1400);
+	makeRandomJumpingBot(game, botSpriteType, 700, 1400);*/
 
 	// AND THEN A BUNCH LINED UP NEAR THE LEVEL EXIT
-	for (int i = 0; i < 14; i++)
-		makeRandomJumpingBot(game, botSpriteType, 1700.0f + (i*100.0f), 1300.0f);
-*/		
+	//for (int i = 0; i < 14; i++)
+		//makeGarbageMon(game, botSpriteType, 7.0f + (i*4), 13.0f);
+	
 }
 
 void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, float initX, float initY)
@@ -448,10 +451,10 @@ void BugsDataLoader::makeNPC(Game *game, AnimatedSpriteType *npcSpriteType, floa
 	b2PolygonShape dynamicBox; 
 
 	b2Vec2 v [4];
-	v[0].Set (0,0);
-	v[1].Set (0, 1);
-	v[2].Set (1, 1);
-	v[3].Set (1, 0);
+	v[0].Set (-1.5f, -2.5f);
+	v[1].Set (-1.5f, 2.5f);
+	v[2].Set (1.5f, 2.5f);
+	v[3].Set (1.5f, -2.5f);
 	int32 c = 4;
 	dynamicBox.Set(v, c);
 
@@ -498,19 +501,18 @@ void BugsDataLoader::makeGarbageMon(Game *game, AnimatedSpriteType *garbageMonTy
 	b2PolygonShape dynamicBox; 
 
 	b2Vec2 v [4];
-	v[0].Set (0,0);
-	v[1].Set (0, 1);
-	v[2].Set (1, 1);
-	v[3].Set (1, 0);
+	v[0].Set (-1.5f,-2.5f);
+	v[1].Set (-1.5f, 1.0f);
+	v[2].Set (0.5f,1.0f);
+	v[3].Set (0.5f,-2.5f);
 	int32 c = 4;
 	dynamicBox.Set(v, c);
-
 
 	//dynamicBox.SetAsBox(1.25f, 1.0f, b2Vec2(-0.50f, 0), 0); 
 
 	b2FixtureDef fixtureDef; 
 	fixtureDef.shape = &dynamicBox; 
-	fixtureDef.density = 5.50f; 
+	fixtureDef.density = 1.0f; 
 	fixtureDef.friction = 1.0f;
 	fixtureDef.restitution = 0.0f;
 
@@ -771,7 +773,7 @@ void BugsDataLoader::initViewport(GameGUI *gui, map<wstring,wstring> *properties
 void BugsDataLoader::addItem (Game* game, AnimatedSpriteType* item, float initX, float initY) {
 	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
 	Physics *physics = game->getGSM()->getPhysics();
-	Bot *trash = new Item (physics, 0, 0, 0);
+	Trash *trash = new Trash(physics, 0, 0, 0);
 	//physics->addCollidableObject(trash);
 	PhysicalProperties *pp = trash->getPhysicalProperties();
 	pp->setPosition(initX, initY);
@@ -791,10 +793,10 @@ void BugsDataLoader::addItem (Game* game, AnimatedSpriteType* item, float initX,
 	//dynamicBox.SetAsBox(0.01f, 0.01f); 
 	b2PolygonShape dynamicBox; 
 	b2Vec2 v [4];
-	v[0].Set (0,0);
-	v[1].Set (0, 1);
-	v[2].Set (1, 1);
-	v[3].Set (1, 0);
+	v[0].Set (-1.0f, -1.75f);
+	v[1].Set (-1.0f, 0.01f);
+	v[2].Set (0.05f, 0.01f);
+	v[3].Set (0.5f, -1.75f);
 	int32 c = 4;
 	dynamicBox.Set(v, c);
 

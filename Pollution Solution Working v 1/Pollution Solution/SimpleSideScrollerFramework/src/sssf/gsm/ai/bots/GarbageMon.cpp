@@ -115,33 +115,48 @@ void GarbageMon::think(Game *game)
 	AnimatedSprite *player = game->getGSM()->getSpriteManager()->getPlayer();
 	int health;
 
+	/*for (b2ContactEdge* edge = body->GetContactList(); edge; edge = edge->next) { 
+
+	b2Body* a = edge->contact->GetFixtureA()->GetBody(); 
+	b2Body* b = edge->contact->GetFixtureB()->GetBody();
+
+	AnimatedSprite* c = (AnimatedSprite*) a->GetUserData(); 
+	AnimatedSprite* d = (AnimatedSprite*) b->GetUserData();
+
+	c->collisionResponse(game);
+	d->collisionResponse(game);
+
+	unsigned int x = c->getSpriteType()->getSpriteTypeID(); 
+	unsigned int y = d->getSpriteType()->getSpriteTypeID();
+
+
+	}*/
 
 	/*if (((getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom()) < 0 ||
 	((getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop()) > 0)) &&
 	((getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft()) > 0 ||
-	((getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight()) < 0))){*/
+	((getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight()) < 0))){
 	if(getBoundingVolume()->overlapsX(player->getBoundingVolume()) || getBoundingVolume()->overlapsY(player->getBoundingVolume())){
-		int t1 = getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom();
-		int t2 = getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop();
-		int t3 = getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft();
-		int t4 = getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight();
-		health = (int) _wtoi(sm->getHealthBar()->getCurrentState().c_str());
-		if (health <= 10){
-			// WHEN PLAYER RUNS OUT OF HEALTH, SKIP TO NEXT DAY
-			// PENALTY LIES IN THE PLAYER NOT ACHIEVING THE DAY'S GOALS
-			// AND HAVE TO SUFFER INCREASE IN POLLUTION BAR
-			sm->getHealthBar()->setCurrentState(to_wstring(100));
-		}
-		else{
-			sm->getHealthBar()->setCurrentState(to_wstring(health - 10));
-		}
+	int t1 = getBoundingVolume()->getTop() - player->getBoundingVolume()->getBottom();
+	int t2 = getBoundingVolume()->getBottom() - player->getBoundingVolume()->getTop();
+	int t3 = getBoundingVolume()->getRight() - player->getBoundingVolume()->getLeft();
+	int t4 = getBoundingVolume()->getLeft() - player->getBoundingVolume()->getRight();
+	health = (int) _wtoi(sm->getHealthBar()->getCurrentState().c_str());
+	if (health <= 10){
+	// WHEN PLAYER RUNS OUT OF HEALTH, SKIP TO NEXT DAY
+	// PENALTY LIES IN THE PLAYER NOT ACHIEVING THE DAY'S GOALS
+	// AND HAVE TO SUFFER INCREASE IN POLLUTION BAR
+	sm->getHealthBar()->setCurrentState(to_wstring(100));
 	}
+	else{
+	sm->getHealthBar()->setCurrentState(to_wstring(health - 10));
+	}
+	}
+	*/
 
 	if (cyclesRemainingBeforeThinking == 0)
-	{
 		cyclesRemainingBeforeThinking = 30;
-		//pickRandomCyclesInRange();
-
+	else{
 		/*switch(direction){
 		case 0: pp.setVelocity(0.0, 10.0f); direction++; break;
 		case 1: pp.setVelocity(-10.0, 0.0f); direction++; break;
@@ -152,8 +167,8 @@ void GarbageMon::think(Game *game)
 		b2Vec2 bah;
 		switch(direction){
 		case 0: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (0.0f, 2.0f), bah, true); direction++; 
-			getBody()->SetLinearVelocity(b2Vec2(0,0));
-			getBody()->SetAngularVelocity(0);
+			//getBody()->SetLinearVelocity(b2Vec2(0,0));
+			//getBody()->SetAngularVelocity(0);
 			break;
 		case 1: bah = b2Vec2(pp.getX(), pp.getY()); getBody()->ApplyLinearImpulse (b2Vec2 (-2.0f, 0.0f), bah, true);; direction++; 
 			getBody()->SetLinearVelocity(b2Vec2(0,0));
@@ -168,7 +183,32 @@ void GarbageMon::think(Game *game)
 			getBody()->SetAngularVelocity(0);
 			break;
 		}
-	}
-	else
 		cyclesRemainingBeforeThinking--;
+	}
 }
+
+	void GarbageMon::collisionResponse(Game *game)
+	{ 
+		AnimatedSprite *player = game->getGSM()->getSpriteManager()->getPlayer(); 
+		SpriteManager *sm = game->getGSM()->getSpriteManager(); 
+		if (player->getCurrentState().substr(0,9) == L"ATTACKING")
+		{ setCurrentState(L"DYING"); } 
+		else{ if (player->wasRecentlyAttacked())
+		{ 
+			if (player->getAttackCounter() > 0){ 
+				int health; health = (int) _wtoi(sm->getHealthBar()->getCurrentState().c_str()); 
+				if (health <= 10)
+				{ // WHEN PLAYER RUNS OUT OF HEALTH, SKIP TO NEXT DAY // PENALTY LIES IN THE PLAYER NOT ACHIEVING THE DAY'S GOALS // AND HAVE TO SUFFER INCREASE IN POLLUTION BAR 
+					sm->getHealthBar()->setCurrentState(to_wstring(100)); 
+				} 
+				else{ 
+					sm->getHealthBar()->setCurrentState(to_wstring(health - 10));
+				} 
+				player->setAttackCounter(player->getAttackCounter() - 1); 
+			} 
+			else{
+				player->setAttackCounter(100); 
+			} 
+		} 
+		}
+	}

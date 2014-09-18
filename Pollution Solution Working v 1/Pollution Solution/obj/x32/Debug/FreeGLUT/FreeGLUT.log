@@ -1,5 +1,5 @@
-﻿Build started 5/14/2014 2:56:31 AM.
-     1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\FreeGLUT.vcxproj" on node 3 (Build target(s)).
+﻿Build started 5/14/2014 10:54:46 AM.
+     1>Project "C:\Users\Jackie Wei\Documents\GitHub\greenplus\Pollution Solution Working v 1\Pollution Solution\FreeGLUT.vcxproj" on node 4 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /Ox /Ot /Oy /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /MDd /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /Fo"obj\x32\Debug\FreeGLUT\\" /Fd"bin\Debug\FreeGLUT.pdb" /Gd /TC /analyze- /errorReport:prompt freeglut\freeglut_callbacks.c freeglut\freeglut_cursor.c freeglut\freeglut_display.c freeglut\freeglut_ext.c freeglut\freeglut_font.c freeglut\freeglut_font_data.c freeglut\freeglut_gamemode.c freeglut\freeglut_geometry.c freeglut\freeglut_glutfont_definitions.c freeglut\freeglut_init.c freeglut\freeglut_input_devices.c freeglut\freeglut_joystick.c freeglut\freeglut_main.c freeglut\freeglut_menu.c freeglut\freeglut_misc.c freeglut\freeglut_overlay.c freeglut\freeglut_spaceball.c freeglut\freeglut_state.c freeglut\freeglut_stroke_mono_roman.c freeglut\freeglut_stroke_roman.c freeglut\freeglut_structure.c freeglut\freeglut_teapot.c freeglut\freeglut_videoresize.c freeglut\freeglut_window.c
          freeglut_window.c
@@ -59,4 +59,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:13.40
+Time Elapsed 00:00:18.87

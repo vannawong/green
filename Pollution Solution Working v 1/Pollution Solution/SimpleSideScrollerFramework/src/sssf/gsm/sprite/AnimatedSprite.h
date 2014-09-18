@@ -47,10 +47,14 @@ protected:
 
 	// DIRECTION: 0 for up, 1 for right, 2 for down, and 3 for left
 	unsigned int direction;
+	bool recentlyAttacked;
+	int attackCounter;
 
 public:
 	// INLINED ACCESSOR METHODS
 	int					getAlpha()			{ return alpha;				}
+	int					getAttackCounter()	{ return attackCounter;		}
+	bool				wasRecentlyAttacked()	{ return recentlyAttacked;	}
 	list<PathNode>*		getCurrentPathToFollow() { return &currentPathToFollow; }
 	list<PathNode>::iterator getCurrentPathNode() { return currentPathNode; }
 	wstring				getCurrentState()	{ return currentState;		}
@@ -73,6 +77,12 @@ public:
 	{	currentPathToFollow.clear();
 		currentPathNode = currentPathToFollow.end(); 
 	}
+	void setRecentlyAttacked(bool b){
+		recentlyAttacked = b;
+	}
+	void setAttackCounter(int i){
+		attackCounter = i;
+	}
 
 	// METHODS DEFINED IN AnimatedSprite.cpp
 	AnimatedSprite();
@@ -84,6 +94,7 @@ public:
 	void affixTightAABBBoundingVolume();
 	void correctToTightBoundingVolume();
 	virtual float getRotationInRadians() { return 0.0f; }
+	//virtual void collisionResponse(Game *game);
 
 	//Box2d Body
 	//void setBody (b2Body* body);

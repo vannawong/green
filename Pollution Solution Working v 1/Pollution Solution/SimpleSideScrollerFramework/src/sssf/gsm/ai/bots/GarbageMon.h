@@ -33,6 +33,7 @@ public:
 	void	pickRandomCyclesInRange();
 	void	pickRandomVelocity(Physics *physics);
 	void	think(Game *game);
+	void	collisionResponse(Game *game);
 
 	// INLINED METHODS
 	unsigned int getCyclesRemainingBeforeThinking()	{ return cyclesRemainingBeforeThinking; }
